@@ -1,7 +1,7 @@
 # Paper submissions
 
 One YAML file per proposed paper (see `TEMPLATE.yml`, or use the form at
-<https://linda-sophieschneider.github.io/UnLost-ActiveMatterLivingReview/contribute/>). A pull request that adds files
+<https://linda-sophie-schneider.de/UnLost-ActiveMatterLivingReview/contribute/>). A pull request that adds files
 here is checked automatically (`scripts/validate_submissions.py`): required fields, DOI format,
 Crossref title match, and whether the review already holds the record.
 
