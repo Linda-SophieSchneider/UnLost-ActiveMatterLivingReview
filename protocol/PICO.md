@@ -16,7 +16,7 @@ letters that are identified, everything on the Herculaneum papyri, and virtual u
 
 - T1 Unwrapping: virtual unwrapping, unrolling, unfolding and flattening; surface and layer segmentation; CT acquisition for it.
 - T2 Ink and hidden text: ink detection and enhancement; imaging that makes faded or concealed text on papyri readable (CT, infrared, multispectral, hyperspectral, XRF, thermography, radar, photogrammetry).
-- T3 Reading: detection and recognition of characters and letters on papyri, Greek letterforms, text-line segmentation on papyri.
+- T3 Reading: detection and recognition of characters and letters on papyri and on ancient Greek handwriting of the Hellenistic and Roman period (Greek letterforms), text-line segmentation on papyri.
 - T4 Writers and scripts: writer retrieval and identification, palaeography of papyri.
 - T5 Restoration and assembly: restoring lost text of papyri, reassembling papyrus fragments.
 - T6 Herculaneum: any study of the Herculaneum papyri that falls outside T1 to T5, including ink chemistry, materials, editions, and the organisation of the library.

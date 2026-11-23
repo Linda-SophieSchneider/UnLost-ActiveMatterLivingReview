@@ -12,7 +12,8 @@ INCLUDE only if ALL hold:
   unfolding, flattening, surface or layer segmentation, CT acquisition for it); T2 ink and hidden
   text (ink detection, imaging that makes text on papyri readable: CT, infrared, multispectral,
   hyperspectral, XRF, thermography, radar); T3 reading (detection and recognition of characters
-  and letters, Greek letterforms, text lines on papyri); T4 writers and scripts (writer retrieval
+  and letters on papyri or on ancient Greek handwriting such as Hellenistic and Roman book hands,
+  Greek letterforms, text lines); T4 writers and scripts (writer retrieval
   or identification, palaeography of papyri); T5 restoration and assembly (restoring lost text,
   reassembling papyrus fragments); T6 Herculaneum (any other study of the Herculaneum papyri:
   ink chemistry, materials, editions, the library). Papyri outside Herculaneum qualify only
@@ -27,7 +28,9 @@ EXCLUDE otherwise, giving the FIRST applicable code in this order:
 - E4 No results (protocol, project announcement, news, exhibition text, abstract without results).
 - E1 Object not in scope: not a papyrus, not Herculaneum, and not a document studied for
   unwrapping (modern paper, medical or battery CT, handwriting or OCR on medieval or modern
-  material, stone inscriptions, the Papyrus software, the plant).
+  material, stone inscriptions, the Papyrus software, the plant). Ancient Greek letterforms and
+  handwriting datasets of the Hellenistic and Roman period count as papyrus work even when the
+  abstract does not say "papyri".
 - E3 A generic method with no experiment on, or evaluation against, papyri or the unwrapping objects.
 - E2 A papyrus outside T1 to T5 that is not Herculaneum (literary or historical interpretation,
   an edition or chemistry of a non-Herculaneum papyrus).
