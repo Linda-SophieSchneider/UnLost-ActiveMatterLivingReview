@@ -1,0 +1,14 @@
+{
+  "frozen_at_utc": "2026-11-23T22:22:28+00:00",
+  "note": "pre-screening",
+  "git_head": "747a9890be90c362ae3335e273c8f9fcbf9ff065",
+  "protocol_uncommitted_at_freeze": false,
+  "sha256": {
+    "protocol/PROTOCOL.md": "104b25b3da541357c88e8c72ef728fe1d45e1e8e3d8831ba5cf93920113e8fc6",
+    "protocol/PICO.md": "7e98c12390716645c630a426174a657a54f152e821013057207650d069512631",
+    "protocol/screening_prompt.md": "53f1a7fefc896e2807c70f4b3ccb7709217c2c867df5a223b3937b7d560c917e",
+    "protocol/extraction_prompt.md": "725ac7bbeddf3e55196ee7af5014a38bb1b5a45143ed03ab57586146bf7b8f26",
+    "protocol/search_strategies/concepts.yml": "d8c59e16d4a0a723e3f16b8cf36a8d248e1cf93042c4a0dd48c4e4e66fe496c5",
+    "protocol/search_strategies/seed_set.yml": "1512d00397349e75e37ba9a182c6f913282ffc9cb4191056a2a2af56f742595e"
+  }
+}
