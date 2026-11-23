@@ -27,14 +27,14 @@ panel (sensitivity 1.00 on the 200-record sample), conflicts adjudicated, manusc
   `protocol/search_strategies/`.
 - Screening and extraction by a three-LLM panel on the NHR@FAU gateway; every
   vote is in `data/screening/` and `data/extraction/`. Latest counts:
-  [PRISMA flow](https://akmaier.github.io/ActiveMatterLivingReview/prisma/).
+  [PRISMA flow](https://linda-sophieschneider.github.io/UnLost-ActiveMatterLivingReview/prisma/).
 - Author validation (blind title/abstract sample, full-text splits, extraction
   conflicts, seed papers) runs on the site's
-  [human-check page](https://akmaier.github.io/ActiveMatterLivingReview/check/);
+  [human-check page](https://linda-sophieschneider.github.io/UnLost-ActiveMatterLivingReview/check/);
   exports are imported with `amlr human-import`.
 - Manuscript prose is drafted by Codex and, since 2026-10-17, ChatGPT (drafting log in
   `paper/drafts/`) and reviewed by the authors; `cd paper && make paper` builds it.
-- Propose a missing paper: <https://akmaier.github.io/ActiveMatterLivingReview/contribute/>
+- Propose a missing paper: <https://linda-sophieschneider.github.io/UnLost-ActiveMatterLivingReview/contribute/>
   (one YAML file in `submissions/` per pull request; checked automatically).
 
 ## Create your own living review from a fork

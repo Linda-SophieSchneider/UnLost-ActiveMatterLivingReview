@@ -45,7 +45,7 @@ active particles that report a **quantitative** collective or interaction observ
 </form>
 
 Prefer working in git? Copy
-[`submissions/TEMPLATE.yml`](https://github.com/akmaier/ActiveMatterLivingReview/blob/main/submissions/TEMPLATE.yml)
+[`submissions/TEMPLATE.yml`](https://github.com/Linda-SophieSchneider/UnLost-ActiveMatterLivingReview/blob/main/submissions/TEMPLATE.yml)
 to a new file in `submissions/` and open a pull request. One file per paper.
 
 <script src="{{ '/assets/js/contribute.js' | relative_url }}"></script>

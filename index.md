@@ -25,4 +25,4 @@ site comes from the same corpus the paper cites and is regenerated with each upd
 
 ## How to cite
 
-See [`CITATION.cff`](https://github.com/akmaier/ActiveMatterLivingReview/blob/main/CITATION.cff).
+See [`CITATION.cff`](https://github.com/Linda-SophieSchneider/UnLost-ActiveMatterLivingReview/blob/main/CITATION.cff).

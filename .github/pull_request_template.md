@@ -1,4 +1,4 @@
-<!-- Proposing a paper? Use https://akmaier.github.io/ActiveMatterLivingReview/contribute/
+<!-- Proposing a paper? Use https://linda-sophieschneider.github.io/UnLost-ActiveMatterLivingReview/contribute/
      or add one file per paper to submissions/ (copy submissions/TEMPLATE.yml). -->
 
 ## What does this pull request add?

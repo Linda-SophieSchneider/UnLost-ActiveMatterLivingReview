@@ -34,7 +34,7 @@ Snapshot date: **{{ c.snapshot_date | default: "pre-registration" }}**
     ({% for r in c.excluded_abstract_only_reasons %}{{ r[0] }}: {{ r[1] }}{% unless forloop.last %}, {% endunless %}{% endfor %})
   - included: **{{ c.abstract_only_included | default: 0 }}**
 
-Exclusion codes ([eligibility criteria](https://github.com/akmaier/ActiveMatterLivingReview/blob/main/protocol/PICO.md)):
+Exclusion codes ([eligibility criteria](https://github.com/Linda-SophieSchneider/UnLost-ActiveMatterLivingReview/blob/main/protocol/PICO.md)):
 E1 single agent, no interaction between agents; E2 simulation or theory only; E3 swarm-robotics
 engineering reporting only task performance; E4 biological or living active matter only;
 E5 not primary research; E6 synthetic active colloids without programmable or feedback control.
