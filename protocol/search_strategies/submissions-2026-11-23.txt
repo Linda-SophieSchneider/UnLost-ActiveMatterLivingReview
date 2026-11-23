@@ -1,0 +1,9 @@
+source: submissions
+run_at_utc: 2026-11-23T22:00:51+00:00
+amlr_version: 0.0.1
+record_count: 0
+raw_payload_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+concepts_sha256: d8c59e16d4a0a723e3f16b8cf36a8d248e1cf93042c4a0dd48c4e4e66fe496c5
+
+query:
+Reader submissions merged via pull request (submissions/*.yml)

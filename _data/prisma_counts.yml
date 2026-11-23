@@ -1,9 +1,17 @@
 snapshot_date: '2026-11-23'
-identified_db: 0
+identified_db: 2993
 identified_registers: 0
-identified_by_source: {}
-duplicates_removed: 0
-awaiting_screening: 0
+identified_by_source:
+  ads: 0
+  arxiv: 40
+  crossref: 267
+  europepmc_biorxiv: 0
+  hal: 96
+  openalex: 2530
+  pubmed: 60
+  submissions: 0
+duplicates_removed: 818
+awaiting_screening: 2175
 screened: 0
 excluded_screening: 0
 sought: 0

@@ -1,0 +1,9 @@
+source: openalex
+run_at_utc: 2026-11-23T21:42:30+00:00
+amlr_version: 0.0.1
+record_count: 2530
+raw_payload_sha256: 71b86ec5055e7c752a1417b74159aabef0bfd4c310d7ac84345a843d09b89435
+concepts_sha256: d8c59e16d4a0a723e3f16b8cf36a8d248e1cf93042c4a0dd48c4e4e66fe496c5
+
+query:
+((papyrus OR papyri OR papyrology OR papyrological OR Herculaneum OR "Villa dei Papiri" OR "Villa of the Papyri" OR Derveni OR "carbonized scroll" OR "carbonised scroll" OR "ancient scroll" OR "rolled scroll" OR "sealed scroll" OR "unopened scroll" OR "En-Gedi" OR "sealed document" OR "sealed letter" OR "damaged parchment" OR "fire-damaged") AND ("computed tomography" OR "micro-CT" OR microCT OR "X-ray tomography" OR "phase-contrast" OR synchrotron OR tomograph OR unwrapping OR unrolling OR unfolding OR flattening OR segmentation OR "ink detection" OR ink OR multispectral OR hyperspectral OR "spectral imaging" OR infrared OR "X-ray fluorescence" OR XRF OR thermograph OR photogrammetry OR "neural network" OR "deep learning" OR "machine learning" OR transformer OR handwriting OR "character recognition" OR "text recognition" OR "character detection" OR OCR OR decipher OR letterform OR glyph OR "writer identification" OR "writer retrieval" OR palaeograph OR paleograph OR "scribal hand" OR "Greek letter" OR "text restoration" OR "fragment assembly" OR "image processing" OR "3D reconstruction" OR "neural radiance" OR NeRF)) OR ("virtual unwrapping" OR "virtual unrolling" OR "virtual unfolding" OR "virtual flattening" OR "Herculaneum papyri" OR "Herculaneum papyrus" OR "Herculaneum scroll" OR "Herculaneum library" OR "carbonized manuscript" OR "carbonised manuscript" OR "Vesuvius Challenge" OR "En-Gedi scroll" OR "Greek papyri" OR "Greek papyrus" OR "Derveni papyrus" OR "Greek letterform" OR "Greek handwriting")

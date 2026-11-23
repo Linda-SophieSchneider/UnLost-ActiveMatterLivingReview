@@ -1,0 +1,903 @@
+source: crossref
+run_at_utc: 2026-11-23T21:42:59+00:00
+amlr_version: 0.0.1
+record_count: 267
+raw_payload_sha256: 8eb5a5f38b5a7dfd58e04f7ec69212c81c5bed31637d7daca9f1fb636fc6a87f
+concepts_sha256: d8c59e16d4a0a723e3f16b8cf36a8d248e1cf93042c4a0dd48c4e4e66fe496c5
+
+query:
+query.bibliographic, rows=100, one request per subquery, then local Boolean filter (amlr.search.matches) on title+abstract. Non-report types skipped: book-series, book-set, component, database, dataset, grant, journal, journal-issue, journal-volume, peer-review, proceedings, report-series, standard.
+Subqueries:
+papyrus computed tomography
+papyrus micro-CT
+papyrus microCT
+papyrus X-ray tomography
+papyrus phase-contrast
+papyrus synchrotron
+papyrus tomograph
+papyrus unwrapping
+papyrus unrolling
+papyrus unfolding
+papyrus flattening
+papyrus segmentation
+papyrus ink detection
+papyrus ink
+papyrus multispectral
+papyrus hyperspectral
+papyrus spectral imaging
+papyrus infrared
+papyrus X-ray fluorescence
+papyrus XRF
+papyrus thermograph
+papyrus photogrammetry
+papyrus neural network
+papyrus deep learning
+papyrus machine learning
+papyrus transformer
+papyrus handwriting
+papyrus character recognition
+papyrus text recognition
+papyrus character detection
+papyrus OCR
+papyrus decipher
+papyrus letterform
+papyrus glyph
+papyrus writer identification
+papyrus writer retrieval
+papyrus palaeograph
+papyrus paleograph
+papyrus scribal hand
+papyrus Greek letter
+papyrus text restoration
+papyrus fragment assembly
+papyrus image processing
+papyrus 3D reconstruction
+papyrus neural radiance
+papyrus NeRF
+papyri computed tomography
+papyri micro-CT
+papyri microCT
+papyri X-ray tomography
+papyri phase-contrast
+papyri synchrotron
+papyri tomograph
+papyri unwrapping
+papyri unrolling
+papyri unfolding
+papyri flattening
+papyri segmentation
+papyri ink detection
+papyri ink
+papyri multispectral
+papyri hyperspectral
+papyri spectral imaging
+papyri infrared
+papyri X-ray fluorescence
+papyri XRF
+papyri thermograph
+papyri photogrammetry
+papyri neural network
+papyri deep learning
+papyri machine learning
+papyri transformer
+papyri handwriting
+papyri character recognition
+papyri text recognition
+papyri character detection
+papyri OCR
+papyri decipher
+papyri letterform
+papyri glyph
+papyri writer identification
+papyri writer retrieval
+papyri palaeograph
+papyri paleograph
+papyri scribal hand
+papyri Greek letter
+papyri text restoration
+papyri fragment assembly
+papyri image processing
+papyri 3D reconstruction
+papyri neural radiance
+papyri NeRF
+papyrology computed tomography
+papyrology micro-CT
+papyrology microCT
+papyrology X-ray tomography
+papyrology phase-contrast
+papyrology synchrotron
+papyrology tomograph
+papyrology unwrapping
+papyrology unrolling
+papyrology unfolding
+papyrology flattening
+papyrology segmentation
+papyrology ink detection
+papyrology ink
+papyrology multispectral
+papyrology hyperspectral
+papyrology spectral imaging
+papyrology infrared
+papyrology X-ray fluorescence
+papyrology XRF
+papyrology thermograph
+papyrology photogrammetry
+papyrology neural network
+papyrology deep learning
+papyrology machine learning
+papyrology transformer
+papyrology handwriting
+papyrology character recognition
+papyrology text recognition
+papyrology character detection
+papyrology OCR
+papyrology decipher
+papyrology letterform
+papyrology glyph
+papyrology writer identification
+papyrology writer retrieval
+papyrology palaeograph
+papyrology paleograph
+papyrology scribal hand
+papyrology Greek letter
+papyrology text restoration
+papyrology fragment assembly
+papyrology image processing
+papyrology 3D reconstruction
+papyrology neural radiance
+papyrology NeRF
+papyrological computed tomography
+papyrological micro-CT
+papyrological microCT
+papyrological X-ray tomography
+papyrological phase-contrast
+papyrological synchrotron
+papyrological tomograph
+papyrological unwrapping
+papyrological unrolling
+papyrological unfolding
+papyrological flattening
+papyrological segmentation
+papyrological ink detection
+papyrological ink
+papyrological multispectral
+papyrological hyperspectral
+papyrological spectral imaging
+papyrological infrared
+papyrological X-ray fluorescence
+papyrological XRF
+papyrological thermograph
+papyrological photogrammetry
+papyrological neural network
+papyrological deep learning
+papyrological machine learning
+papyrological transformer
+papyrological handwriting
+papyrological character recognition
+papyrological text recognition
+papyrological character detection
+papyrological OCR
+papyrological decipher
+papyrological letterform
+papyrological glyph
+papyrological writer identification
+papyrological writer retrieval
+papyrological palaeograph
+papyrological paleograph
+papyrological scribal hand
+papyrological Greek letter
+papyrological text restoration
+papyrological fragment assembly
+papyrological image processing
+papyrological 3D reconstruction
+papyrological neural radiance
+papyrological NeRF
+Herculaneum computed tomography
+Herculaneum micro-CT
+Herculaneum microCT
+Herculaneum X-ray tomography
+Herculaneum phase-contrast
+Herculaneum synchrotron
+Herculaneum tomograph
+Herculaneum unwrapping
+Herculaneum unrolling
+Herculaneum unfolding
+Herculaneum flattening
+Herculaneum segmentation
+Herculaneum ink detection
+Herculaneum ink
+Herculaneum multispectral
+Herculaneum hyperspectral
+Herculaneum spectral imaging
+Herculaneum infrared
+Herculaneum X-ray fluorescence
+Herculaneum XRF
+Herculaneum thermograph
+Herculaneum photogrammetry
+Herculaneum neural network
+Herculaneum deep learning
+Herculaneum machine learning
+Herculaneum transformer
+Herculaneum handwriting
+Herculaneum character recognition
+Herculaneum text recognition
+Herculaneum character detection
+Herculaneum OCR
+Herculaneum decipher
+Herculaneum letterform
+Herculaneum glyph
+Herculaneum writer identification
+Herculaneum writer retrieval
+Herculaneum palaeograph
+Herculaneum paleograph
+Herculaneum scribal hand
+Herculaneum Greek letter
+Herculaneum text restoration
+Herculaneum fragment assembly
+Herculaneum image processing
+Herculaneum 3D reconstruction
+Herculaneum neural radiance
+Herculaneum NeRF
+Villa dei Papiri computed tomography
+Villa dei Papiri micro-CT
+Villa dei Papiri microCT
+Villa dei Papiri X-ray tomography
+Villa dei Papiri phase-contrast
+Villa dei Papiri synchrotron
+Villa dei Papiri tomograph
+Villa dei Papiri unwrapping
+Villa dei Papiri unrolling
+Villa dei Papiri unfolding
+Villa dei Papiri flattening
+Villa dei Papiri segmentation
+Villa dei Papiri ink detection
+Villa dei Papiri ink
+Villa dei Papiri multispectral
+Villa dei Papiri hyperspectral
+Villa dei Papiri spectral imaging
+Villa dei Papiri infrared
+Villa dei Papiri X-ray fluorescence
+Villa dei Papiri XRF
+Villa dei Papiri thermograph
+Villa dei Papiri photogrammetry
+Villa dei Papiri neural network
+Villa dei Papiri deep learning
+Villa dei Papiri machine learning
+Villa dei Papiri transformer
+Villa dei Papiri handwriting
+Villa dei Papiri character recognition
+Villa dei Papiri text recognition
+Villa dei Papiri character detection
+Villa dei Papiri OCR
+Villa dei Papiri decipher
+Villa dei Papiri letterform
+Villa dei Papiri glyph
+Villa dei Papiri writer identification
+Villa dei Papiri writer retrieval
+Villa dei Papiri palaeograph
+Villa dei Papiri paleograph
+Villa dei Papiri scribal hand
+Villa dei Papiri Greek letter
+Villa dei Papiri text restoration
+Villa dei Papiri fragment assembly
+Villa dei Papiri image processing
+Villa dei Papiri 3D reconstruction
+Villa dei Papiri neural radiance
+Villa dei Papiri NeRF
+Villa of the Papyri computed tomography
+Villa of the Papyri micro-CT
+Villa of the Papyri microCT
+Villa of the Papyri X-ray tomography
+Villa of the Papyri phase-contrast
+Villa of the Papyri synchrotron
+Villa of the Papyri tomograph
+Villa of the Papyri unwrapping
+Villa of the Papyri unrolling
+Villa of the Papyri unfolding
+Villa of the Papyri flattening
+Villa of the Papyri segmentation
+Villa of the Papyri ink detection
+Villa of the Papyri ink
+Villa of the Papyri multispectral
+Villa of the Papyri hyperspectral
+Villa of the Papyri spectral imaging
+Villa of the Papyri infrared
+Villa of the Papyri X-ray fluorescence
+Villa of the Papyri XRF
+Villa of the Papyri thermograph
+Villa of the Papyri photogrammetry
+Villa of the Papyri neural network
+Villa of the Papyri deep learning
+Villa of the Papyri machine learning
+Villa of the Papyri transformer
+Villa of the Papyri handwriting
+Villa of the Papyri character recognition
+Villa of the Papyri text recognition
+Villa of the Papyri character detection
+Villa of the Papyri OCR
+Villa of the Papyri decipher
+Villa of the Papyri letterform
+Villa of the Papyri glyph
+Villa of the Papyri writer identification
+Villa of the Papyri writer retrieval
+Villa of the Papyri palaeograph
+Villa of the Papyri paleograph
+Villa of the Papyri scribal hand
+Villa of the Papyri Greek letter
+Villa of the Papyri text restoration
+Villa of the Papyri fragment assembly
+Villa of the Papyri image processing
+Villa of the Papyri 3D reconstruction
+Villa of the Papyri neural radiance
+Villa of the Papyri NeRF
+Derveni computed tomography
+Derveni micro-CT
+Derveni microCT
+Derveni X-ray tomography
+Derveni phase-contrast
+Derveni synchrotron
+Derveni tomograph
+Derveni unwrapping
+Derveni unrolling
+Derveni unfolding
+Derveni flattening
+Derveni segmentation
+Derveni ink detection
+Derveni ink
+Derveni multispectral
+Derveni hyperspectral
+Derveni spectral imaging
+Derveni infrared
+Derveni X-ray fluorescence
+Derveni XRF
+Derveni thermograph
+Derveni photogrammetry
+Derveni neural network
+Derveni deep learning
+Derveni machine learning
+Derveni transformer
+Derveni handwriting
+Derveni character recognition
+Derveni text recognition
+Derveni character detection
+Derveni OCR
+Derveni decipher
+Derveni letterform
+Derveni glyph
+Derveni writer identification
+Derveni writer retrieval
+Derveni palaeograph
+Derveni paleograph
+Derveni scribal hand
+Derveni Greek letter
+Derveni text restoration
+Derveni fragment assembly
+Derveni image processing
+Derveni 3D reconstruction
+Derveni neural radiance
+Derveni NeRF
+carbonized scroll computed tomography
+carbonized scroll micro-CT
+carbonized scroll microCT
+carbonized scroll X-ray tomography
+carbonized scroll phase-contrast
+carbonized scroll synchrotron
+carbonized scroll tomograph
+carbonized scroll unwrapping
+carbonized scroll unrolling
+carbonized scroll unfolding
+carbonized scroll flattening
+carbonized scroll segmentation
+carbonized scroll ink detection
+carbonized scroll ink
+carbonized scroll multispectral
+carbonized scroll hyperspectral
+carbonized scroll spectral imaging
+carbonized scroll infrared
+carbonized scroll X-ray fluorescence
+carbonized scroll XRF
+carbonized scroll thermograph
+carbonized scroll photogrammetry
+carbonized scroll neural network
+carbonized scroll deep learning
+carbonized scroll machine learning
+carbonized scroll transformer
+carbonized scroll handwriting
+carbonized scroll character recognition
+carbonized scroll text recognition
+carbonized scroll character detection
+carbonized scroll OCR
+carbonized scroll decipher
+carbonized scroll letterform
+carbonized scroll glyph
+carbonized scroll writer identification
+carbonized scroll writer retrieval
+carbonized scroll palaeograph
+carbonized scroll paleograph
+carbonized scroll scribal hand
+carbonized scroll Greek letter
+carbonized scroll text restoration
+carbonized scroll fragment assembly
+carbonized scroll image processing
+carbonized scroll 3D reconstruction
+carbonized scroll neural radiance
+carbonized scroll NeRF
+carbonised scroll computed tomography
+carbonised scroll micro-CT
+carbonised scroll microCT
+carbonised scroll X-ray tomography
+carbonised scroll phase-contrast
+carbonised scroll synchrotron
+carbonised scroll tomograph
+carbonised scroll unwrapping
+carbonised scroll unrolling
+carbonised scroll unfolding
+carbonised scroll flattening
+carbonised scroll segmentation
+carbonised scroll ink detection
+carbonised scroll ink
+carbonised scroll multispectral
+carbonised scroll hyperspectral
+carbonised scroll spectral imaging
+carbonised scroll infrared
+carbonised scroll X-ray fluorescence
+carbonised scroll XRF
+carbonised scroll thermograph
+carbonised scroll photogrammetry
+carbonised scroll neural network
+carbonised scroll deep learning
+carbonised scroll machine learning
+carbonised scroll transformer
+carbonised scroll handwriting
+carbonised scroll character recognition
+carbonised scroll text recognition
+carbonised scroll character detection
+carbonised scroll OCR
+carbonised scroll decipher
+carbonised scroll letterform
+carbonised scroll glyph
+carbonised scroll writer identification
+carbonised scroll writer retrieval
+carbonised scroll palaeograph
+carbonised scroll paleograph
+carbonised scroll scribal hand
+carbonised scroll Greek letter
+carbonised scroll text restoration
+carbonised scroll fragment assembly
+carbonised scroll image processing
+carbonised scroll 3D reconstruction
+carbonised scroll neural radiance
+carbonised scroll NeRF
+ancient scroll computed tomography
+ancient scroll micro-CT
+ancient scroll microCT
+ancient scroll X-ray tomography
+ancient scroll phase-contrast
+ancient scroll synchrotron
+ancient scroll tomograph
+ancient scroll unwrapping
+ancient scroll unrolling
+ancient scroll unfolding
+ancient scroll flattening
+ancient scroll segmentation
+ancient scroll ink detection
+ancient scroll ink
+ancient scroll multispectral
+ancient scroll hyperspectral
+ancient scroll spectral imaging
+ancient scroll infrared
+ancient scroll X-ray fluorescence
+ancient scroll XRF
+ancient scroll thermograph
+ancient scroll photogrammetry
+ancient scroll neural network
+ancient scroll deep learning
+ancient scroll machine learning
+ancient scroll transformer
+ancient scroll handwriting
+ancient scroll character recognition
+ancient scroll text recognition
+ancient scroll character detection
+ancient scroll OCR
+ancient scroll decipher
+ancient scroll letterform
+ancient scroll glyph
+ancient scroll writer identification
+ancient scroll writer retrieval
+ancient scroll palaeograph
+ancient scroll paleograph
+ancient scroll scribal hand
+ancient scroll Greek letter
+ancient scroll text restoration
+ancient scroll fragment assembly
+ancient scroll image processing
+ancient scroll 3D reconstruction
+ancient scroll neural radiance
+ancient scroll NeRF
+rolled scroll computed tomography
+rolled scroll micro-CT
+rolled scroll microCT
+rolled scroll X-ray tomography
+rolled scroll phase-contrast
+rolled scroll synchrotron
+rolled scroll tomograph
+rolled scroll unwrapping
+rolled scroll unrolling
+rolled scroll unfolding
+rolled scroll flattening
+rolled scroll segmentation
+rolled scroll ink detection
+rolled scroll ink
+rolled scroll multispectral
+rolled scroll hyperspectral
+rolled scroll spectral imaging
+rolled scroll infrared
+rolled scroll X-ray fluorescence
+rolled scroll XRF
+rolled scroll thermograph
+rolled scroll photogrammetry
+rolled scroll neural network
+rolled scroll deep learning
+rolled scroll machine learning
+rolled scroll transformer
+rolled scroll handwriting
+rolled scroll character recognition
+rolled scroll text recognition
+rolled scroll character detection
+rolled scroll OCR
+rolled scroll decipher
+rolled scroll letterform
+rolled scroll glyph
+rolled scroll writer identification
+rolled scroll writer retrieval
+rolled scroll palaeograph
+rolled scroll paleograph
+rolled scroll scribal hand
+rolled scroll Greek letter
+rolled scroll text restoration
+rolled scroll fragment assembly
+rolled scroll image processing
+rolled scroll 3D reconstruction
+rolled scroll neural radiance
+rolled scroll NeRF
+sealed scroll computed tomography
+sealed scroll micro-CT
+sealed scroll microCT
+sealed scroll X-ray tomography
+sealed scroll phase-contrast
+sealed scroll synchrotron
+sealed scroll tomograph
+sealed scroll unwrapping
+sealed scroll unrolling
+sealed scroll unfolding
+sealed scroll flattening
+sealed scroll segmentation
+sealed scroll ink detection
+sealed scroll ink
+sealed scroll multispectral
+sealed scroll hyperspectral
+sealed scroll spectral imaging
+sealed scroll infrared
+sealed scroll X-ray fluorescence
+sealed scroll XRF
+sealed scroll thermograph
+sealed scroll photogrammetry
+sealed scroll neural network
+sealed scroll deep learning
+sealed scroll machine learning
+sealed scroll transformer
+sealed scroll handwriting
+sealed scroll character recognition
+sealed scroll text recognition
+sealed scroll character detection
+sealed scroll OCR
+sealed scroll decipher
+sealed scroll letterform
+sealed scroll glyph
+sealed scroll writer identification
+sealed scroll writer retrieval
+sealed scroll palaeograph
+sealed scroll paleograph
+sealed scroll scribal hand
+sealed scroll Greek letter
+sealed scroll text restoration
+sealed scroll fragment assembly
+sealed scroll image processing
+sealed scroll 3D reconstruction
+sealed scroll neural radiance
+sealed scroll NeRF
+unopened scroll computed tomography
+unopened scroll micro-CT
+unopened scroll microCT
+unopened scroll X-ray tomography
+unopened scroll phase-contrast
+unopened scroll synchrotron
+unopened scroll tomograph
+unopened scroll unwrapping
+unopened scroll unrolling
+unopened scroll unfolding
+unopened scroll flattening
+unopened scroll segmentation
+unopened scroll ink detection
+unopened scroll ink
+unopened scroll multispectral
+unopened scroll hyperspectral
+unopened scroll spectral imaging
+unopened scroll infrared
+unopened scroll X-ray fluorescence
+unopened scroll XRF
+unopened scroll thermograph
+unopened scroll photogrammetry
+unopened scroll neural network
+unopened scroll deep learning
+unopened scroll machine learning
+unopened scroll transformer
+unopened scroll handwriting
+unopened scroll character recognition
+unopened scroll text recognition
+unopened scroll character detection
+unopened scroll OCR
+unopened scroll decipher
+unopened scroll letterform
+unopened scroll glyph
+unopened scroll writer identification
+unopened scroll writer retrieval
+unopened scroll palaeograph
+unopened scroll paleograph
+unopened scroll scribal hand
+unopened scroll Greek letter
+unopened scroll text restoration
+unopened scroll fragment assembly
+unopened scroll image processing
+unopened scroll 3D reconstruction
+unopened scroll neural radiance
+unopened scroll NeRF
+En-Gedi computed tomography
+En-Gedi micro-CT
+En-Gedi microCT
+En-Gedi X-ray tomography
+En-Gedi phase-contrast
+En-Gedi synchrotron
+En-Gedi tomograph
+En-Gedi unwrapping
+En-Gedi unrolling
+En-Gedi unfolding
+En-Gedi flattening
+En-Gedi segmentation
+En-Gedi ink detection
+En-Gedi ink
+En-Gedi multispectral
+En-Gedi hyperspectral
+En-Gedi spectral imaging
+En-Gedi infrared
+En-Gedi X-ray fluorescence
+En-Gedi XRF
+En-Gedi thermograph
+En-Gedi photogrammetry
+En-Gedi neural network
+En-Gedi deep learning
+En-Gedi machine learning
+En-Gedi transformer
+En-Gedi handwriting
+En-Gedi character recognition
+En-Gedi text recognition
+En-Gedi character detection
+En-Gedi OCR
+En-Gedi decipher
+En-Gedi letterform
+En-Gedi glyph
+En-Gedi writer identification
+En-Gedi writer retrieval
+En-Gedi palaeograph
+En-Gedi paleograph
+En-Gedi scribal hand
+En-Gedi Greek letter
+En-Gedi text restoration
+En-Gedi fragment assembly
+En-Gedi image processing
+En-Gedi 3D reconstruction
+En-Gedi neural radiance
+En-Gedi NeRF
+sealed document computed tomography
+sealed document micro-CT
+sealed document microCT
+sealed document X-ray tomography
+sealed document phase-contrast
+sealed document synchrotron
+sealed document tomograph
+sealed document unwrapping
+sealed document unrolling
+sealed document unfolding
+sealed document flattening
+sealed document segmentation
+sealed document ink detection
+sealed document ink
+sealed document multispectral
+sealed document hyperspectral
+sealed document spectral imaging
+sealed document infrared
+sealed document X-ray fluorescence
+sealed document XRF
+sealed document thermograph
+sealed document photogrammetry
+sealed document neural network
+sealed document deep learning
+sealed document machine learning
+sealed document transformer
+sealed document handwriting
+sealed document character recognition
+sealed document text recognition
+sealed document character detection
+sealed document OCR
+sealed document decipher
+sealed document letterform
+sealed document glyph
+sealed document writer identification
+sealed document writer retrieval
+sealed document palaeograph
+sealed document paleograph
+sealed document scribal hand
+sealed document Greek letter
+sealed document text restoration
+sealed document fragment assembly
+sealed document image processing
+sealed document 3D reconstruction
+sealed document neural radiance
+sealed document NeRF
+sealed letter computed tomography
+sealed letter micro-CT
+sealed letter microCT
+sealed letter X-ray tomography
+sealed letter phase-contrast
+sealed letter synchrotron
+sealed letter tomograph
+sealed letter unwrapping
+sealed letter unrolling
+sealed letter unfolding
+sealed letter flattening
+sealed letter segmentation
+sealed letter ink detection
+sealed letter ink
+sealed letter multispectral
+sealed letter hyperspectral
+sealed letter spectral imaging
+sealed letter infrared
+sealed letter X-ray fluorescence
+sealed letter XRF
+sealed letter thermograph
+sealed letter photogrammetry
+sealed letter neural network
+sealed letter deep learning
+sealed letter machine learning
+sealed letter transformer
+sealed letter handwriting
+sealed letter character recognition
+sealed letter text recognition
+sealed letter character detection
+sealed letter OCR
+sealed letter decipher
+sealed letter letterform
+sealed letter glyph
+sealed letter writer identification
+sealed letter writer retrieval
+sealed letter palaeograph
+sealed letter paleograph
+sealed letter scribal hand
+sealed letter Greek letter
+sealed letter text restoration
+sealed letter fragment assembly
+sealed letter image processing
+sealed letter 3D reconstruction
+sealed letter neural radiance
+sealed letter NeRF
+damaged parchment computed tomography
+damaged parchment micro-CT
+damaged parchment microCT
+damaged parchment X-ray tomography
+damaged parchment phase-contrast
+damaged parchment synchrotron
+damaged parchment tomograph
+damaged parchment unwrapping
+damaged parchment unrolling
+damaged parchment unfolding
+damaged parchment flattening
+damaged parchment segmentation
+damaged parchment ink detection
+damaged parchment ink
+damaged parchment multispectral
+damaged parchment hyperspectral
+damaged parchment spectral imaging
+damaged parchment infrared
+damaged parchment X-ray fluorescence
+damaged parchment XRF
+damaged parchment thermograph
+damaged parchment photogrammetry
+damaged parchment neural network
+damaged parchment deep learning
+damaged parchment machine learning
+damaged parchment transformer
+damaged parchment handwriting
+damaged parchment character recognition
+damaged parchment text recognition
+damaged parchment character detection
+damaged parchment OCR
+damaged parchment decipher
+damaged parchment letterform
+damaged parchment glyph
+damaged parchment writer identification
+damaged parchment writer retrieval
+damaged parchment palaeograph
+damaged parchment paleograph
+damaged parchment scribal hand
+damaged parchment Greek letter
+damaged parchment text restoration
+damaged parchment fragment assembly
+damaged parchment image processing
+damaged parchment 3D reconstruction
+damaged parchment neural radiance
+damaged parchment NeRF
+fire-damaged computed tomography
+fire-damaged micro-CT
+fire-damaged microCT
+fire-damaged X-ray tomography
+fire-damaged phase-contrast
+fire-damaged synchrotron
+fire-damaged tomograph
+fire-damaged unwrapping
+fire-damaged unrolling
+fire-damaged unfolding
+fire-damaged flattening
+fire-damaged segmentation
+fire-damaged ink detection
+fire-damaged ink
+fire-damaged multispectral
+fire-damaged hyperspectral
+fire-damaged spectral imaging
+fire-damaged infrared
+fire-damaged X-ray fluorescence
+fire-damaged XRF
+fire-damaged thermograph
+fire-damaged photogrammetry
+fire-damaged neural network
+fire-damaged deep learning
+fire-damaged machine learning
+fire-damaged transformer
+fire-damaged handwriting
+fire-damaged character recognition
+fire-damaged text recognition
+fire-damaged character detection
+fire-damaged OCR
+fire-damaged decipher
+fire-damaged letterform
+fire-damaged glyph
+fire-damaged writer identification
+fire-damaged writer retrieval
+fire-damaged palaeograph
+fire-damaged paleograph
+fire-damaged scribal hand
+fire-damaged Greek letter
+fire-damaged text restoration
+fire-damaged fragment assembly
+fire-damaged image processing
+fire-damaged 3D reconstruction
+fire-damaged neural radiance
+fire-damaged NeRF
+virtual unwrapping
+virtual unrolling
+virtual unfolding
+virtual flattening
+Herculaneum papyri
+Herculaneum papyrus
+Herculaneum scroll
+Herculaneum library
+carbonized manuscript
+carbonised manuscript
+Vesuvius Challenge
+En-Gedi scroll
+Greek papyri
+Greek papyrus
+Derveni papyrus
+Greek letterform
+Greek handwriting
+
+skipped_non_report_matching_title: {"dataset": 7, "component": 1, "peer-review": 5}
