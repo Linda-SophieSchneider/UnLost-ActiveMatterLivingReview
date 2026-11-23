@@ -1,20 +1,20 @@
 ---
 layout: page
-title: "Robotic active matter: a living review"
+title: "UnLost: a living literature review"
 ---
 
 {% assign counts = site.data.prisma_counts %}
-<p class="home-lead">A living systematic review (PRISMA 2020) of physical collectives of interacting robots and
-programmable active particles: <strong>{{ counts.included_studies }}</strong> included studies, snapshot
-{{ counts.snapshot_date }}. Arrange the taxonomy below by any of the extracted attributes, or
+<p class="home-lead">A living literature review (PRISMA 2020) for the UnLost project: imaging, virtual unwrapping, ink and
+text recognition, chemistry and papyrology of carbonised and damaged ancient manuscripts, above all the
+Herculaneum papyri: <strong>{{ counts.included_studies | default: 0 }}</strong> included studies, snapshot
+{{ counts.snapshot_date | default: "not yet run" }}. Arrange the taxonomy below by any of the extracted attributes, or
 <a href="{{ '/contribute/' | relative_url }}">propose a paper</a> we missed.</p>
 
 {% include taxonomy.html %}
 
 ## About this review
 
-The companion manuscript is being prepared for *Reviews of Modern Physics*. Every number on this
-site comes from the same corpus the paper cites and is regenerated with each update.
+Every number on this site comes from the same corpus and is regenerated with each update.
 
 - [**Corpus**]({{ "/corpus/" | relative_url }}): all included studies with their extracted data.
 - [**PRISMA flow**]({{ "/prisma/" | relative_url }}): identification, screening and inclusion counts.

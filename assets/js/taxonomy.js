@@ -10,7 +10,7 @@
   var d3 = window.d3;
   var DUR = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 650;
   var MAX_CHILDREN = 12;
-  var DEFAULT = ["platform_class", "phenomena", "theory_compared"];
+  var DEFAULT = ["primary_task", "object_class", "method_family"];
 
   var data, facets, byId, levels = [], tree, svg, gLinks, gNodes, color, selected = null;
   var expanded = {}; // path -> bool (user toggles survive re-grouping where paths survive)
@@ -61,7 +61,7 @@
     });
     return h;
   }
-  // Search (as in the living review of Matl et al.): keep studies whose title, platform name or any
+  // Search (as in the living review of Matl et al.): keep studies whose title, object name or any
   // facet label contains every word of the query.
   var query = "";
   function matching() {
@@ -69,7 +69,7 @@
     var words = query.toLowerCase().split(/\s+/).filter(Boolean);
     return data.studies.filter(function (s) {
       if (!s._hay) {
-        var parts = [s.title || "", s.platform_name || "", String(s.year || "")];
+        var parts = [s.title || "", s.object_name || "", String(s.year || "")];
         Object.keys(s.f).forEach(function (k) { parts = parts.concat(s.f[k]); });
         s._hay = parts.join(" ").toLowerCase();
       }
@@ -247,7 +247,7 @@
       list.map(function (s) {
         var t = esc(s.title);
         return "<li>" + (s.doi ? '<a href="https://doi.org/' + esc(s.doi) + '" target="_blank" rel="noopener">' + t + "</a>" : t) +
-          ' <span class="tx-meta">' + esc(s.year || "") + (s.platform_name ? " · " + esc(s.platform_name) : "") +
+          ' <span class="tx-meta">' + esc(s.year || "") + (s.object_name ? " · " + esc(s.object_name) : "") +
           (s.n ? " · N = " + esc(s.n) : "") + (s.abstract_only ? " · abstract only" : "") + "</span></li>";
       }).join("") + "</ol>";
   }
@@ -265,7 +265,7 @@
     var free = facets.filter(function (f) { return levels.indexOf(f.id) < 0; }).map(function (f) {
       return '<li><button type="button" class="tx-chip add" data-act="add" data-id="' + f.id + '">+ ' + esc(f.label) + "</button></li>";
     }).join("");
-    box.innerHTML = '<div class="tx-row"><span class="tx-h">Search</span><input type="search" class="tx-search" placeholder="title, platform, phenomenon, theory… e.g. kilobot, hexbug, odd elastic" value="' + esc(query) + '" aria-label="Search the included studies"><span class="tx-hits"></span></div>' +
+    box.innerHTML = '<div class="tx-row"><span class="tx-h">Search</span><input type="search" class="tx-search" placeholder="title, object, task, method… e.g. En-Gedi, ink detection, micro-CT" value="' + esc(query) + '" aria-label="Search the included studies"><span class="tx-hits"></span></div>' +
       '<div class="tx-row"><span class="tx-h">Levels</span><ol class="tx-chosen">' + chosen +
       '</ol></div><div class="tx-row"><span class="tx-h">Add</span><ul class="tx-free">' + free + "</ul>" +
       '<button type="button" class="tx-reset" data-act="reset">Reset</button> <button type="button" class="tx-reset" data-act="fold">Fold all</button></div>';

@@ -1,43 +1,39 @@
-# Active Matter Living Review
+# UnLost Literature Review
 
-A PRISMA 2020 **living systematic review** of **robotic active matter**.
+A PRISMA 2020 **living literature review** for the UnLost project: non-invasive recovery, reading
+and study of carbonised and damaged ancient manuscripts, above all the Herculaneum papyri.
+Site: <https://linda-sophie-schneider.de/UnLost-ActiveMatterLivingReview/>
 
-The repo is three artefacts in one:
+Scope (details in [`protocol/PICO.md`](protocol/PICO.md)): acquisition and imaging, virtual
+unwrapping, ink detection, text recognition, script and writer analysis, chemical
+characterisation, registration and provenance, and papyrological study (the UnLost work packages).
 
-1. A reproducible **pipeline** (`pipeline/`, the `amlr` Python package)
-   that queries OpenAlex, SemOpenAlex, Crossref, arXiv, bioRxiv, PubMed,
-   IEEE Xplore, HAL, NASA ADS, and Google Scholar; deduplicates;
-   round-trips through ASReview for screening; and extracts a structured
-   set of data items per included study.
-2. A companion **website** (Jekyll, served by GitHub Pages at the repo
-   root) that renders the current corpus, the PRISMA 2020 flow, and a
-   change log. See `_pages/`.
-3. The **manuscript source** (`paper/`, REVTeX 4.2 with the `rmp`
-   option) targeted at *Reviews of Modern Physics*.
+The repo is two artefacts in one:
 
-## Status
+1. A reproducible **pipeline** (`pipeline/`, the `amlr` Python package) that queries OpenAlex,
+   Crossref, arXiv, bioRxiv, PubMed, IEEE Xplore, HAL and NASA ADS; deduplicates; screens titles,
+   abstracts and full texts with a three-LLM panel; and extracts structured data per included study.
+2. A companion **website** (Jekyll, served by GitHub Pages from the repo root) that renders the
+   corpus, the PRISMA flow, a reconfigurable taxonomy and a change log. See `_pages/`.
 
-First review cycle complete (2026-10-11 to 2026-10-17): 489 included studies, author-validated
-panel (sensitivity 1.00 on the 200-record sample), conflicts adjudicated, manuscript drafted.
+The pipeline was forked from the Active Matter Living Review
+(<https://github.com/akmaier/ActiveMatterLivingReview>, Maier et al., MIT / CC-BY-4.0).
 
-- Protocol frozen with SHA-256 manifests in `protocol/freeze-*.json`
-  (amendments logged in `protocol/PROTOCOL.md`); registered on OSF: [doi:10.17605/OSF.IO/G7C8D](https://doi.org/10.17605/OSF.IO/G7C8D).
-- Searches run in OpenAlex, NASA ADS, PubMed, IEEE Xplore, arXiv, Crossref,
-  HAL and bioRxiv (via Europe PMC). Exact queries, counts and payload hashes:
-  `protocol/search_strategies/`.
-- Screening and extraction by a three-LLM panel on the NHR@FAU gateway; every
-  vote is in `data/screening/` and `data/extraction/`. Latest counts:
-  [PRISMA flow](https://linda-sophie-schneider.de/UnLost-ActiveMatterLivingReview/prisma/).
-- Author validation (blind title/abstract sample, full-text splits, extraction
-  conflicts, seed papers) runs on the site's
-  [human-check page](https://linda-sophie-schneider.de/UnLost-ActiveMatterLivingReview/check/);
-  exports are imported with `amlr human-import`.
-- Manuscript prose is drafted by Codex and, since 2026-10-17, ChatGPT (drafting log in
-  `paper/drafts/`) and reviewed by the authors; `cd paper && make paper` builds it.
-- Propose a missing paper: <https://linda-sophie-schneider.de/UnLost-ActiveMatterLivingReview/contribute/>
-  (one YAML file in `submissions/` per pull request; checked automatically).
+## Status (2026-11-23)
 
-## Create your own living review from a fork
+Set up, nothing run yet. Done: scope and eligibility (draft), search blocks (1,383 OpenAlex hits on
+2026-11-23, 4 of 4 checked seed papers found), screening and extraction prompts, data items and
+taxonomy, site. Still to do, in order:
+
+1. Review `protocol/PICO.md`, `protocol/search_strategies/concepts.yml` and extend `seed_set.yml`.
+2. Credentials (below): `AMLR_MAILTO`, an NHR@FAU LLM key, optional TDM keys. Fill in the three
+   panel models in `llm_api.toml` and in `protocol/PROTOCOL.md` §6.
+3. `amlr search-validate`, `amlr freeze`, `amlr fetch all`, `amlr build-corpus`, then screening
+   (steps 6 to 9 below).
+4. For the monthly GitHub Action, set the repository secrets `NHR_LLM_API_KEY` (and optionally
+   `ADS_TOKEN`, `OPENALEX_API_KEY`) and change `AMLR_MAILTO` in `.github/workflows/living-update.yml`.
+
+## Running the pipeline (steps from the original fork guide)
 
 Everything this review used is in the repository: the pipeline (`pipeline/`, the `amlr`
 package), the site, the manuscript template, and the procedures for the browser work
@@ -46,7 +42,7 @@ API registrations, and its own protocol. The steps below take a fork from nothin
 published review; each command is described in more detail in
 [`pipeline/README.md`](pipeline/README.md).
 
-### 1. Fork and rename
+### 1. Fork and rename (done)
 
 1. Fork the repository on GitHub and clone it.
 2. Turn on GitHub Pages: *Settings → Pages → Deploy from a branch → `main` / root*.
@@ -126,7 +122,7 @@ own gateway avoids that question.
 credential is missing are skipped; the browser tier and your own browser
 ([`pipeline/BROWSER.md`](pipeline/BROWSER.md)) cover what remains.
 
-### 4. Start from a clean slate
+### 4. Start from a clean slate (done)
 
 The repository holds this review's records, decisions and manuscript. Remove them in the
 fork, keeping the structure:
@@ -143,7 +139,7 @@ git rm -r -q data/screening data/extraction data/conflicts data/human_check data
 Empty `_data/changelog.yml` and restart it with your first update. `amlr prisma` and
 `amlr render` regenerate the site data and the paper tables.
 
-### 5. Write and register the protocol
+### 5. Write and register the protocol (draft written)
 
 | File | What to write |
 |---|---|

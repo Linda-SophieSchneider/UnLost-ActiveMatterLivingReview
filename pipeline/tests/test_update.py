@@ -12,7 +12,7 @@ def test_merge_keeps_previous_state_and_adds_only_unmatched_rows(tmp_path):
     corpus = tmp_path / "corpus.jsonl"
     old = {"id": "doi:10.1/a", "doi": "10.1/a", "title": "Flocking of vibrated robots in a circular arena",
            "year": 2024, "source_ids": {"openalex": "W1"}, "phase": "included",
-           "decisions": [{"stage": "full_text", "decision": "include"}], "extraction": {"platform_class": "x"}}
+           "decisions": [{"stage": "full_text", "decision": "include"}], "extraction": {"object_class": "x"}}
     _write(corpus, [old])
     rows = [
         {"id": "arxiv:2610.1", "doi": "10.1/A", "title": "Flocking of vibrated robots in a circular arena",

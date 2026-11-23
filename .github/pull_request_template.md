@@ -8,8 +8,8 @@
 
 ## For paper submissions
 
-- [ ] the paper reports **hardware** experiments with **two or more** interacting robots or programmable active particles
-- [ ] it reports at least one **quantitative** collective or interaction observable
+- [ ] the paper concerns an **ancient manuscript** (carbonised, rolled, layered or fragmentary), or a phantom of one
+- [ ] it reports results on imaging, unwrapping, ink or text recognition, script, chemistry, provenance, or Herculaneum papyrology
 - [ ] the `why` field says, in a sentence, what was measured
 
 A merged submission is screened by the same panel and criteria as every database record

@@ -9,7 +9,7 @@ description = "Active Matter Living Review pipeline: PRISMA 2020 discovery, dedu
 readme = "README.md"
 requires-python = ">=3.11"
 license = { text = "MIT" }
-authors = [{ name = "Andreas Maier", email = "andreas.maier@fau.de" }]
+authors = [{ name = "UnLost project" }]
 
 dependencies = [
   "requests>=2.32",

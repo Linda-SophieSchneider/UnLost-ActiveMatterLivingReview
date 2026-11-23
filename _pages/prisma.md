@@ -35,9 +35,9 @@ Snapshot date: **{{ c.snapshot_date | default: "pre-registration" }}**
   - included: **{{ c.abstract_only_included | default: 0 }}**
 
 Exclusion codes ([eligibility criteria](https://github.com/Linda-SophieSchneider/UnLost-ActiveMatterLivingReview/blob/main/protocol/PICO.md)):
-E1 single agent, no interaction between agents; E2 simulation or theory only; E3 swarm-robotics
-engineering reporting only task performance; E4 biological or living active matter only;
-E5 not primary research; E6 synthetic active colloids without programmable or feedback control.
+E1 object is not an ancient manuscript; E2 only literary, historical or archaeological interpretation;
+E3 generic method without experiment on ancient manuscripts; E4 no results reported;
+E5 not primary research.
 
 ## Included
 

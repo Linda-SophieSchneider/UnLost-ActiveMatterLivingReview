@@ -29,7 +29,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 340
     env:
-      AMLR_MAILTO: andreas.maier@fau.de  # polite-pool contact for OpenAlex, Crossref, Unpaywall
+      AMLR_MAILTO: CHANGE-ME@example.org  # polite-pool contact for OpenAlex, Crossref, Unpaywall
       NHR_LLM_API_KEY: ${{ secrets.NHR_LLM_API_KEY }}
       ADS_TOKEN: ${{ secrets.ADS_TOKEN }}  # optional; without it NASA ADS is skipped
       OPENALEX_API_KEY: ${{ secrets.OPENALEX_API_KEY }}  # free key; runners share the anonymous budget

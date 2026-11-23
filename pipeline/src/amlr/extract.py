@@ -30,13 +30,13 @@ ARBITER = "R2"
 MAX_TEXT_CHARS = 60_000
 _SPLIT = "<!-- RECORD TEMPLATE -->"
 
-CODED = ["platform_class", "propulsion", "control_architecture", "agreement", "code_available", "data_available"]
-SETS = ["interaction_modality", "phenomena", "theory_compared"]
-COUNTS = ["n_agents_min", "n_agents_max", "n_independent_runs"]
-SIZES = ["agent_size_mm"]
-FREE = ["platform_name", "environment", "observables", "notes"]
-ROB = ["D1_replication", "D2_agent_heterogeneity", "D3_finite_size_and_boundaries",
-       "D4_measurement_validity", "D5_data_code_availability", "D6_quantitative_theory_comparison"]
+CODED = ["object_class", "primary_task", "method_family", "validation", "code_available", "data_available"]
+SETS = ["imaging_modality", "outputs", "corpus_origin"]
+COUNTS = ["n_objects", "n_scans", "n_annotated_samples"]
+SIZES = ["resolution_um"]
+FREE = ["object_name", "instrument", "metrics", "notes"]
+ROB = ["D1_ground_truth", "D2_sample_representativeness", "D3_acquisition_documentation",
+       "D4_evaluation_validity", "D5_data_code_availability", "D6_expert_validation"]
 
 
 def load_prompt(path: Path = PROMPT_FILE) -> tuple[str, str, str]:
@@ -127,7 +127,7 @@ def _vote(reviewer: str, system: str, user: str, sha: str, record_id: str, trans
     try:
         resp = chat(client_for(PANEL[reviewer], transport=transport), system, user, max_tokens=8192)
         row["raw"] = resp.content
-        row["data"] = parse_json_object(resp.content, "platform_class")
+        row["data"] = parse_json_object(resp.content, "object_class")
     except Exception as e:  # recorded and retried on the next run; one failure must not end the batch
         row["error"] = f"{type(e).__name__}: {e}"[:500]
     row["elapsed_s"] = round(time.monotonic() - t0, 2)

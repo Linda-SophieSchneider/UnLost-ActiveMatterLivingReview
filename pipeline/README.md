@@ -1,4 +1,4 @@
-# amlr — Active Matter Living Review pipeline
+# amlr — literature review pipeline (UnLost)
 
 The pipeline behind the review: the sources the PRISMA 2020 search needs (OpenAlex,
 SemOpenAlex, Crossref, arXiv, bioRxiv, PubMed, IEEE Xplore, HAL, NASA ADS, Google Scholar),

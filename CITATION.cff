@@ -1,13 +1,13 @@
 cff-version: 1.2.0
 message: "If you use this living review, please cite it as below."
-title: "A Living Systematic Review of Robotic Active Matter"
+title: "UnLost Literature Review: carbonised and damaged ancient manuscripts"
 abstract: >-
-  A PRISMA 2020 living systematic review of robotic realizations and
-  theoretical models of active matter. The repository hosts the pipeline
-  that discovers, deduplicates, screens, and extracts data from the
-  literature; a companion Jekyll website that renders the current corpus,
-  PRISMA flow, and change log; and the REVTeX source for a manuscript
-  targeted at Reviews of Modern Physics.
+  A PRISMA 2020 living literature review for the UnLost project on
+  non-invasive recovery, reading and study of carbonised and damaged
+  ancient manuscripts, above all the Herculaneum papyri. The repository
+  hosts the pipeline that discovers, deduplicates, screens, and extracts
+  data from the literature, and a companion Jekyll website that renders
+  the current corpus, PRISMA flow, and change log.
 type: dataset
 authors:
   - family-names: Maier
@@ -18,8 +18,9 @@ repository-code: "https://github.com/Linda-SophieSchneider/UnLost-ActiveMatterLi
 url: "https://linda-sophie-schneider.de/UnLost-ActiveMatterLivingReview/"
 license: CC-BY-4.0
 keywords:
-  - active matter
-  - robotic swarms
+  - Herculaneum papyri
+  - virtual unwrapping
+  - ink detection
   - PRISMA 2020
   - living review
   - soft matter

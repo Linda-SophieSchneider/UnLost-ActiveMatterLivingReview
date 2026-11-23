@@ -11,15 +11,16 @@ review already holds the paper. After we merge it, the paper is screened in the 
 same panel and criteria as every database record. In PRISMA terms it is a record identified via
 other methods, so merging does not guarantee inclusion.
 
-The review covers **hardware** experiments with **two or more** interacting robots or programmable
-active particles that report a **quantitative** collective or interaction observable.
+The review covers **ancient manuscripts**, above all carbonised and rolled papyri, and work on their
+imaging, virtual unwrapping, ink and text recognition, script analysis, chemistry, provenance, or
+papyrological study (see the eligibility criteria under Methods).
 
 <link rel="stylesheet" href="{{ '/assets/css/contribute.css' | relative_url }}">
 <form id="sub" class="sub" novalidate>
   <div class="sub-row">
     <label for="sub-doi">DOI</label>
     <div class="sub-inline">
-      <input id="sub-doi" name="doi" placeholder="10.1103/PhysRevLett.120.188002" autocomplete="off">
+      <input id="sub-doi" name="doi" placeholder="10.1126/sciadv.1601247" autocomplete="off">
       <button type="button" id="sub-lookup">Look up</button>
     </div>
     <small>Fills in title, authors, year and venue from Crossref. No DOI? Give an arXiv id instead.</small>
@@ -33,7 +34,7 @@ active particles that report a **quantitative** collective or interaction observ
   </div>
   <div class="sub-row">
     <label for="sub-why">Why it belongs <span>required</span></label>
-    <textarea id="sub-why" name="why" rows="3" required placeholder="e.g. Hardware experiments with 20 vibration-driven robots; reports the polar order parameter across a density sweep."></textarea>
+    <textarea id="sub-why" name="why" rows="3" required placeholder="e.g. Micro-CT of an unopened Herculaneum scroll; reports a surface segmentation evaluated against expert labels."></textarea>
   </div>
   <div class="sub-row"><label for="sub-by">Your GitHub handle</label><input id="sub-by" name="submitted_by" placeholder="optional"></div>
   <p class="sub-msg" id="sub-msg" role="status" aria-live="polite"></p>

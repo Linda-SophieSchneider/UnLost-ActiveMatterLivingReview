@@ -326,13 +326,13 @@ def prisma(corpus: Path = typer.Option(CORPUS)) -> None:
 def render(corpus: Path = typer.Option(CORPUS)) -> None:
     """Emit _data/corpus.yml, paper/refs.bib, the included-studies snapshot and the /check/ queue."""
     from .human import build_queue
-    from .render import write_bibtex, write_corpus_yml, write_known_records, write_platform_table, write_snapshot, write_taxonomy_json
+    from .render import write_bibtex, write_corpus_yml, write_known_records, write_task_table, write_snapshot, write_taxonomy_json
     from .storage import read_jsonl
 
     rows = read_jsonl(corpus)
     rprint(f"wrote {write_corpus_yml(rows)}, {write_bibtex(rows)} and {write_snapshot(rows)}")
     rprint(f"human-check queue: {build_queue(corpus)}")
-    rprint(f"wrote {write_taxonomy_json(rows)}, {write_known_records(rows)} and {write_platform_table(rows)}")
+    rprint(f"wrote {write_taxonomy_json(rows)}, {write_known_records(rows)} and {write_task_table(rows)}")
 
 
 @app.command()

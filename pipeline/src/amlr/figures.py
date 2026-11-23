@@ -46,21 +46,12 @@ def _labels(v: str) -> list[str]:
 
 
 def _pretty(s: str) -> str:
-    return {"wheeled or legged swarm robots": "wheeled/legged swarms", "robotic micro nano agents": "micro/nano robots",
-            "vibration driven robots": "vibration-driven", "modular or self reconfigurable robots": "modular/reconfigurable",
-            "feedback controlled active colloids": "feedback colloids", "robotic metamaterial or active solid": "metamaterials/active solids",
-            "smarticles or granular robots": "smarticles/granular", "self assembly or shape formation": "self-assembly/shape",
-            "transport or locomotion": "transport/locomotion", "flocking polar order": "flocking/polar order",
-            "clustering or mips": "clustering/MIPS", "chirality or rotation": "chirality/rotation",
-            "swarming or vortex": "swarming/vortex", "boundary accumulation": "boundary accumulation",
-            "jamming or crystallization": "jamming/crystallization", "active solid or odd elasticity": "active solid/odd elasticity",
-            "agent based simulation": "agent-based simulation", "active brownian particles": "active Brownian particles",
-            "kinetic or hydrodynamic theory": "kinetic/hydrodynamic", "statistical mechanics other": "other stat. mech.",
-            "vicsek type": "Vicsek-type", "run and tumble": "run-and-tumble", "active elasticity": "active elasticity",
-            "no control passive rules": "passive rules", "onboard rules": "onboard rules", "external feedback": "external feedback",
-            "learned policy": "learned policy", "central controller": "central controller",
-            "optical or sensing": "optical/sensing", "programmed rules": "programmed rules",
-            "environment mediated": "environment-mediated", "steric contact": "steric contact"}.get(s, s)
+    """Readable label for a controlled-vocabulary value ("virtual_unwrapping_or_segmentation")."""
+
+    s = s.replace("_", " ")
+    return {"synchrotron or phase contrast ct": "synchrotron/phase-contrast CT", "micro ct": "micro-CT",
+            "xrf": "XRF", "ftir raman xrd": "FTIR/Raman/XRD", "machine learning cnn": "CNN",
+            "quantitative vs ground truth": "quantitative vs ground truth"}.get(s, s.replace(" or ", "/"))
 
 
 def _save(fig, name: str) -> Path:
@@ -72,16 +63,16 @@ def _save(fig, name: str) -> Path:
 
 
 def taxonomy_overview(rows: list[dict]) -> Path:
-    """Platform class x phenomenon: counts of studies (multi-label phenomena), with marginals."""
+    """Primary task x imaging modality: counts of studies (multi-label modality), with marginals."""
 
-    plats = Counter(_pretty(r["platform_class"].replace("_", " ") or "not reported") for r in rows)
-    phen = Counter(_pretty(p) for r in rows for p in _labels(r["phenomena"]))
+    plats = Counter(_pretty(r["primary_task"] or "not reported") for r in rows)
+    phen = Counter(_pretty(p) for r in rows for p in _labels(r["imaging_modality"]))
     P = [p for p, _ in plats.most_common()]
     F = [f for f, _ in phen.most_common() if f != "not reported"]
     M = np.zeros((len(F), len(P)), dtype=int)
     for r in rows:
-        pi = P.index(_pretty(r["platform_class"].replace("_", " ") or "not reported"))
-        for f in {_pretty(x) for x in _labels(r["phenomena"])}:
+        pi = P.index(_pretty(r["primary_task"] or "not reported"))
+        for f in {_pretty(x) for x in _labels(r["imaging_modality"])}:
             if f in F:
                 M[F.index(f), pi] += 1
     fig = plt.figure(figsize=(FULL, 3.9))
@@ -95,7 +86,7 @@ def taxonomy_overview(rows: list[dict]) -> Path:
                         color="white" if M[i, j] > M.max() * 0.55 else "#1f2328")
     ax.set_xticks(range(len(P)), P, rotation=35, ha="right")
     ax.set_yticks(range(len(F)), F)
-    ax.set_xlabel("Platform class")
+    ax.set_xlabel("Primary task")
     ax.spines[:].set_visible(False)
     top = fig.add_subplot(gs[0, 0], sharex=ax)
     top.bar(range(len(P)), [plats[p] for p in P], color="#3366cc")
@@ -112,9 +103,9 @@ def taxonomy_overview(rows: list[dict]) -> Path:
 def _stacked(ax, rows, outer: str, inner: str, outer_order=None, inner_order=None, multi_outer=False):
     pairs = Counter()
     for r in rows:
-        os_ = [_pretty(x) for x in (_labels(r[outer]) if multi_outer else [r[outer].replace("_", " ") or "not reported"])]
+        os_ = [_pretty(x) for x in (_labels(r[outer]) if multi_outer else [r[outer] or "not reported"])]
         for o in set(os_):
-            pairs[(o, _pretty(r[inner].replace("_", " ") or "not reported"))] += 1
+            pairs[(o, _pretty(r[inner] or "not reported"))] += 1
     tot_o, tot_i = Counter(), Counter()
     for (o, i), n in pairs.items():
         tot_o[o] += n
@@ -132,53 +123,53 @@ def _stacked(ax, rows, outer: str, inner: str, outer_order=None, inner_order=Non
     return O, I
 
 
-def theory_agreement(rows: list[dict]) -> Path:
-    """Sub-taxonomy: theory compared, split by how the comparison was made."""
+def validation_by_origin(rows: list[dict]) -> Path:
+    """Sub-taxonomy: material origin, split by how results were validated."""
 
     fig, ax = plt.subplots(figsize=(COL, 2.6))
-    _stacked(ax, rows, "theory_compared", "agreement", multi_outer=True,
-             inner_order=["quantitative", "qualitative", "none", "not reported"])
-    ax.legend(title="agreement", frameon=False, loc="lower right")
-    return _save(fig, "subtaxonomy_theory")
+    _stacked(ax, rows, "corpus_origin", "validation", multi_outer=True,
+             inner_order=["quantitative vs ground truth", "expert assessment", "visual only", "none", "not reported"])
+    ax.legend(title="validation", frameon=False, loc="lower right")
+    return _save(fig, "validation_by_origin")
 
 
-def control_scale(rows: list[dict]) -> Path:
-    """Sub-taxonomy: control architecture, split by the largest collective in hardware."""
+def method_scale(rows: list[dict]) -> Path:
+    """Sub-taxonomy: method family, split by the number of physical objects studied."""
 
     def scale(n):
         try:
             n = int(float(n))
         except ValueError:
             return "not reported"
-        return "2–9" if n < 10 else "10–99" if n < 100 else "100–999" if n < 1000 else "≥1000"
+        return "1" if n < 2 else "2–9" if n < 10 else "10–99" if n < 100 else "≥100"
 
-    rows2 = [{**r, "scale": scale(r["n_agents_max"])} for r in rows]
+    rows2 = [{**r, "scale": scale(r["n_objects"])} for r in rows]
     fig, ax = plt.subplots(figsize=(COL, 2.3))
-    _stacked(ax, rows2, "control_architecture", "scale",
-             inner_order=["2–9", "10–99", "100–999", "≥1000", "not reported"])
-    ax.legend(title="agents (max)", frameon=False, loc="lower right")
-    return _save(fig, "subtaxonomy_control")
+    _stacked(ax, rows2, "method_family", "scale",
+             inner_order=["1", "2–9", "10–99", "≥100", "not reported"])
+    ax.legend(title="objects studied", frameon=False, loc="lower right")
+    return _save(fig, "method_scale")
 
 
-def interaction_platform(rows: list[dict]) -> Path:
-    """Sub-taxonomy: interaction modality, split by platform class."""
+def modality_task(rows: list[dict]) -> Path:
+    """Sub-taxonomy: imaging modality, split by primary task."""
 
     fig, ax = plt.subplots(figsize=(FULL, 2.4))
-    _stacked(ax, rows, "interaction_modality", "platform_class", multi_outer=True)
-    ax.legend(title="platform class", frameon=False, ncol=2, loc="lower right")
-    return _save(fig, "subtaxonomy_interaction")
+    _stacked(ax, rows, "imaging_modality", "primary_task", multi_outer=True)
+    ax.legend(title="primary task", frameon=False, ncol=2, loc="lower right")
+    return _save(fig, "modality_task")
 
 
 def growth(rows: list[dict]) -> Path:
-    """Included studies per year, stacked by platform class."""
+    """Included studies per year, stacked by primary task."""
 
     years = sorted({int(r["year"]) for r in rows if r["year"]})
-    plats = [p for p, _ in Counter(_pretty(r["platform_class"].replace("_", " ")) for r in rows).most_common()]
+    plats = [p for p, _ in Counter(_pretty(r["primary_task"]) for r in rows).most_common()]
     ys = np.arange(years[0], years[-1] + 1)
     fig, ax = plt.subplots(figsize=(COL, 2.2))
     bottom = np.zeros(len(ys))
     for k, p in enumerate(plats):
-        v = np.array([sum(1 for r in rows if r["year"] and int(r["year"]) == y and _pretty(r["platform_class"].replace("_", " ")) == p) for y in ys])
+        v = np.array([sum(1 for r in rows if r["year"] and int(r["year"]) == y and _pretty(r["primary_task"]) == p) for y in ys])
         ax.bar(ys, v, bottom=bottom, color=PALETTE[k % len(PALETTE)], width=0.85, label=p)
         bottom += v
     ax.set_xlabel("publication year")
@@ -194,7 +185,7 @@ def agreement() -> Path | None:
     if not files:
         return None
     a = json.loads(files[-1].read_text())
-    raters = [("panel", "panel (R1–R3)"), ("R1", "R1 gpt-oss-120b"), ("R2", "R2 Magistral"), ("opus", "Claude Opus")]
+    raters = [("panel", "panel (R1–R3)"), ("R1", "R1"), ("R2", "R2"), ("R3", "R3")]
     raters = [(k, lab) for k, lab in raters if f"final:{k}" in a]
     metrics = [("sens", "sensitivity"), ("spec", "specificity"), ("kappa", "Cohen's κ")]
     fig, ax = plt.subplots(figsize=(COL, 2.0))
@@ -211,7 +202,7 @@ def agreement() -> Path | None:
 
 def make_all() -> list[Path]:
     rows = _rows()
-    out = [taxonomy_overview(rows), theory_agreement(rows), control_scale(rows), interaction_platform(rows), growth(rows)]
+    out = [taxonomy_overview(rows), validation_by_origin(rows), method_scale(rows), modality_task(rows), growth(rows)]
     if (p := agreement()) is not None:
         out.append(p)
     return out

@@ -1,21 +1,9 @@
 # Append-only; newest first. Rendered by _pages/changelog.md.
-- date: "2026-10-17"
-  title: "Validation, adjudication, record fixes and a reconfigurable taxonomy"
+- date: "2026-11-23"
+  title: "Repository set up for the UnLost literature review"
   summary: >-
-    The author validated the panel on 200 records (final labels: sensitivity 1.00, specificity
-    0.98); Claude Opus judged the remaining 423 full-text splits and 167 extraction conflicts
-    from checked quotes; a link check and IEEE DOI resolution merged five duplicate or
-    mis-indexed records. The review now includes 489 studies. The home page opens with a
-    reconfigurable, searchable taxonomy, and missing papers can be proposed through reviewed
-    GitHub pull requests (/contribute/).
-  added: "2 seed papers (PULS brainbots) by author decision"
-  removed: "5 records merged as duplicates; 50 reports excluded by the judge, 9 included"
-- date: "2026-10-14"
-  title: "First review cycle: snapshot and human check"
-  summary: >-
-    First full snapshot (data/snapshots/2026-10-14/). Of 15,034 records from eight databases,
-    8,702 remained after deduplication, 1,277 passed title/abstract screening, and 528 studies
-    were included after full-text assessment (179 reports assessed on the abstract only because
-    no full text could be obtained). The author's validation queue is open at /check/, and
-    Codex has started drafting the RMP proposal and the manuscript.
-  added: "528 included studies"
+    Forked from the Active Matter Living Review pipeline and cleared of its corpus. Scope, search
+    blocks and data items are being rewritten for the UnLost project (virtual unwrapping of
+    Herculaneum papyri, ink and text recognition, chemical characterisation, papyrology).
+  added: "nothing yet"
+  removed: "the complete active-matter corpus, screening votes and manuscript"

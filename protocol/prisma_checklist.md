@@ -26,7 +26,7 @@ CC BY 4.0) before submission. "Paper" ids refer to `paper/sections.yml`.
 | 17 | Results | Study characteristics | paper: `results_overview`; site `/corpus/` |
 | 18 | Results | Risk of bias in studies | paper: `discussion`; `paper/supplement/` |
 | 19 | Results | Results of individual studies | site `/corpus/`; `data/snapshots/` |
-| 20a–d | Results | Results of syntheses | paper: `platforms`, `phenomena`, `theory`, `control` |
+| 20a–d | Results | Results of syntheses | paper: results sections |
 | 21 | Results | Reporting biases | paper: `discussion` |
 | 22 | Results | Certainty of evidence | paper: `discussion` |
 | 23a–d | Discussion | Interpretation, limitations of evidence and of review, implications | paper: `discussion`, `outlook` |

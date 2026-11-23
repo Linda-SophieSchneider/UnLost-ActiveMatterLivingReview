@@ -15,10 +15,9 @@ JSON file, and `amlr human-import <file>` writes them into the review.
   replaces the panel decision. Panel includes are listed first.
 - **Extraction conflicts:** fields where all three extractors gave different answers. Pick one of
   their answers or enter your own.
-- **Seed papers:** the known-item set, including the PULS brainbot papers the panel excluded as
-  single-agent (E1).
+- **Seed papers:** the known-item set; any the panel excluded show up here.
 
-Keys: <kbd>I</kbd> include · <kbd>1</kbd>–<kbd>6</kbd> exclude with E1–E6 · <kbd>U</kbd> unsure ·
+Keys: <kbd>I</kbd> include · <kbd>1</kbd>–<kbd>5</kbd> exclude with E1–E5 · <kbd>U</kbd> unsure ·
 <kbd>←</kbd>/<kbd>→</kbd> previous/next · <kbd>N</kbd> next open item · <kbd>V</kbd> show the
 panel votes.
 

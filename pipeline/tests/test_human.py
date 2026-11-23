@@ -20,14 +20,14 @@ def test_import_apply_and_report(tmp_path, monkeypatch):
     write_jsonl(corpus, [
         {"id": "a", "phase": "screened_out", "decisions": _panel("title_abstract", False, "0/2", "E2")},
         {"id": "b", "phase": "included", "decisions": _panel("full_text", True, "2/3")},
-        {"id": "c", "phase": "included", "extraction": {"unresolved": ["propulsion"], "propulsion": None}},
+        {"id": "c", "phase": "included", "extraction": {"unresolved": ["primary_task"], "primary_task": None}},
     ])
     f = _export(tmp_path, [
         {"queue": "ta_sample", "record_id": "a", "include": True, "saw_panel": False,
          "blind": {"include": True, "reason": None}, "at": "2026-10-14T10:00:00Z"},
         {"queue": "ft_split", "record_id": "b", "include": False, "reason": "E2", "note": "no hardware",
          "saw_panel": True, "at": "2026-10-14T10:01:00Z"},
-        {"queue": "extraction", "record_id": "c", "field": "propulsion", "value": "wheels",
+        {"queue": "extraction", "record_id": "c", "field": "primary_task", "value": "wheels",
          "chosen_from": "R3", "at": "2026-10-14T10:02:00Z"},
     ])
     assert h.import_labels(f, ledger) == {"new_labels": 3, "in_file": 3}
@@ -38,7 +38,7 @@ def test_import_apply_and_report(tmp_path, monkeypatch):
     assert rows["a"]["phase"] == "screened_in"
     assert rows["b"]["phase"] == "excluded_eligibility"
     assert rows["b"]["decisions"][-1]["reviewer"] == "author" and rows["b"]["decisions"][-1]["reason"] == "E2"
-    assert rows["c"]["extraction"]["propulsion"] == "wheels" and rows["c"]["extraction"]["unresolved"] == []
+    assert rows["c"]["extraction"]["primary_task"] == "wheels" and rows["c"]["extraction"]["unresolved"] == []
     rep = h.report(corpus, ledger)
     assert rep["ta_sample"]["panel_fn"] == 1 and rep["ta_sample"]["sensitivity"] == 0.0
     assert rep["ft_split"]["panel_fp"] == 1
@@ -64,11 +64,11 @@ def test_author_resolved_fields_survive_reextraction(tmp_path):
 
     corpus = tmp_path / "corpus.jsonl"
     write_jsonl(corpus, [{"id": "c", "phase": "included", "extraction": {
-        "propulsion": "wheels", "unresolved": [],
-        "author_resolved": {"propulsion": {"value": "wheels", "chosen_from": "R3", "at": "t"}}}}])
-    _apply(corpus, {"c": {"record_id": "c", "propulsion": None, "unresolved": ["propulsion"]}})
+        "primary_task": "wheels", "unresolved": [],
+        "author_resolved": {"primary_task": {"value": "wheels", "chosen_from": "R3", "at": "t"}}}}])
+    _apply(corpus, {"c": {"record_id": "c", "primary_task": None, "unresolved": ["primary_task"]}})
     e = read_jsonl(corpus)[0]["extraction"]
-    assert e["propulsion"] == "wheels" and e["unresolved"] == [] and "author_resolved" in e
+    assert e["primary_task"] == "wheels" and e["unresolved"] == [] and "author_resolved" in e
 
 
 def test_quote_check_flags_fabricated_evidence():

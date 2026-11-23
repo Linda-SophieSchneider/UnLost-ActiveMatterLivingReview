@@ -15,37 +15,36 @@
     { id: "seeds", label: "Seed papers", blind: false }
   ];
   var CODES = [
-    ["E5", "Not primary research (review, editorial, perspective, abstract without results)"],
-    ["E4", "Biological or living active matter only, no artificial agents"],
-    ["E6", "Synthetic active colloids or Janus particles without programmable or feedback control"],
-    ["E1", "Single agent: no interaction between agents"],
-    ["E2", "Simulation or theory only, no comparison to robotic hardware"],
-    ["E3", "Swarm-robotics engineering with task performance only, no physical collective observable"]
+    ["E5", "Not primary research (review, editorial, perspective, duplicate thesis)"],
+    ["E4", "No results (protocol, announcement, news, exhibition text, abstract without results)"],
+    ["E1", "The object is not an ancient manuscript"],
+    ["E3", "Generic method, no experiment on or evaluation against ancient manuscripts"],
+    ["E2", "Only literary, historical or archaeological interpretation, no method, no Herculaneum edition"]
   ];
   var CODE_TEXT = {};
   CODES.forEach(function (c) { CODE_TEXT[c[0]] = c[1]; });
   var INCLUSION = [
-    "I1 ≥ 2 physical self-propelled or actively driven artificial agents (two-body studies qualify)",
-    "I2 Behavior arising from agent–agent or agent–environment–agent interactions",
-    "I3 ≥ 1 quantitative collective or interaction observable from hardware experiments",
-    "I4 Primary research article, conference paper with results, or preprint",
-    "I5 English; any publication date"
+    "I1 Ancient manuscript (carbonised, rolled, layered, fragmentary) or a phantom of one",
+    "I2 Topic: acquisition, virtual unwrapping, ink detection, text recognition, script analysis, chemistry, registration/provenance, or papyrology of Herculaneum",
+    "I3 Reports results from or about such objects (measurements, evaluated method, analysis, edition)",
+    "I4 Primary research article, conference paper with results, preprint or dataset paper",
+    "I5 Title and abstract in English, German, Italian or French"
   ];
   var FIELD_HELP = {
-    platform_class: "Platform class",
-    propulsion: "Propulsion",
-    control_architecture: "Control architecture",
-    agreement: "Theory–experiment agreement",
-    n_agents_min: "Smallest number of agents in hardware experiments",
-    n_agents_max: "Largest number of agents in hardware experiments",
-    n_independent_runs: "Independent experimental repetitions",
-    agent_size_mm: "Characteristic agent size (mm)",
-    "rob.D1_replication": "Risk of bias D1 · replication",
-    "rob.D2_agent_heterogeneity": "Risk of bias D2 · agent heterogeneity",
-    "rob.D3_finite_size_and_boundaries": "Risk of bias D3 · finite size and boundaries",
-    "rob.D4_measurement_validity": "Risk of bias D4 · measurement validity",
+    object_class: "Object class",
+    primary_task: "Primary task",
+    method_family: "Method family",
+    validation: "Validation",
+    n_objects: "Number of physical objects studied",
+    n_scans: "Number of scans, images or measurements",
+    n_annotated_samples: "Annotated or ground-truth samples",
+    resolution_um: "Voxel or pixel size (µm)",
+    "rob.D1_ground_truth": "Risk of bias D1 · ground truth",
+    "rob.D2_sample_representativeness": "Risk of bias D2 · sample representativeness",
+    "rob.D3_acquisition_documentation": "Risk of bias D3 · acquisition documentation",
+    "rob.D4_evaluation_validity": "Risk of bias D4 · evaluation validity",
     "rob.D5_data_code_availability": "Risk of bias D5 · data and code availability",
-    "rob.D6_quantitative_theory_comparison": "Risk of bias D6 · quantitative theory comparison"
+    "rob.D6_expert_validation": "Risk of bias D6 · expert validation"
   };
 
   var data = null;
@@ -365,12 +364,12 @@
     out += abstractHtml(it);
     var c = it.context || {};
     out += '<dl class="hc-context">' +
-      "<dt>Platform</dt><dd>" + esc(human(c.platform_class)) + (c.platform_name ? " · " + esc(c.platform_name) : "") + "</dd>" +
-      "<dt>Agents</dt><dd>" + esc(human(c.n_agents_min)) + " – " + esc(human(c.n_agents_max)) + "</dd>" +
-      "<dt>Control</dt><dd>" + esc(human(c.control_architecture)) + "</dd>" +
-      "<dt>Phenomena</dt><dd>" + esc(human(c.phenomena)) + "</dd>" +
-      "<dt>Theory</dt><dd>" + esc(human(c.theory_compared)) + " · agreement " + esc(human(c.agreement)) + "</dd>" +
-      "<dt>Environment</dt><dd>" + esc(c.environment || "not reported") + "</dd>" +
+      "<dt>Object</dt><dd>" + esc(human(c.object_class)) + (c.object_name ? " · " + esc(c.object_name) : "") + "</dd>" +
+      "<dt>Objects / scans</dt><dd>" + esc(human(c.n_objects)) + " / " + esc(human(c.n_scans)) + "</dd>" +
+      "<dt>Task · method</dt><dd>" + esc(human(c.primary_task)) + " · " + esc(human(c.method_family)) + "</dd>" +
+      "<dt>Outputs</dt><dd>" + esc(human(c.outputs)) + "</dd>" +
+      "<dt>Origin · validation</dt><dd>" + esc(human(c.corpus_origin)) + " · " + esc(human(c.validation)) + "</dd>" +
+      "<dt>Instrument</dt><dd>" + esc(c.instrument || "not reported") + "</dd>" +
       "<dt>Notes (R1)</dt><dd>" + esc(c.notes || "") + "</dd>" +
       "<dt>Notes (R3)</dt><dd>" + esc(c.notes_alt || "") + "</dd></dl>";
     it.fields.forEach(function (f, fi) {

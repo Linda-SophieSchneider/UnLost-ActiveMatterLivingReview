@@ -86,8 +86,8 @@ class Extraction(BaseModel):
     record_id: str
     platform: str | None = None
     agents: int | None = None
-    control_architecture: str | None = None
-    interaction_modality: str | None = None
+    method_family: str | None = None
+    imaging_modality: str | None = None
     environment: str | None = None
     phases_observed: list[str] = Field(default_factory=list)
     model_class: str | None = None

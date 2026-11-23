@@ -5,33 +5,33 @@ from amlr.llm import PANEL
 from amlr.storage import read_jsonl, write_jsonl
 
 BASE = {
-    "platform_class": "vibration_driven_robots", "platform_name": "Hexbug", "n_agents_min": 10,
-    "n_agents_max": 100, "agent_size_mm": 40, "propulsion": "vibration",
-    "interaction_modality": ["steric_contact"], "control_architecture": "no_control_passive_rules",
-    "environment": "circular arena", "phenomena": ["flocking_polar_order", "boundary_accumulation"],
-    "observables": ["polar order"], "theory_compared": ["active_brownian_particles"], "agreement": "quantitative",
-    "n_independent_runs": 5, "code_available": False, "data_available": None,
+    "object_class": "vibration_driven_robots", "object_name": "Hexbug", "n_objects": 10,
+    "n_scans": 100, "resolution_um": 40, "primary_task": "vibration",
+    "imaging_modality": ["steric_contact"], "method_family": "no_control_passive_rules",
+    "instrument": "circular arena", "outputs": ["flocking_polar_order", "boundary_accumulation"],
+    "metrics": ["polar order"], "corpus_origin": ["active_brownian_particles"], "validation": "quantitative",
+    "n_annotated_samples": 5, "code_available": False, "data_available": None,
     "rob": {k: {"rating": "low", "why": "ok"} for k in [
-        "D1_replication", "D2_agent_heterogeneity", "D3_finite_size_and_boundaries",
-        "D4_measurement_validity", "D5_data_code_availability", "D6_quantitative_theory_comparison"]},
+        "D1_ground_truth", "D2_sample_representativeness", "D3_acquisition_documentation",
+        "D4_evaluation_validity", "D5_data_code_availability", "D6_expert_validation"]},
     "notes": None,
 }
 
 
 def test_comparison_rules():
-    b = dict(BASE, n_agents_max=105, phenomena=["boundary_accumulation", "flocking_polar_order"], platform_name="HEXBUG nano")
+    b = dict(BASE, n_scans=105, outputs=["boundary_accumulation", "flocking_polar_order"], object_name="HEXBUG nano")
     assert disputed(BASE, b) == []  # counts within 10 %, sets order-free, free text not compared
-    c = dict(BASE, propulsion="legs", n_agents_max=200)
-    assert set(disputed(BASE, c)) == {"propulsion", "n_agents_max"}
+    c = dict(BASE, primary_task="legs", n_scans=200)
+    assert set(disputed(BASE, c)) == {"primary_task", "n_scans"}
 
 
 def test_reconcile_majority_and_unresolved():
-    b = dict(BASE, propulsion="legs", agreement="qualitative")
-    arb = dict(BASE, propulsion="legs", agreement="none")
+    b = dict(BASE, primary_task="legs", validation="qualitative")
+    arb = dict(BASE, primary_task="legs", validation="none")
     final, unresolved = reconcile(BASE, b, arb)
-    assert final["propulsion"] == "legs"
-    assert final["agreement"] is None and unresolved == ["agreement"]
-    assert final["rob.D1_replication"] == "low"
+    assert final["primary_task"] == "legs"
+    assert final["validation"] is None and unresolved == ["validation"]
+    assert final["rob.D1_ground_truth"] == "low"
 
 
 def test_run_calls_arbiter_only_for_disputes(tmp_path):
@@ -39,7 +39,7 @@ def test_run_calls_arbiter_only_for_disputes(tmp_path):
     write_jsonl(corpus, [{"id": "a", "phase": "included", "title": "t", "fulltext_txt_path": "x"},
                          {"id": "b", "phase": "included", "title": "u", "fulltext_txt_path": "y"}])
     answers = {("R1", "t"): BASE, ("R3", "t"): BASE,
-               ("R1", "u"): BASE, ("R3", "u"): dict(BASE, propulsion="legs"), ("R2", "u"): dict(BASE, propulsion="legs")}
+               ("R1", "u"): BASE, ("R3", "u"): dict(BASE, primary_task="legs"), ("R2", "u"): dict(BASE, primary_task="legs")}
     rv_of = {m: rv for rv, m in PANEL.items()}
     calls = []
 
@@ -55,22 +55,22 @@ def test_run_calls_arbiter_only_for_disputes(tmp_path):
     assert out["extracted"] == 2 and out["with_unresolved_fields"] == 0
     assert ("R2", "t") not in calls and ("R2", "u") in calls
     rows = {r["id"]: r for r in read_jsonl(corpus)}
-    assert rows["b"]["extraction"]["propulsion"] == "legs"
+    assert rows["b"]["extraction"]["primary_task"] == "legs"
 
 
 def test_multilabel_fields_use_labelwise_majority():
-    a = dict(BASE, phenomena=["chirality_or_rotation", "transport_or_locomotion", "boundary_accumulation"])
-    b = dict(BASE, phenomena=["chirality_or_rotation", "swarming_or_vortex", "transport_or_locomotion"])
-    c = dict(BASE, phenomena=["chirality_or_rotation", "boundary_accumulation"])
+    a = dict(BASE, outputs=["chirality_or_rotation", "transport_or_locomotion", "boundary_accumulation"])
+    b = dict(BASE, outputs=["chirality_or_rotation", "swarming_or_vortex", "transport_or_locomotion"])
+    c = dict(BASE, outputs=["chirality_or_rotation", "boundary_accumulation"])
     final, unresolved = reconcile(a, b, c)
-    assert final["phenomena"] == ["boundary_accumulation", "chirality_or_rotation", "transport_or_locomotion"]
-    assert "phenomena" not in unresolved
+    assert final["outputs"] == ["boundary_accumulation", "chirality_or_rotation", "transport_or_locomotion"]
+    assert "outputs" not in unresolved
 
 
 def test_rob_three_way_split_resolves_to_some_concerns():
     rob = lambda r: {k: {"rating": r, "why": ""} for k in BASE["rob"]}
     final, unresolved = reconcile(dict(BASE, rob=rob("low")), dict(BASE, rob=rob("high")), dict(BASE, rob=rob("some_concerns")))
-    assert final["rob.D1_replication"] == "some_concerns" and not any(u.startswith("rob.") for u in unresolved)
+    assert final["rob.D1_ground_truth"] == "some_concerns" and not any(u.startswith("rob.") for u in unresolved)
 
 
 def test_availability_null_and_false_agree():

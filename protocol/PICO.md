@@ -1,42 +1,51 @@
-# Eligibility criteria (PECO for engineered systems)
+# Eligibility criteria (UnLost literature review)
 
-Status: **DRAFT** (scope questions resolved 2026-10-11; freezes with the protocol).
+Status: **DRAFT** (scope proposed 2026-11-23 from the UnLost work-package overview; freezes with the protocol).
+
+The review supports the UnLost project: non-invasive recovery, reading and study of carbonised and
+damaged ancient manuscripts, above all the Herculaneum papyri (Villa dei Papiri).
 
 | Element | Definition |
 |---|---|
-| **Population** | Physical (hardware) collectives of **≥ 2** interacting self-propelled or actively driven artificial agents: macroscopic robots (swarm robots, Kilobots, bristlebots/vibrobots, Hexbugs, smarticles, modular robots), robotic micro/nano-agents, Janus or other synthetic active particles **only when under programmable or feedback control**, actuated robotic metamaterials / active solids. |
-| **Exposure** | Interactions among agents (contact, hydrodynamic, sensing/communication, programmed rules) and their control parameters. |
-| **Comparator** | Optional: theory, simulation, passive counterparts, or other parameter regimes. |
-| **Outcome** | At least one quantitative collective-behavior or interaction observable (order parameter, phase diagram, correlation function, density fluctuations, cluster statistics, pair-interaction statistics, transport, mechanical response). |
-| **Study design** | Primary experimental studies. Theory/simulation studies only if they compare quantitatively to robotic experimental data. |
+| **Object** | Ancient papyrus, parchment or other manuscripts, in particular carbonised, rolled, layered or fragmentary ones (Herculaneum papyri, En-Gedi and Dead Sea scrolls, mummy cartonnage, opened and unopened scrolls); also phantoms or synthetic scrolls built to stand in for them. |
+| **Topic** | One or more of the work-package topics below. |
+| **Outcome** | Results are reported: data, a method with an evaluation on such objects, an analysis, or an edition. |
+| **Study design** | Primary research: journal article, conference paper with results, preprint, dataset or benchmark paper. |
+
+## Topics (data item `primary_task`)
+
+- T1 Acquisition and imaging: micro-CT, synchrotron and phase-contrast CT, multispectral or hyperspectral imaging, photoacoustic imaging, NeRF (WP1.2).
+- T2 Virtual unwrapping: surface segmentation, flattening, layer and winding analysis, stratigraphy (WP1.2, WP3.2).
+- T3 Ink detection and enhancement: ink segmentation, denoising, multimodal enhancement (WP2.1).
+- T4 Text recognition and decipherment: OCR on volumes or flattened images, reading of revealed text (WP2.2, WP3.4).
+- T5 Script and writer analysis: glyph skeletons, scribal hands, writer identification, classification of scripts (WP2.3, WP3.3).
+- T6 Chemical and material characterisation: FTIR, XRF, XRD, Raman, isotopes, degree of carbonisation, ink composition (WP1.1).
+- T7 Registration, provenance and metadata: alignment of multimodal witnesses, provenance of digital transformations, METS-type frameworks (WP1.3, WP1.4).
+- T8 Papyrological study and context: editions of Herculaneum texts, joining of pieces, organisation of the ancient library (WP3.4, WP3.5).
 
 ## Inclusion
 
-- I1 Population as above; two-body interaction studies qualify.
-- I2 Reports behavior arising from agent–agent or agent–environment–agent interactions.
-- I3 Reports ≥ 1 quantitative collective or interaction observable from hardware experiments.
-- I4 Primary research article, conference paper with results, or preprint.
-- I5 English; any publication date.
+- I1 The object is an ancient manuscript as defined above (or a phantom of one).
+- I2 The study falls under at least one of T1 to T8.
+- I3 It reports results from or about such objects: measurements, a method with an evaluation on them, an analysis, or a text edition.
+- I4 Primary research article, conference paper with results, preprint, or dataset/benchmark paper.
+- I5 Title and abstract in English, German, Italian or French; any publication date.
 
 ## Exclusion (codes listed in order of precedence)
 
 When several apply, the record is assigned the first applicable code, so the PRISMA flow
 reports exactly one reason per excluded report.
 
-- **E5** Not primary research: reviews, editorials, perspectives, theses duplicating a
-  journal article, abstracts without results. (Reviews are mined for citation chasing.)
-- **E4** Biological or living active matter only (cells, bacteria, animals), no artificial agents.
-- **E6** Synthetic active colloids or Janus particles without programmable or feedback
-  control (e.g. autonomous catalytic or uniform-field propulsion only).
-- **E1** Single agent: one robot or particle, no interaction between agents.
-- **E2** Simulation or theory only, with no comparison to robotic hardware experiments.
-- **E3** Swarm-robotics engineering reporting only task performance (coverage time, success
-  rate, algorithm benchmarks) with no physical collective observable.
+- **E5** Not primary research: reviews, editorials, perspectives, theses duplicating an article. (Reviews are mined for citation chasing.)
+- **E4** No results: protocols, project announcements, news, exhibition texts, abstracts without results.
+- **E1** The object is not an ancient manuscript: modern paper or documents, medical or industrial CT without manuscripts, handwriting or OCR work on modern or medieval material, the Papyrus modelling software, the plant.
+- **E3** Generic method with no experiment on, or evaluation against, ancient manuscripts or their phantoms.
+- **E2** Ancient manuscript, but only literary, historical or archaeological interpretation of a text or site, with no imaging, computational or chemical method and no edition of Herculaneum material (T8).
 
-## Decisions taken (2026-10-11)
+## Decisions taken (2026-11-23)
 
-1. Synthetic active colloids: excluded in general; Janus/synthetic active particles are
-   included only under programmable or feedback control (E6).
-2. Agent threshold: ≥ 2; two-body interaction studies count, single-agent studies do not (E1).
-3. Swarm-robotics engineering papers: excluded unless they report a physical observable (E3).
-4. Reviewers: a panel of three LLMs on the NHR@FAU gateway (see `PROTOCOL.md` §6).
+1. Scope covers all eight topics, taken from the UnLost work packages WP1 to WP3.
+2. Herculaneum is the core case; other ancient manuscripts qualify only through imaging, computational or chemical work (E2, E3).
+3. Reviewers: a panel of three LLMs on the NHR@FAU gateway (see `PROTOCOL.md` §6).
+
+Open for the author: whether non-Herculaneum papyrology (editions of other collections) stays out (current rule: yes, E2), and which languages beyond I5 to read.

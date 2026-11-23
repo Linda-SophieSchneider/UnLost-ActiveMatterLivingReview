@@ -98,9 +98,8 @@ def _block(terms: list[str], s: Syntax) -> str:
 
 
 def render(c: dict, s: Syntax) -> str:
-    a = f"({_block(c['active_matter'], s)} {s.and_} {_block(c['robotic_agents'], s)})"
-    b = f"({_block(c['colloids'], s)} {s.and_} {_block(c['control'], s)})"
-    return f"{a} {s.or_} {b} {s.or_} {_block(c['composite_phrases'], s)}"
+    a = f"({_block(c['object'], s)} {s.and_} {_block(c['method'], s)})"
+    return f"{a} {s.or_} {_block(c['composite_phrases'], s)}"
 
 
 SYNTAX = {
@@ -115,7 +114,7 @@ SYNTAX = {
 }
 
 def subsumed_dropped(terms: list[str]) -> list[str]:
-    """Drop phrases implied by a single-word truncated term in the same block (e.g. robot* ⊇ "swarm robot*")."""
+    """Drop phrases implied by a single-word truncated term in the same block (e.g. tomograph* ⊇ "x-ray tomograph*")."""
 
     stems = [t[:-1] for t in terms if t.endswith("*") and " " not in t and "-" not in t]
     keep = []
@@ -134,7 +133,7 @@ IEEE_MAX_WILDCARDS = 10
 def render_ieee(c: dict) -> list[str]:
     """IEEE Xplore Command Search strings (Abstract field), within its 25-term / 10-wildcard limits.
 
-    Wildcards are kept only on single-word robot-type terms; other terms rely on IEEE's
+    Wildcards are kept only on single-word method terms; other terms rely on IEEE's
     plural matching. Long blocks are split into OR-ed sub-clauses of ≤ 25 terms.
     """
 
@@ -148,10 +147,9 @@ def render_ieee(c: dict) -> list[str]:
         parts = ["(" + " OR ".join(term(t, wild) for t in ch) + ")" for ch in chunks]
         return parts[0] if len(parts) == 1 else "(" + " OR ".join(parts) + ")"
 
-    robots = subsumed_dropped(c["robotic_agents"])
-    q1 = f"{clause(c['active_matter'], False)} AND {clause(robots, True)}"
-    q2 = (f"({clause(c['colloids'], False)} AND {clause(c['control'], False)}) OR "
-          f"{clause(c['composite_phrases'], False)}")
+    methods = subsumed_dropped(c["method"])
+    q1 = f"{clause(c['object'], False)} AND {clause(methods, True)}"
+    q2 = clause(c["composite_phrases"], False)
     for q in (q1, q2):
         if q.count("*") > IEEE_MAX_WILDCARDS:
             raise ValueError(f"IEEE query has {q.count('*')} wildcards (limit {IEEE_MAX_WILDCARDS})")
@@ -289,9 +287,7 @@ def matches(c: dict, text: str) -> bool:
 
     toks = _tokens(text)
     any_ = lambda block: any(_term_in(t, toks) for t in c[block])
-    return ((any_("active_matter") and any_("robotic_agents"))
-            or (any_("colloids") and any_("control"))
-            or any_("composite_phrases"))
+    return (any_("object") and any_("method")) or any_("composite_phrases")
 
 
 SEED_SET = STRATEGIES / "seed_set.yml"

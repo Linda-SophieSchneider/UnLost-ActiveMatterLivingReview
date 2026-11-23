@@ -40,32 +40,34 @@ REVIEWER = "author"
 JUDGE = "judge:opus"  # LLM judge the author delegated the remaining conflicts to (amendment 6)
 
 VOCAB = {
-    "platform_class": ["vibration_driven_robots", "wheeled_or_legged_swarm_robots",
-                       "modular_or_self_reconfigurable_robots", "smarticles_or_granular_robots",
-                       "robotic_micro_nano_agents", "feedback_controlled_active_colloids",
-                       "robotic_metamaterial_or_active_solid", "other"],
-    "propulsion": ["vibration", "wheels", "legs", "magnetic_field", "light", "acoustic", "chemical", "other"],
-    "control_architecture": ["no_control_passive_rules", "onboard_rules", "external_feedback",
-                             "learned_policy", "central_controller", "other"],
-    "agreement": ["quantitative", "qualitative", "none"],
+    "object_class": ["carbonized_rolled_scroll", "opened_or_fragmentary_papyrus", "other_ancient_manuscript",
+                     "synthetic_or_phantom", "other"],
+    "primary_task": ["acquisition_or_imaging", "virtual_unwrapping_or_segmentation", "ink_detection_or_enhancement",
+                     "text_recognition_or_decipherment", "script_or_writer_analysis",
+                     "chemical_or_material_characterisation", "registration_provenance_or_metadata",
+                     "papyrological_study_or_context", "other"],
+    "method_family": ["classical_signal_processing", "machine_learning_cnn", "transformer_or_foundation_model",
+                      "generative_or_self_supervised", "manual_or_expert_workflow", "physical_or_chemical_analysis",
+                      "other"],
+    "validation": ["quantitative_vs_ground_truth", "expert_assessment", "visual_only", "none"],
     "code_available": [True, False],
     "data_available": [True, False],
 }
 ROB_LEVELS = ["low", "some_concerns", "high"]
 FIELD_DEFS = {
-    "platform_class": "platform class, one of " + ", ".join(VOCAB["platform_class"]),
-    "propulsion": "propulsion, one of " + ", ".join(VOCAB["propulsion"]),
-    "control_architecture": "control architecture, one of " + ", ".join(VOCAB["control_architecture"]),
-    "agreement": "how theory and experiment were compared: quantitative, qualitative or none",
-    "n_agents_min": "smallest number of agents used in hardware experiments (integer)",
-    "n_agents_max": "largest number of agents used in hardware experiments (integer)",
-    "n_independent_runs": "number of independent experimental repetitions reported (integer)",
-    "agent_size_mm": "characteristic agent size in millimetres",
+    "object_class": "object class, one of " + ", ".join(VOCAB["object_class"]),
+    "primary_task": "primary task, one of " + ", ".join(VOCAB["primary_task"]),
+    "method_family": "method family, one of " + ", ".join(VOCAB["method_family"]),
+    "validation": "how results were validated: " + ", ".join(VOCAB["validation"]),
+    "n_objects": "number of physical objects (scrolls, fragments, samples) studied (integer)",
+    "n_scans": "number of scans, images or measurements analysed (integer)",
+    "n_annotated_samples": "number of annotated or ground-truth samples used (integer)",
+    "resolution_um": "voxel or pixel size in micrometres",
     "code_available": "true only if a code repository or archive is named",
     "data_available": "true only if a data repository or archive is named",
     **{f"rob.{d}": f"risk of bias, domain {d}: low, some_concerns or high"
-       for d in ("D1_replication", "D2_agent_heterogeneity", "D3_finite_size_and_boundaries",
-                 "D4_measurement_validity", "D5_data_code_availability", "D6_quantitative_theory_comparison")},
+       for d in ("D1_ground_truth", "D2_sample_representativeness", "D3_acquisition_documentation",
+                 "D4_evaluation_validity", "D5_data_code_availability", "D6_expert_validation")},
 }
 
 
@@ -205,10 +207,10 @@ def build_queue(corpus: Path, out: Path = QUEUE) -> dict:
                                         .get("fields", {}).get(f)}
                                        for k in ("R1", "R3", "R2") if k in votes]})
         ex.append({**_item(r), "fields": fields,
-                   "context": {k: e.get(k) for k in ("platform_class", "platform_name", "n_agents_min",
-                                                      "n_agents_max", "propulsion", "control_architecture",
-                                                      "phenomena", "theory_compared", "agreement",
-                                                      "environment", "notes", "notes_alt")}})
+                   "context": {k: e.get(k) for k in ("object_class", "object_name", "n_objects",
+                                                      "n_scans", "primary_task", "method_family",
+                                                      "outputs", "corpus_origin", "validation",
+                                                      "instrument", "notes", "notes_alt")}})
 
     seeds = []
     for rid in _seed_ids(records):

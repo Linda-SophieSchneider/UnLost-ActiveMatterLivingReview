@@ -307,8 +307,7 @@ def crossref_subqueries(c: dict) -> list[str]:
     """Relevance queries for every AND-pair plus every phrase; results are filtered locally."""
 
     strip = lambda t: t.rstrip("*")
-    pairs = [f"{strip(a)} {strip(b)}" for a, b in product(c["active_matter"], c["robotic_agents"])]
-    pairs += [f"{strip(a)} {strip(b)}" for a, b in product(c["colloids"], c["control"])]
+    pairs = [f"{strip(a)} {strip(b)}" for a, b in product(c["object"], c["method"])]
     return pairs + [strip(p) for p in c["composite_phrases"]]
 
 
