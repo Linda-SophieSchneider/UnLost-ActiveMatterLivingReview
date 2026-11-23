@@ -1,0 +1,50 @@
+name: Discord digest
+
+# Weekly highlights of one Discord channel (an announcements channel followed into the author's own
+# server). The digest arrives as a pull request, so nothing is published before the author has read it.
+on:
+  schedule:
+    - cron: "0 6 * * 1"  # Mondays, 06:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: discord-digest
+  cancel-in-progress: false
+
+jobs:
+  digest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
+      DISCORD_CHANNEL_ID: ${{ vars.DISCORD_CHANNEL_ID }}
+      NHR_LLM_API_KEY: ${{ secrets.NHR_LLM_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: pipeline/pyproject.toml
+      - run: pip install -e pipeline
+      - name: Write the digest
+        id: digest
+        run: |
+          echo "date=$(date -u +%F)" >> "$GITHUB_OUTPUT"
+          amlr discord-digest
+      - name: Open the digest pull request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: discord-digest/${{ steps.digest.outputs.date }}
+          commit-message: "Discord digest ${{ steps.digest.outputs.date }}"
+          title: "Discord digest ${{ steps.digest.outputs.date }}"
+          body: "Weekly highlights of the Discord channel. Check that no person is named, nothing is quoted, and every claim is marked as announced or shown, then merge to publish."
+          add-paths: |
+            _data/discord_highlights.yml
+            data/discord/state.json
+          labels: discord-digest
+          delete-branch: true

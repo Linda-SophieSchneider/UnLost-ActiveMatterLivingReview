@@ -265,6 +265,42 @@ ends with `amlr state-save`, so the next scheduled run continues from it.
 A change to the protocol after freezing is an amendment: log it in `protocol/PROTOCOL.md`
 and run `amlr freeze` again.
 
+## Discord highlights
+
+A weekly digest of the Vesuvius Challenge announcements appears on the site's *Discord highlights*
+tab. A bot you own reads one channel, a language model writes anonymised highlights (no names, no
+quotes, only links found in the messages), and the result arrives as a pull request to read
+before it is published. Raw messages are never stored; only the id of the last message seen
+(`data/discord/state.json`) and the highlights (`_data/discord_highlights.yml`) are.
+
+One-time setup:
+
+1. **Follow the channel into your own server.** Create a free Discord server. In the Vesuvius
+   server, open the announcements channel and press *Follow*, choosing a channel in your server.
+   Only messages posted after you follow are copied.
+2. **Create the bot.** <https://discord.com/developers/applications>: *New Application*, *Bot*,
+   *Reset Token* (copy it once), switch on *Message Content Intent*. Under *OAuth2 > URL Generator*
+   choose the scope `bot` and the permissions *View Channels* and *Read Message History*, open the
+   URL and add the bot to your own server.
+3. **Channel id.** Discord *Settings > Advanced > Developer Mode*, then right-click the channel in
+   your server and *Copy Channel ID*.
+4. **Secrets**, typed by you (each command asks for the value):
+
+   ```bash
+   gh secret set DISCORD_BOT_TOKEN
+   gh secret set NHR_LLM_API_KEY
+   gh variable set DISCORD_CHANNEL_ID
+   ```
+
+5. **Try it locally** (the same two variables in your shell, then):
+
+   ```bash
+   amlr discord-digest --dry-run
+   ```
+
+The workflow `.github/workflows/discord-digest.yml` runs on Mondays and can be started by hand from
+the *Actions* tab. The prompt is `protocol/discord_prompt.md`.
+
 ## Non-redistribution of subscriber content
 
 Full-text PDFs retrieved through institutional TDM routes are cached

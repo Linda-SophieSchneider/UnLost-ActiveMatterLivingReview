@@ -27,7 +27,7 @@ ROOT = Path(__file__).resolve().parents[1]
 REQUIRED = ("title", "year", "why")
 DOI = re.compile(r"^10\.\d{4,9}/\S+$")
 ARXIV = re.compile(r"^(\d{4}\.\d{4,5})(v\d+)?$")
-MAILTO = "andreas.maier@fau.de"
+MAILTO = os.environ.get("AMLR_MAILTO", "").strip()  # optional contact for Crossref's polite pool
 
 
 def norm(s: str) -> str:
@@ -35,8 +35,8 @@ def norm(s: str) -> str:
 
 
 def crossref_title(doi: str) -> str | None:
-    url = f"https://api.crossref.org/works/{urllib.parse.quote(doi)}?mailto={MAILTO}"
-    req = urllib.request.Request(url, headers={"User-Agent": f"amlr-submission-check (mailto:{MAILTO})"})
+    url = f"https://api.crossref.org/works/{urllib.parse.quote(doi)}" + (f"?mailto={MAILTO}" if MAILTO else "")
+    req = urllib.request.Request(url, headers={"User-Agent": "amlr-submission-check" + (f" (mailto:{MAILTO})" if MAILTO else "")})
     try:
         with urllib.request.urlopen(req, timeout=20) as r:
             msg = json.load(r)["message"]

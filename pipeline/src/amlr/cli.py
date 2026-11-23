@@ -200,6 +200,18 @@ def fulltext_browser(
                wait_for_human_s=wait_for_human, only=only or None))
 
 
+@app.command("discord-digest")
+def discord_digest(
+    since_days: int = typer.Option(7, help="Window when no earlier run exists (afterwards: since the last message seen)"),
+    dry_run: bool = typer.Option(False, help="Print the highlights without writing files"),
+) -> None:
+    """Summarise the new messages of the configured Discord channel into anonymised weekly highlights."""
+    from .discord import run
+
+    res = run(since_days=since_days, dry_run=dry_run)
+    rprint(res)
+
+
 @app.command("fulltext-list")
 def fulltext_list(
     corpus: Path = typer.Option(CORPUS),
