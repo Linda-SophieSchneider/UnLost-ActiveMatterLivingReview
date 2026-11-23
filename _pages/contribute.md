@@ -11,9 +11,9 @@ review already holds the paper. After we merge it, the paper is screened in the 
 same panel and criteria as every database record. In PRISMA terms it is a record identified via
 other methods, so merging does not guarantee inclusion.
 
-The review covers **ancient manuscripts**, above all carbonised and rolled papyri, and work on their
-imaging, virtual unwrapping, ink and text recognition, script analysis, chemistry, provenance, or
-papyrological study (see the eligibility criteria under Methods).
+The review is deliberately narrow: **papyri that are read** (characters, Greek letters, writers),
+**everything on the Herculaneum papyri**, and **virtual unwrapping** of rolled, sealed or damaged
+documents (see the eligibility criteria under Methods).
 
 <link rel="stylesheet" href="{{ '/assets/css/contribute.css' | relative_url }}">
 <form id="sub" class="sub" novalidate>
@@ -34,7 +34,7 @@ papyrological study (see the eligibility criteria under Methods).
   </div>
   <div class="sub-row">
     <label for="sub-why">Why it belongs <span>required</span></label>
-    <textarea id="sub-why" name="why" rows="3" required placeholder="e.g. Micro-CT of an unopened Herculaneum scroll; reports a surface segmentation evaluated against expert labels."></textarea>
+    <textarea id="sub-why" name="why" rows="3" required placeholder="e.g. Character detection on Greek papyri; reports detection accuracy on an annotated dataset."></textarea>
   </div>
   <div class="sub-row"><label for="sub-by">Your GitHub handle</label><input id="sub-by" name="submitted_by" placeholder="optional"></div>
   <p class="sub-msg" id="sub-msg" role="status" aria-live="polite"></p>

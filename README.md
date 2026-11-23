@@ -1,12 +1,12 @@
 # UnLost Literature Review
 
-A PRISMA 2020 **living literature review** for the UnLost project: non-invasive recovery, reading
-and study of carbonised and damaged ancient manuscripts, above all the Herculaneum papyri.
+A PRISMA 2020 **living literature review** for the UnLost project, deliberately narrow: papyri
+that are read, Greek letters that are identified, everything on the Herculaneum papyri, and
+virtual unwrapping.
 Site: <https://linda-sophie-schneider.de/UnLost-ActiveMatterLivingReview/>
 
-Scope (details in [`protocol/PICO.md`](protocol/PICO.md)): acquisition and imaging, virtual
-unwrapping, ink detection, text recognition, script and writer analysis, chemical
-characterisation, registration and provenance, and papyrological study (the UnLost work packages).
+Scope (details in [`protocol/PICO.md`](protocol/PICO.md)): unwrapping, ink and hidden text,
+reading characters, writers and scripts, restoration and assembly, and Herculaneum.
 
 The repo is two artefacts in one:
 

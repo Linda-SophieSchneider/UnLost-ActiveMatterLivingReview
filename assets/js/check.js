@@ -17,16 +17,16 @@
   var CODES = [
     ["E5", "Not primary research (review, editorial, perspective, duplicate thesis)"],
     ["E4", "No results (protocol, announcement, news, exhibition text, abstract without results)"],
-    ["E1", "The object is not an ancient manuscript"],
-    ["E3", "Generic method, no experiment on or evaluation against ancient manuscripts"],
-    ["E2", "Only literary, historical or archaeological interpretation, no method, no Herculaneum edition"]
+    ["E1", "Object not in scope: not a papyrus, not Herculaneum, not a document studied for unwrapping"],
+    ["E3", "Generic method, no experiment on papyri or unwrapping objects"],
+    ["E2", "Papyrus outside the topics and not Herculaneum (interpretation, edition, chemistry)"]
   ];
   var CODE_TEXT = {};
   CODES.forEach(function (c) { CODE_TEXT[c[0]] = c[1]; });
   var INCLUSION = [
-    "I1 Ancient manuscript (carbonised, rolled, layered, fragmentary) or a phantom of one",
-    "I2 Topic: acquisition, virtual unwrapping, ink detection, text recognition, script analysis, chemistry, registration/provenance, or papyrology of Herculaneum",
-    "I3 Reports results from or about such objects (measurements, evaluated method, analysis, edition)",
+    "I1 Papyrus (above all Herculaneum), or a rolled, folded, sealed or damaged document studied for unwrapping, or a phantom of one",
+    "I2 Topic: unwrapping/flattening, ink or hidden-text imaging, reading characters, writers and scripts, restoration/assembly, or any study of Herculaneum papyri",
+    "I3 Reports results: evaluated method, measurements, dataset, or Herculaneum edition",
     "I4 Primary research article, conference paper with results, preprint or dataset paper",
     "I5 Title and abstract in English, German, Italian or French"
   ];

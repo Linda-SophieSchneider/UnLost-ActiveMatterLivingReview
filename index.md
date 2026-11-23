@@ -4,9 +4,8 @@ title: "UnLost: a living literature review"
 ---
 
 {% assign counts = site.data.prisma_counts %}
-<p class="home-lead">A living literature review (PRISMA 2020) for the UnLost project: imaging, virtual unwrapping, ink and
-text recognition, chemistry and papyrology of carbonised and damaged ancient manuscripts, above all the
-Herculaneum papyri: <strong>{{ counts.included_studies | default: 0 }}</strong> included studies, snapshot
+<p class="home-lead">A living literature review (PRISMA 2020) for the UnLost project: papyri that are read, Greek letters that are
+identified, everything on the Herculaneum papyri, and virtual unwrapping: <strong>{{ counts.included_studies | default: 0 }}</strong> included studies, snapshot
 {{ counts.snapshot_date | default: "not yet run" }}. Arrange the taxonomy below by any of the extracted attributes, or
 <a href="{{ '/contribute/' | relative_url }}">propose a paper</a> we missed.</p>
 

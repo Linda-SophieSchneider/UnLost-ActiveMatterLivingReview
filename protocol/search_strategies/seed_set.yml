@@ -1,13 +1,66 @@
 # Known-item set for validating search sensitivity (`amlr search-validate`).
-# Every entry must be eligible under PICO.md. Extend with key papers the author knows;
-# the protocol is frozen only when recall on this set is acceptable across all sources.
-# `sources_expected`: where a hit is expected if OpenAlex lacks an abstract.
-# Titles written from memory on 2026-11-23: run `amlr search-validate` to confirm each one
-# resolves; entries that do not resolve are typos or wrong titles and must be corrected.
+# The first six are the classics written from memory; entries with `origin: obsidian` come from the
+# author's paper collection (01 - Research/UnLost/Paper, titles as in the vault, colons written " - ").
+# `eligibility: unverified` marks borderline entries: they count toward recall, not toward the
+# freeze criterion. `sources_expected`: where a hit is expected if OpenAlex lacks an abstract.
 seed:
-  - title: "From damage to discovery via virtual unwrapping: Reading the scroll from En-Gedi"
-  - title: Revealing letters in rolled Herculaneum papyri by X-ray phase-contrast imaging
-  - title: Virtual unrolling and deciphering of Herculaneum papyri by X-ray phase-contrast tomography
-  - title: Revealing metallic ink in Herculaneum papyri
-  - title: "From invisibility to readability: Recovering the ink of Herculaneum"
-  - title: Virtual unrolling and information recovery from scanned scrolls
+- title: 'From damage to discovery via virtual unwrapping: Reading the scroll from En-Gedi'
+- title: Revealing letters in rolled Herculaneum papyri by X-ray phase-contrast imaging
+- title: Virtual unrolling and deciphering of Herculaneum papyri by X-ray phase-contrast tomography
+- title: Revealing metallic ink in Herculaneum papyri
+- title: 'From invisibility to readability: Recovering the ink of Herculaneum'
+- title: Virtual unrolling and information recovery from scanned scrolls
+- title: A computational platform for the virtual unfolding of Herculaneum Papyri
+  origin: obsidian
+- title: Ancient Greek text concealed on the back of unrolled papyrus revealed through shortwave-infrared hyperspectral imaging
+  origin: obsidian
+- title: Complete virtual unwrapping and reading of a rolled Herculaneum papyrus
+  origin: obsidian
+  sources_expected:
+  - arxiv
+- title: Detecting and recognizing characters in Greek papyri with YOLOv8, DeiT and SimCLR
+  origin: obsidian
+- title: EduceLab-Scrolls - Verifiable Recovery of Text from Herculaneum Papyri using X-ray CT
+  origin: obsidian
+- title: Infrared imaging techniques for the readability enhancement of Herculaneum papyri - a comparison between technical photography and high-resolution digital microscopy
+  origin: obsidian
+- title: Ink detection from surface topography of the Herculaneum papyri
+  origin: obsidian
+  eligibility: unverified
+- title: KaiRacters - Character-level-based Writer Retrieval for Greek Papyri
+  origin: obsidian
+- title: Label the Invisible - AI-Aided Label Enhancement and Ink Residue Exposure
+  origin: obsidian
+  eligibility: unverified
+- title: Learning Diachronic Representations of Ancient Greek Letterforms
+  origin: obsidian
+- title: Machine Learning Based Assembly of Fragments of Ancient Papyrus
+  origin: obsidian
+- title: Near-infrared focus-stacking photogrammetry for surface morphology analysis and text recovery in Herculaneum papyri
+  origin: obsidian
+- title: Pulsed thermographic analysis of Herculaneum papyri
+  origin: obsidian
+- title: Quantitative Distortion Analysis of Flattening Applied to the Scroll from En-Gedi
+  origin: obsidian
+- title: Reconstructing (again) the opening of the Derveni papyrus
+  origin: obsidian
+- title: Sub-terahertz Radar Imaging of Ancient Herculaneum Papyrus Scrolls reveals Adhesion to Substrate after Unrolling
+  origin: obsidian
+- title: Tracking ink composition on Herculaneum papyrus scrolls - quantification and speciation of lead by X-ray based techniques and Monte Carlo simulations
+  origin: obsidian
+- title: Unlocking history through automated virtual unfolding of sealed documents imaged by X-ray microtomography
+  origin: obsidian
+- title: Virtually Unrolling the Herculaneum Papyri by Diffeomorphic Spiral Fitting
+  origin: obsidian
+- title: Volumetric Texture Analysis for Unsupervised Ink Detection in Herculaneum Papyri
+  origin: obsidian
+- title: Writer Retrieval and Writer Identification in Greek Papyri
+  origin: obsidian
+- title: Layout of ancient Greek papyri through lead-drawn ruling lines revealed by Macro X-Ray Fluorescence Imaging
+  origin: obsidian
+- title: Instruction-tuning pretrained causal language models to restore ancient Greek papyri and inscriptions
+  origin: obsidian
+  eligibility: unverified
+- title: Content-Aware Surface Parameterization for Interactive Restoration of Historical Documents
+  origin: obsidian
+  eligibility: unverified

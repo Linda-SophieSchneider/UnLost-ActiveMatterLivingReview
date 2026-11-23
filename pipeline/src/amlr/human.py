@@ -40,12 +40,12 @@ REVIEWER = "author"
 JUDGE = "judge:opus"  # LLM judge the author delegated the remaining conflicts to (amendment 6)
 
 VOCAB = {
-    "object_class": ["carbonized_rolled_scroll", "opened_or_fragmentary_papyrus", "other_ancient_manuscript",
+    "object_class": ["carbonized_rolled_scroll", "opened_or_fragmentary_papyrus", "other_historical_document",
                      "synthetic_or_phantom", "other"],
-    "primary_task": ["acquisition_or_imaging", "virtual_unwrapping_or_segmentation", "ink_detection_or_enhancement",
-                     "text_recognition_or_decipherment", "script_or_writer_analysis",
-                     "chemical_or_material_characterisation", "registration_provenance_or_metadata",
-                     "papyrological_study_or_context", "other"],
+    "primary_task": ["unwrapping_or_flattening", "ink_detection_or_hidden_text_imaging",
+                     "character_or_text_recognition", "writer_or_script_analysis",
+                     "text_restoration_or_fragment_assembly", "herculaneum_papyrology_or_chemistry",
+                     "acquisition_or_imaging", "other"],
     "method_family": ["classical_signal_processing", "machine_learning_cnn", "transformer_or_foundation_model",
                       "generative_or_self_supervised", "manual_or_expert_workflow", "physical_or_chemical_analysis",
                       "other"],

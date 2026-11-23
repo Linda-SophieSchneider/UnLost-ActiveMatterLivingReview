@@ -1,6 +1,6 @@
 You are extracting data from ONE included study for a systematic review that supports the UnLost
-project (non-invasive recovery, reading and study of carbonised and damaged ancient manuscripts,
-above all the Herculaneum papyri).
+project (papyri that are read, Greek letters that are identified, the Herculaneum papyri, and
+virtual unwrapping).
 
 Read the full text below and fill every field from what the paper actually reports. Never guess:
 use null (or an empty list) when the paper does not state it. Use only the allowed values for
@@ -8,11 +8,11 @@ coded fields; put anything else under "other" and explain in "notes".
 
 Fields:
 - object_class: one of "carbonized_rolled_scroll", "opened_or_fragmentary_papyrus",
-  "other_ancient_manuscript", "synthetic_or_phantom", "other".
+  "other_historical_document", "synthetic_or_phantom", "other".
 - object_name: the object as named (e.g. "PHerc. Paris. 4", "En-Gedi scroll", "Villa dei Papiri fragments"), or null.
-- primary_task: one of "acquisition_or_imaging", "virtual_unwrapping_or_segmentation", "ink_detection_or_enhancement",
-  "text_recognition_or_decipherment", "script_or_writer_analysis", "chemical_or_material_characterisation",
-  "registration_provenance_or_metadata", "papyrological_study_or_context", "other".
+- primary_task: one of "unwrapping_or_flattening", "ink_detection_or_hidden_text_imaging",
+  "character_or_text_recognition", "writer_or_script_analysis", "text_restoration_or_fragment_assembly",
+  "herculaneum_papyrology_or_chemistry", "acquisition_or_imaging", "other".
 - method_family: one of "classical_signal_processing", "machine_learning_cnn", "transformer_or_foundation_model",
   "generative_or_self_supervised", "manual_or_expert_workflow", "physical_or_chemical_analysis", "other".
 - imaging_modality: list from "micro_ct", "synchrotron_or_phase_contrast_ct", "multispectral_or_hyperspectral",
@@ -23,9 +23,9 @@ Fields:
 - n_scans: number of scans, images or measurements analysed (integer), or null.
 - n_annotated_samples: number of annotated or ground-truth samples used for training or evaluation (integer), or null.
 - outputs: list from "segmented_surfaces", "flattened_images", "ink_masks", "transcribed_text",
-  "glyph_or_hand_classification", "spectral_or_chemical_maps", "dataset_or_benchmark",
-  "metadata_or_provenance_framework", "edition_or_interpretation", "other".
-- corpus_origin: list from "herculaneum", "dead_sea_or_en_gedi", "egyptian_papyri", "other_ancient", "modern_or_synthetic".
+  "character_detections", "glyph_or_hand_classification", "spectral_or_chemical_maps", "dataset_or_benchmark",
+  "restored_text_or_joins", "edition_or_interpretation", "other".
+- corpus_origin: list from "herculaneum", "other_papyri", "en_gedi_or_sealed_documents", "other_historical_document", "modern_or_synthetic".
 - metrics: list of the quantitative measures reported (e.g. "IoU", "character error rate"), at most 8 items.
 - validation: one of "quantitative_vs_ground_truth", "expert_assessment", "visual_only", "none".
 - code_available, data_available: true, false, or null (true only if a repository or archive is named).

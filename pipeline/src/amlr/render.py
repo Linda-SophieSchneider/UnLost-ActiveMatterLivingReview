@@ -244,14 +244,13 @@ def write_known_records(records: Iterable[dict], out: Path | None = None) -> Pat
 
 
 TASK_LABELS = {
+    "unwrapping_or_flattening": "Unwrapping and flattening",
+    "ink_detection_or_hidden_text_imaging": "Ink detection and hidden-text imaging",
+    "character_or_text_recognition": "Character and text recognition",
+    "writer_or_script_analysis": "Writer and script analysis",
+    "text_restoration_or_fragment_assembly": "Text restoration and fragment assembly",
+    "herculaneum_papyrology_or_chemistry": "Herculaneum papyrology and chemistry",
     "acquisition_or_imaging": "Acquisition and imaging",
-    "virtual_unwrapping_or_segmentation": "Virtual unwrapping and segmentation",
-    "ink_detection_or_enhancement": "Ink detection and enhancement",
-    "text_recognition_or_decipherment": "Text recognition and decipherment",
-    "script_or_writer_analysis": "Script and writer analysis",
-    "chemical_or_material_characterisation": "Chemical and material characterisation",
-    "registration_provenance_or_metadata": "Registration, provenance and metadata",
-    "papyrological_study_or_context": "Papyrological study and context",
     "other": "Other",
     "": "Not classified",
 }

@@ -8,8 +8,8 @@
 
 ## For paper submissions
 
-- [ ] the paper concerns an **ancient manuscript** (carbonised, rolled, layered or fragmentary), or a phantom of one
-- [ ] it reports results on imaging, unwrapping, ink or text recognition, script, chemistry, provenance, or Herculaneum papyrology
+- [ ] the paper concerns **papyri** (read, letters, writers), the **Herculaneum papyri**, or **virtual unwrapping** of a rolled, sealed or damaged document
+- [ ] it reports results (an evaluated method, measurements, a dataset, or an edition)
 - [ ] the `why` field says, in a sentence, what was measured
 
 A merged submission is screened by the same panel and criteria as every database record

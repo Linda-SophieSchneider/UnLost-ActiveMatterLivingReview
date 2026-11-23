@@ -7,18 +7,16 @@ are checked against the text automatically; a quote that does not appear in the 
 against you.
 
 Eligibility criteria:
-- I1 The object is an ancient manuscript (papyrus, parchment, scroll), in particular carbonised,
-  rolled or fragmentary, or a phantom of one.
-- I2 The study falls under acquisition/imaging, virtual unwrapping, ink detection, text
-  recognition, script/writer analysis, chemical characterisation, registration/provenance, or
-  papyrological study of Herculaneum material.
-- I3 It reports results from or about such objects (measurements, an evaluated method, an
-  analysis, or an edition).
+- I1 The object is a papyrus (above all a Herculaneum papyrus), or a rolled, folded, sealed or
+  damaged historical document studied for unwrapping, or a phantom of one.
+- I2 The study is about unwrapping or flattening; ink or hidden-text imaging; reading (characters,
+  Greek letterforms); writers and scripts; restoration or fragment assembly; or any other study of
+  the Herculaneum papyri. Papyri outside Herculaneum qualify only through the first five.
+- I3 It reports results (an evaluated method, measurements, a dataset, or a Herculaneum edition).
 - I4 Primary research article, conference paper with results, preprint, or dataset paper.
-- Exclusion, in order of precedence: E5 not primary research; E4 no results; E1 object is not an
-  ancient manuscript; E3 generic method with no experiment on or evaluation against ancient
-  manuscripts; E2 only literary/historical/archaeological interpretation, no method and no
-  Herculaneum edition.
+- Exclusion, in order of precedence: E5 not primary research; E4 no results; E1 object not in
+  scope; E3 generic method with no experiment on papyri or unwrapping objects; E2 papyrus outside
+  the topics and not Herculaneum.
 
 {task}
 

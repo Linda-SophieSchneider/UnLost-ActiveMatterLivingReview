@@ -13,18 +13,18 @@ Reporting standard: PRISMA 2020 (Page et al., BMJ 2021;372:n71), checklist mappi
 
 ## 1. Rationale (PRISMA 3)
 
-UnLost aims to recover, read and study carbonised and damaged ancient manuscripts, above all the
-Herculaneum papyri, without opening them: acquisition (WP1), computational reading (WP2) and
-papyrological study (WP3). This review maps the literature those work packages build on.
+UnLost aims to recover, read and study carbonised and damaged papyri, above all the Herculaneum
+papyri, without opening them. This review is deliberately narrow: papyri that are read, Greek
+letters that are identified, everything on the Herculaneum papyri, and virtual unwrapping.
 
 ## 2. Objectives (PRISMA 4)
 
-- O1. Map which imaging and analytical techniques have been applied to carbonised, rolled or
-  fragmentary ancient manuscripts, at what resolution and on which objects.
-- O2. Establish which methods exist for virtual unwrapping, ink detection and text recognition
-  on such objects, and how they were validated.
-- O3. Collect what is known about the chemistry and degree of carbonisation of these materials
-  and about scripts, scribal hands and the organisation of the Herculaneum library.
+- O1. Map which imaging techniques have been applied to rolled, sealed or carbonised papyri and
+  documents, at what resolution and on which objects.
+- O2. Establish which methods exist for virtual unwrapping, ink detection, and the reading of
+  characters and letters on papyri, and how they were validated.
+- O3. Collect what is known about the Herculaneum papyri (chemistry, scripts, editions, library)
+  and about writers and scripts of Greek papyri.
 - O4. Identify available datasets, ground truth and open code.
 - O5. Identify gaps that the UnLost work packages can address.
 
@@ -46,7 +46,8 @@ Operationalised in `PICO.md`.
 | HAL | `api.archives-ouvertes.fr/search` | primary |
 | NASA ADS | `api.adsabs.harvard.edu/v1` | primary |
 | Citation chasing | OpenAlex references/cited-by of included studies and of excluded reviews | supplementary |
-| Hand-search | Cronache Ercolanesi, Zeitschrift fuer Papyrologie und Epigraphik, Journal of Cultural Heritage, Heritage Science, Scientific Reports, Vesuvius Challenge open reports | supplementary |
+| Hand-search | Cronache Ercolanesi, Zeitschrift fuer Papyrologie und Epigraphik, ICDAR and ICFHR proceedings, Vesuvius Challenge open reports | supplementary |
+| Author's collection | Obsidian paper collection `01 - Research/UnLost/Paper`, used as the known-item set | validation |
 
 Date coverage: database inception to the run date. Language: see `PICO.md` I5.
 
