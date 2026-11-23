@@ -70,7 +70,11 @@ freezing. Peer review of the search: PRESS 2015 checklist by a second person bef
 
   | Reviewer | Gateway model ID |
   |---|---|
-  | R1, R2, R3 | set in the `[panel]` table of `~/.config/amlr/llm_api.toml`; fill in the three IDs here from `GET /models` before calibration |
+  | R1 | `gpt-oss-120b` |
+  | R2 | `GaleneAI/Magistral-Small-2509-FP8-Dynamic` |
+  | R3 | `deepseek-ai/DeepSeek-V4-Flash-0731` |
+
+  All three were listed by the gateway on 2026-11-23 and are the package defaults.
 
 - Independence: each model screens every record in a fresh context, without access to the
   other models' votes. Instructions are the frozen screening prompt
