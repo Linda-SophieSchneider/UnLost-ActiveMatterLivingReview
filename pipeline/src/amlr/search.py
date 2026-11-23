@@ -87,7 +87,7 @@ class Syntax:
 
 
 def _term(t: str, s: Syntax) -> str:
-    phrase = " " in t
+    phrase = " " in t or "-" in t  # hyphenated terms are quoted: arXiv rejects them bare
     if t.endswith("*") and not (s.wildcard_phrase if phrase else s.wildcard_word):
         t = t.rstrip("*")
     return s.field(f'"{t}"' if phrase else t)
@@ -105,7 +105,8 @@ def render(c: dict, s: Syntax) -> str:
 SYNTAX = {
     # OpenAlex stems search terms and has no truncation operator.
     "openalex": Syntax(field=lambda t: t, wildcard_word=False, wildcard_phrase=False),
-    "arxiv": Syntax(field=lambda t: f"(ti:{t} OR abs:{t})", wildcard_word=True, wildcard_phrase=False),
+    # `all:` instead of (ti: OR abs:): arXiv rejects request URLs of roughly 4.5k characters and this query is longer.
+    "arxiv": Syntax(field=lambda t: f"all:{t}", wildcard_word=True, wildcard_phrase=False),
     "pubmed": Syntax(field=lambda t: f"{t}[tiab]", wildcard_word=True, wildcard_phrase=True),
     "hal": Syntax(field=lambda t: f"(title_t:{t} OR abstract_t:{t})", wildcard_word=True, wildcard_phrase=False),
     "europepmc_biorxiv": Syntax(field=lambda t: f"(TITLE:{t} OR ABSTRACT:{t})", wildcard_word=True, wildcard_phrase=False),

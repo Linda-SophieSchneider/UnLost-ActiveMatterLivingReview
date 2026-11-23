@@ -23,7 +23,7 @@ def test_renderers_respect_source_truncation_rules():
     pm = render(C, SYNTAX["pubmed"])
     assert '"carbonized scroll*"[tiab]' in pm  # PubMed truncates inside phrases
     ax = render(C, SYNTAX["arxiv"])
-    assert "ti:tomograph*" in ax and 'ti:"carbonized scroll"' in ax
+    assert "all:tomograph*" in ax and 'all:"carbonized scroll"' in ax
 
 
 def test_crossref_subqueries_cover_pairs_and_phrases():

@@ -39,7 +39,7 @@ Operationalised in `PICO.md`.
 | OpenAlex | REST `api.openalex.org/works`, `title_and_abstract.search` | primary |
 | SemOpenAlex | SPARQL `semopenalex.org/sparql` | fallback for metadata and citation lookups; not a separate search source |
 | Crossref | REST `api.crossref.org/works`, `query.bibliographic` | primary; no Boolean search, so one relevance query (top 100) per OBJECT-METHOD pair and phrase, then the same Boolean logic applied locally to title + abstract |
-| arXiv | `export.arxiv.org/api/query` | primary (title and abstract) |
+| arXiv | `export.arxiv.org/api/query`, field `all:` | primary; `all:` also matches authors and comments, because the title-and-abstract form of the query exceeds arXiv's URL length limit |
 | bioRxiv | Europe PMC preprint index | primary |
 | PubMed | NCBI E-utilities | primary |
 | IEEE Xplore | Command Search (web), Abstract field | primary; two queries within IEEE's limits (`amlr.search.render_ieee`), exported as CSV |
