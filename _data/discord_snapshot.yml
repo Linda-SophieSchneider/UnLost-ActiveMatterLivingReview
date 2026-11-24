@@ -1,0 +1,472 @@
+snapshot: '2026-11-24'
+period_start: '2026-05-27'
+period_end: '2026-11-23'
+n_discussions: 405
+n_summarised: 385
+n_selected: 39
+topics:
+- id: unwrapping_surfaces
+  label: Unwrapping and surface tracing
+  items:
+  - channel: robots
+    date: '2026-11-22'
+    title: Mesh fitting and ink detection challenges on PHerc1447 winding 64
+    summary: 'Spiral-fit meshes for PHerc1447 winding 64–98 were rendered (two 3282 × 3751 px patches,
+      31 layers, z≈12 k–15 k and 19 k–22 k). Ink‑SDK tools (Reader V3, Argus V2, Rectina m4, Studio) found
+      no letter strokes, only blobs. The author attributes this to the surface crossing multiple sheets:
+      CT depth peaks align within 2 layers 63 % for a reference winding, but only 40‑50 % for level 064,
+      and a ~15‑voxel fit offset places parts between sheets.'
+    relevance: 3
+    links: []
+  - channel: show-and-tell
+    date: '2026-11-21'
+    title: Screening Results for Unread Herculaneum Scroll Bands
+    summary: A participant processed 57 bands across 19 unread scrolls, covering about 3,000 windings
+      and using 312 GPU hours. The output lists each band’s location, best row, and classification, noting
+      that “empty” means no detection by the lane’s models or Reader v3. A crack‑test ratio (≈1 for text,
+      ≥2 for cracks) and a 10‑minute CPU claim imaging routine are provided. Additional bands from PHerc1545
+      (z 5300‑6800, 129 windings) and PHerc1218 (z 6900‑8400, 120 windings) were added, both marked empty
+      by Reader v3.
+    relevance: 3
+    links:
+    - https://github.com/yupengtang/vesuvius-fl-followup#6-what-we-screened
+    - https://github.com/yupengtang/vesuvius-fl-open-tools
+    - https://github.com/Ahggggg/spiral-tracks-four-scrolls/releases/tag/v1
+  - channel: show-and-tell
+    date: '2026-11-21'
+    title: Rust‑based AFV tracer speeds CT‑to‑AFV 44×
+    summary: A Rust implementation of the AFV spline generator runs on an NVIDIA GPU without PyTorch,
+      converting three 512‑plane bands in 800 s versus 9 h 45 min for the original, a ~44× speed‑up. Whole‑scroll
+      processing now takes hours. The project released 233.6 M fibers (≈145.6 km, 448 GB) for 20 prize‑eligible
+      scrolls on HuggingFace, provided as raw data.
+    relevance: 3
+    links:
+    - https://github.com/praveenperera/fibrs
+    - https://huggingface.co/datasets/praveenperera/afv-v2-fibers
+  - channel: show-and-tell
+    date: '2026-11-20'
+    title: HerculeX Unwrapping Dataset for 21 Scrolls
+    summary: A participant posted a HuggingFace dataset of HerculeX unwrapped sheets for 21 Herculaneum
+      scrolls. They reported full inference is expensive, sharing a cost chart. Others recommended cheap
+      Vast AI GPU rentals, noting a 5090 instance for $0.5, a full 19‑scroll run for ~$20, bandwidth could
+      cost $50 per TB, and one user spent $750 over two months. The dataset was later updated with the
+      latest commit.
+    relevance: 3
+    links:
+    - https://huggingface.co/datasets/broekzak/herculex_sheets
+  - channel: show-and-tell
+    date: '2026-11-20'
+    title: Auto-generated surfaces for PHerc1451 scroll
+    summary: A participant released version v3 of an automatic surface extraction pipeline for PHerc1451
+      (scan 20260319101107, 2.4 µm resolution). The release contains 57 tifxyz surfaces, of which 38 pass
+      fibre and self‑overlap checks, covering roughly 220 cm² after deduplication. The surfaces are candidate
+      unwrapped sheets without verified winding or ink detection, and one erroneous unit was removed.
+    relevance: 3
+    links:
+    - https://github.com/EconLearn/pherc1451-surfaces/releases/tag/v3
+  - channel: show-and-tell
+    date: '2026-11-17'
+    title: Fiber‑guided automatic layer separation and meshing
+    summary: A participant built a pipeline that reads fibre orientation in CT slices to decide layer
+      order, trains a small U‑Net for tracking, and automatically meshes and unwraps each papyrus layer
+      in a 12.7 GB Colab notebook. The resulting mesh covers 99.6% of papyrus versus 82% for the official
+      mesh; ink detection scores +0.73 against human labels (official +0.80). The process also generates
+      a large labelled dataset of layer relationships and squished spots.
+    relevance: 3
+    links:
+    - https://github.com/Victoria-TechNexus/vesuvius-ply-layers
+  - channel: show-and-tell
+    date: '2026-11-17'
+    title: HerculeX Fast CT-to-Text Unwrapping Toolkit
+    summary: A participant presented HerculeX, a modular pipeline that converts raw CT scans into 2D surfaces
+      and detects ink for Herculaneum papyri. It uses structure‑tensor normals, intensity peaks, and an
+      L1 min‑cost‑flow network simplex to assign integer windings before isometric flattening. On an M1 Pro
+      it processes 10,000 cm² in 2–3 hours, reconstructing 50–70 % of a scroll, with plans for CUDA acceleration
+      and improved global fitting and meshing.
+    relevance: 3
+    links:
+    - https://github.com/adambetka2/HerculeX
+    - https://huggingface.co/spaces/SharpMeow/umbilici
+  - channel: show-and-tell
+    date: '2026-11-16'
+    title: Optimized Full-Height Spiral Fitting on Small GPUs
+    summary: Three modifications to fit_spiral.py reduced GPU memory by up to 44 % and allowed whole‑height
+      spiral fits on 16 GB cards. Offloading the lasagna pool, a new GC policy, and freeing optimizer
+      state let 21 of 21 scrolls fit at 32‑voxel resolution on a 32 GB GPU (previously 18) and 18 of 21
+      on 16 GB GPUs. Tests on PHerc0343 and PHerc0268 showed peak GPU use ~12‑15 GiB and speeds of 0.4‑0.75
+      it/s.
+    relevance: 3
+    links:
+    - https://github.com/ScrollPrize/villa/pull/2588/
+- id: ink_detection
+  label: Ink detection
+  items:
+  - channel: show-and-tell
+    date: '2026-11-23'
+    title: Unified Herculaneum Ink Label Dataset for Training
+    summary: A consolidated collection of 1,609 ink label entries covering about 238 000 mm² of papyrus
+      and 19 000 mm² of confirmed ink has been released. Labels are graded on a 1‑5 quality scale (default
+      filter ≥3) and originate from IR images, hand‑traced packs, competition tracings, 1 µm scans, model
+      outputs, and the PHerc0211 segment. All entries share a 9.362 µm grid with 21 CT layers (≈54 GB
+      pending upload) and use a single rule with three style variants. Validation reports 99.9 % ink accuracy
+      on IR fragments and cross‑checks against micron‑scale maps.
+    relevance: 3
+    links:
+    - https://huggingface.co/datasets/vincentl065/herculaneum-ink-labels
+  - channel: show-and-tell
+    date: '2026-11-23'
+    title: Positive-Unlabelled ScribblePU Boosts Ink Detection with Minimal Tracing
+    summary: A participant presented ScribblePU, a positive‑unlabelled training method for 9 µm ink scans.
+      Drawing 1‑pixel lines on certain ink (under 1 % of ink pixels) and leaving the rest unlabeled lets
+      a model recover 97 % of the gain of a full‑mask model after about 9 minutes of fine‑tuning, and
+      92.5‑99.7 % with 6.8 % coverage. Training takes ~15 minutes, improves GATE by +0.11‑0.16 at a 128 px
+      window, and eliminates background bias.
+    relevance: 3
+    links:
+    - https://github.com/DomRusso2/scribble-pu
+  - channel: show-and-tell
+    date: '2026-11-22'
+    title: 12 GB GPU retraining of PHerc 0306B First‑Letters model
+    summary: A participant adapted the PHerc 0306B First‑Letters model to run on a 12 GB RTX 4070, reproducing
+      the original results and even matching the winners more closely. Fine‑tuning on Scroll 1 labels
+      improved ink detection on unseen segments. The model now runs on macOS, with an M5 Pro only ~20 %
+      slower than the GPU, and a 1.7× faster GPU configuration; a fork also accelerates HerculeX on Apple
+      silicon.
+    relevance: 3
+    links:
+    - https://github.com/comoke/first-letters-12gb
+    - https://github.com/comoke/HerculeX
+  - channel: show-and-tell
+    date: '2026-11-21'
+    title: CPU-based Ink Detection for Herculaneum Scrolls
+    summary: A participant released a pure‑Python tool that runs the Reader V3 ink model on a standard
+      CPU under Windows. Processing a 2048×4096 region of PHerc1447 took 11 minutes with ~2 GB RAM, about
+      13× faster than the default CPU mode. Pixel agreement with official maps was 98.6 % (single test)
+      and 98.4‑98.9 % across 12 segments, all within 1/255. The author seeks testers on other platforms.
+    relevance: 3
+    links:
+    - https://github.com/jamiejmann/vesuvius-cpu-reader
+    - https://github.com/ScrollPrize/villa/pull/2628
+  - channel: ink-detection
+    date: '2026-11-21'
+    title: Ensemble Averaging Boosts 9µm Ink Model AUC
+    summary: A participant reported that averaging all 14 published 9 µm ink‑model checkpoints with the
+      ensemble flag raised held‑out ROC‑AUC from 0.839 to 0.923 (precision 0.732→0.844). Scroll AUCs rose
+      to 0.927, 0.901, and 0.942. Selecting best checkpoints performed worse; extra augmentations gave
+      no gain. Tested on three validation regions (~720 k pixels) on an Apple M4; code is public.
+    relevance: 3
+    links:
+    - https://github.com/gowtham012/vesuvius-ink-ensemble
+  - channel: show-and-tell
+    date: '2026-11-17'
+    title: Improved native-scan ink detection model Argus V3
+    summary: 'A participant released Argus V3, a drop‑in replacement for the previous reader. Tested on
+      five native segments unseen during training (three from PHerc0841 at 113 keV and two from PHerc1447
+      at 116 keV), it surpassed the older model on AUC, balanced accuracy, Dice and background‑ink labeling.
+      Reported AUCs: 0.924 vs 0.913 (PHerc0841), 0.860 vs 0.856 (PHerc1447 w058), 0.791 vs 0.776 (PHerc1447
+      w060) with Dice 0.558 vs 0.493; reversed order AUC 0.51. Weights and code are available on HuggingFace
+      and GitHub, and further benchmarking is planned.'
+    relevance: 3
+    links:
+    - https://huggingface.co/ruiconte/argus-v3
+    - https://github.com/ruiconte/ink-swarm
+    - https://github.com/ruiconte/ink-swarm/tree/main/remus
+    - https://huggingface.co/l1t-w1n/argus-v3-ik-clean
+  - channel: show-and-tell
+    date: '2026-11-17'
+    title: Improved ink detection for native Herculaneum scans
+    summary: A new ink‑detection model fine‑tuned on 8–9 µm scans outperforms reader‑v3 on Herculaneum
+      data. It reaches AUC 0.924 vs 0.913 and Dice 0.727 vs 0.718 on PHerc0841 113 keV, and AUC 0.787
+      vs 0.776 and Dice 0.547 vs 0.493 on PHerc1447 w060 116 keV. An additional test gives AUC 0.846 vs
+      0.849 and ~0.48 in reversed order. The model is released as a drop‑in for the HerculeX adapter with
+      weights and code.
+    relevance: 3
+    links:
+    - https://huggingface.co/ruiconte/argus-v2
+    - https://github.com/ruiconte/ink-swarm
+  - channel: show-and-tell
+    date: '2026-11-17'
+    title: Argus V1 Ink Detection Model for Herculaneum Scrolls
+    summary: A participant released Argus V1, an open‑source ink detection model compatible with existing
+      tools. On the unseen scroll PHerc0841 it achieved AUC 0.942 and balanced accuracy 0.850, surpassing
+      the baseline reader‑v3 (AUC 0.929, bAcc 0.843). On official validation masks it reached bAcc 0.849
+      versus 0.791 for the baseline. Dice scores were slightly lower (0.758 vs 0.767) and background ink
+      was marginally higher (8.9% vs 8.5%). The model averages eight fine‑tuned dense‑all7 weights trained
+      on 256 px tiles without depth‑flip augmentation.
+    relevance: 3
+    links:
+    - https://huggingface.co/ruiconte/argus-v1
+    - https://github.com/ruiconte/ink-swarm
+- id: reading_text
+  label: Reading and papyrology
+  items:
+  - channel: show-and-tell
+    date: '2026-10-19'
+    title: Reader V3 improves Herculaneum ink detection and readability
+    summary: A new model, Reader V3, replaces the previous checkpoint and yields clearer letters on unseen
+      scrolls such as 0841 and 0343. It reduces false‑ink detections to about 5.5% of blank papyrus—roughly
+      10× fewer than Hecate and 8× fewer than v8‑in—and can process a full scroll band in about an hour.
+      Users report successful trials, though some note excess detection of simple line letters and occasional
+      noise.
+    relevance: 3
+    links:
+    - https://github.com/DomRusso2/reader-v3
+    - https://github.com/TAUIL-Abd-Elilah/9um-reader-letter-shape
+    - https://github.com/ScrollPrize/villa/pull/2197
+    - https://huggingface.co/datasets/YoussefMoNader/ink-8um-pherc1447-surfaces/tree/main
+  - channel: show-and-tell
+    date: '2026-07-11'
+    title: Legibility Index for Herculaneum Ink Maps Reveals Hidden Text
+    summary: An open-source ResNet‑18 model classifies ~1 cm patches of ink‑map renderings as likely letterforms.
+      On 38 official maps (4,905 windows) it found 63 high‑score windows, 54 appearing clear, 52 outside
+      PHerc 0139’s title. Across 78 maps (125,298 windows) 5,678 gold windows were identified, 77.9 %
+      beyond the transcribed core. Validation reports AUROC 0.985 and Spearman 0.843 with transcriptions;
+      masking zero‑CT regions alters the outside‑core fraction only to ≈77.8 %.
+    relevance: 3
+    links:
+    - https://huggingface.co/LimeGS/herculaneum-legibility-proxy
+    - https://huggingface.co/datasets/LimeGS/herculaneum-legibility-proxy-labels
+    - https://github.com/LimeGS/herculaneum-legibility-index
+    - https://github.com/ScrollPrize/villa/issues/1254
+  - channel: show-and-tell
+    date: '2026-10-22'
+    title: Web Trainer for Recognizing Greek Letters in Herculaneum Papyri
+    summary: A participant released an open‑source web app that lets users practice identifying Greek
+      letters on real Herculaneum scroll images and CT‑derived ink maps. Three levels progress from clear
+      photographed letters to short groups and noisy, blurred examples, using PHerc. Paris 4 and infrared
+      photos. Feedback led to UI tweaks and added access to verified letters. The tool is MIT‑licensed.
+    relevance: 2
+    links:
+    - https://github.com/jo-tud/little-papyrologist
+  - channel: show-and-tell
+    date: '2026-06-29'
+    title: VOLUMEN AI‑assisted Herculaneum Papyrus Reader
+    summary: An open‑source application that uses AI to help interpret the text of unrolled Herculaneum
+      papyri. The author demonstrated it on PHerc. 1667, providing screenshots and a GitHub repository
+      with instructions to launch via VSCode. The tool is intended for community extension and attribution.
+    relevance: 2
+    links:
+    - https://github.com/beamtupgaming/volumen
+- id: data_and_scans
+  label: Data and scans
+  items:
+  - channel: unrolling-vc3d
+    date: '2026-07-06'
+    title: Lossless volume compression and codec integration for VC3D
+    summary: A participant added lazy codec registration via numcodecs in the project’s pyproject, enabling
+      automatic installation of volume‑cartographer bindings. Tests on lossless compression showed a 46.3×
+      reduction for surface data and 4.3× for ink data, surpassing blosc LZ4 (17.66× surface, 2.27× ink)
+      and blosc ZSTD (44.42× surface, 3.40× ink). Additional discussion covered spiral‑fit tolerance bands
+      and a new multi‑patch overlay viewer for spiral inspection.
+    relevance: 3
+    links: []
+  - channel: unrolling-vc3d
+    date: '2026-07-06'
+    title: Zarr v3 support and compression effects on 3D DCT surface predictions
+    summary: A participant added zarr‑python and numcodec bindings to enable 3D DCT over Zarr v3, releasing
+      an export of PHerc0125 (9.362 µm resolution, 1.2 m length, 113 keV masked) with 16³ chunks and 1024³
+      shards. Reported tests show compression (Q=4, τ=8) slightly lowers surface prediction quality, partially
+      recovered by test‑time augmentation; fine‑tuning restores quality for Q=32/64 at 0.5 µm. Blocking
+      artifacts are noted, with deblocking filters suggested as a visual fix.
+    relevance: 3
+    links:
+    - https://dl.ash2txt.org/communit
+    - https://dl.ash2txt.org/community-uploads/forrest/exports/PHerc0125/20250821151825-9.362um-1.2m-113keV-masked.zarr/
+    - https://github.com/ScrollPrize/villa/pull/988
+  - channel: unrolling-vc3d
+    date: '2026-06-29'
+    title: Lossy quantization and rANS compression for 2 µm volume data
+    summary: A participant demonstrated a lossy scheme that snaps each voxel to the nearest multiple of
+      five, then applies a quick histogram‑based delta over one to three axes and encodes with rANS. This
+      achieved 5–6× size reduction at level 0, 3–4× at level 1, and 2–3× for remaining levels on a 2 µm
+      volume. Discussion compared this to lossless codecs, noting typical decode speeds of 50–100 MiB/s
+      versus desired GPU speeds of several GiB/s for streaming.
+    relevance: 3
+    links: []
+  - channel: unrolling-vc3d
+    date: '2026-10-26'
+    title: Release of 1447 PHerc1447 segments for ink hunting
+    summary: A participant shared 1,447 segmented images of the PHerc1447 scroll via a public link, noting
+      they lack obvious ink and have no overlap. Blending with half‑window stride would increase processing
+      time eightfold, so faster inference is desired. Others suggested using the pure‑Python/OpenGL tool
+      khartes for manual handling and easy extension.
+    relevance: 2
+    links:
+    - https://dl.ash2txt.org/community-uploads/forrest/volcomp/PHerc1447/segments/ufsm-c2f-20261028/
+  - channel: unrolling-vc3d
+    date: '2026-10-26'
+    title: Downsampled scroll view added to vc3d with fiber inference
+    summary: A participant shared a downsampled image of a Herculaneum scroll, noting its low resolution.
+      The image has been uploaded to the vc3d repository together with fiber inference data contributed
+      by another participant.
+    relevance: 2
+    links: []
+  - channel: show-and-tell
+    date: '2026-10-06'
+    title: Header‑only integrity audit of OME‑Zarr pyramids
+    summary: A tool audits OME‑Zarr pyramids using only headers, avoiding chunk downloads. It verified
+      all 957 pyramids in the Vesuvius challenge open data and 7,698 directory listings without issues.
+      On dl.ash2txt.org, 88 keV Frag3 volumes list six levels but levels 1‑5 return 404, while 54 keV
+      volumes are complete. A PR adds skipping of missing levels and improves Zarr v3 handling, reclassifying
+      ~15,700 roots.
+    relevance: 2
+    links:
+    - https://github.com/sgsllc-jr/zarr-pyramid-audit
+  - channel: show-and-tell
+    date: '2026-09-22'
+    title: Zarr Pyramid Audit Reveals Missing Levels
+    summary: A participant created a read‑only integrity checker for OME‑Zarr pyramids on dl.ash2txt.org.
+      It scanned 241 roots in ~2.5 min, identifying several stores where reduced‑resolution levels are
+      missing or corrupted (e.g., Frag3 88 keV volumes, inked predictions, codec inconsistencies). The
+      tool uses only headers, not chunk data, and a proposal to run it at publish time was suggested.
+    relevance: 2
+    links:
+    - https://github.com/sgsllc-jr/zarr-pyramid-audit
+  - channel: show-and-tell
+    date: '2026-09-21'
+    title: HercUNet Full Volume Predictions Shared via FTP
+    summary: A participant shared links to Zarr files containing HercUNet predictions for PHerc 1447 and
+      800, covering layers L1‑L5; about 30% of layer 0 is uploaded. They note server slowness and plan
+      to improve upload using better directory layout, larger chunks, sharding, persistent SFTP, or rclone
+      with up to 16 parallel transfers.
+    relevance: 2
+    links:
+    - https://dl.ash2txt.org/community-uploads/jamie/hercunet_v0/PHerc1447/pass3.zarr
+    - https://dl.ash2txt.org/community-uploads/jamie/hercunet_v0/PHerc0800/pass3.zarr
+- id: tools_and_viewers
+  label: Tools and viewers
+  items:
+  - channel: show-and-tell
+    date: '2026-11-17'
+    title: Pure‑Rust Out‑of‑Core Renderer for Papyrus Volumes
+    summary: A participant presented Volumen, an open‑source Rust engine that streams OME‑Zarr papyrus
+      volumes, eliminating the TIFF disk bottleneck that consumed up to 80% of pipeline time. It provides
+      zero‑copy PyTorch loading of 2.5‑D surface slices at roughly 15 ms per layer and matches reference
+      rendering with a Pearson correlation of 0.99610 on a test scroll. Feedback is requested for ink‑detection
+      and segmentation workflows.
+    relevance: 3
+    links:
+    - https://github.com/silveremartin-dev/Volumen
+  - channel: robots
+    date: '2026-11-10'
+    title: Native AFV Fiber Continuity Evaluator and Pipeline Comparison
+    summary: A participant released a checker that validates papyrus fiber traces against hand‑labelled
+      data. On two pre‑registered cubes, the raw AFV output covered more labelled fibers, while the older
+      spline/gap tracer kept longer uninterrupted chains. An added DP adjustment step failed its improvement
+      test (primary gate –0.748% on s1) and was disabled. The tool preserves original IDs and is available
+      on GitHub.
+    relevance: 3
+    links:
+    - https://github.com/blucca/fiber-continuity/blob/ad52588003705a837d5b4b7bf6309541c2a411ec/research/whole-pipeline-spatial-validation.md
+    - https://github.com/blucca/fiber-continuity/blob/ad52588003705a837d5b4b7bf6309541c2a411ec/research/fixed-model-training-provenance.json
+    - https://github.com/blucca/fiber-continuity
+    - https://github.com/blucca/fiber-continuity/blob/74dc175bf85d8b3aa24d13ef1ca6be6622f4dc20/research/tracer-sheet-contact-probe.md
+  - channel: unrolling-vc3d
+    date: '2026-11-02'
+    title: Spiralfiteval label accuracy and vc_reader integration for vc3d
+    summary: A participant reported that spiralfiteval adds extra label points that are correct about
+      97 % of the time; only 3 % (7 of 261) were off by one winding when the label was 6.6–10 voxels from
+      the sheet. They requested additional grid data for further testing. Another contributor announced
+      PR #2440, which moves all tifxyz and zarr I/O to the new vc_reader backend—available with CPU and
+      CUDA, C ABI and Python bindings, and usable across languages. The VC3D MCP was also updated to support
+      the new object‑store and vcproj for agent‑driven segment loading.
+    relevance: 3
+    links: []
+  - channel: show-and-tell
+    date: '2026-10-12'
+    title: Find_patches and training data fixes for Herculaneum scrolls
+    summary: A participant updated the find_patches utility to accept input flags and return non‑zero
+      when no patches are found. A bug caused patch positions to fall outside the volume, with four of
+      six samples being pure padding. Documentation was corrected to match current loss functions. Additional
+      fixes removed a halo artifact, dropping phantom share from 63.9 % to 2.3 %, and prevented a loss
+      from exploding to ~1e12.
+    relevance: 3
+    links:
+    - https://github.com/ScrollPrize/villa/pull/1969
+    - https://github.com/ScrollPrize/villa/issues/1970
+    - https://github.com/ScrollPrize/villa/pull/2036
+  - channel: robots
+    date: '2026-09-26'
+    title: Pre‑registered SwitchBench benchmark and ink‑placebo validation
+    summary: A participant locked evaluation protocols with SHA‑256 hashes before any results. SwitchBench
+      v1.1 provides 213 human‑verified sheet switches from PHercParis4; detector recalls ranged from 12%
+      (tifxyz‑doctor) to 0% for other methods. An ink‑placebo check on 18 predictions reported no false
+      detections and achieved a Spearman rho of 0.857. All protocol texts will be released alongside the
+      results.
+    relevance: 3
+    links:
+    - https://github.com/lightsgoblack/scroll-audits
+    - https://github.com/lightsgoblack/ink-placebo-check
+  - channel: show-and-tell
+    date: '2026-07-06'
+    title: Streaming CT preview and browser ink labeling tool
+    summary: A participant released a pip‑installable tool that streams previews of Herculaneum scroll
+      CT volumes by selecting the coarsest pyramid level and reading tiles with backoff, avoiding 429
+      errors. A 1000‑pixel preview is produced in seconds, megabytes transferred; level 0 is 918 GB, level 3
+      is 1.8 GB. The tool also includes an ink labeler that fetches segment layers, lets users adjust
+      brightness/contrast and paint ink masks for training. It runs without redistributing data.
+    relevance: 3
+    links:
+    - https://github.com/vonduffen/scrollscout
+    - https://pypi.org/project/scrollscout
+  - channel: show-and-tell
+    date: '2026-11-22'
+    title: Web and Windows viewer for Herculaneum scrolls
+    summary: A participant released a mobile‑friendly website and a free Windows application that let
+      anyone zoom into high‑resolution scans of 2,000‑year‑old papyri and highlight ink, without installing
+      software or needing a powerful GPU. The tools build on existing Reader V3 and Windows fixes, aiming
+      to broaden public access to the scrolls.
+    relevance: 2
+    links:
+    - https://github.com/jamiejmann/vesuvius-cpu-reader/releases/tag/v1.0.0
+  - channel: show-and-tell
+    date: '2026-11-16'
+    title: Candidate Transform for Paris4 1B Registration Presented
+    summary: A participant reported a provisional 1B‑to‑1A transformation for the missing Paris4 1B registration,
+      including reproducible measurements and CT overlay visualizations. The result is posted on a public
+      repository and awaits visual inspection and comparison with a modern scan to confirm accuracy. The
+      author asked whether this issue still hinders ongoing work and which surface or region should be
+      prioritized for testing.
+    relevance: 2
+    links:
+    - https://github.com/mydd7/villa/tree/research/paris4-1b-registration/evidence/paris4-1b-registration
+- id: robots_and_hardware
+  label: Robots and hardware
+  items:
+  - channel: robots
+    date: '2026-10-02'
+    title: Depth ordering and fine‑tuning on 12 GB GPU for Herculaneum scrolls
+    summary: An open‑source repository includes a script that infers scroll depth order from tif‑xyz normals
+      and the scroll axis, correctly ordering six windings (three PHerc0841, three PHerc1447). A fine‑tuning
+      script runs the loo‑w062 recipe on a 12 GB GPU, reporting 0.972 accuracy on held‑out data. Zero‑shot
+      AUC on PHerc0841 is 0.807–0.837 versus 0.756–0.813 for ink_9um. Fine‑tuning on two windings changes
+      AUC by –0.015, +0.042, +0.024, with letter‑shape unchanged.
+    relevance: 2
+    links:
+    - https://github.com/Bullo27/v8in-12gb
+- id: community_and_competition
+  label: Community and competition
+  items:
+  - channel: robots
+    date: '2026-10-23'
+    title: Request for Independent CT Local-Band Reviewers
+    summary: A participant sought two reviewers with volumetric CT experience to evaluate papyrus layer
+      continuity in a feasibility pilot covering five development windows from the public Scroll 1 (PHercParis4)
+      dataset. Each window would be judged as same local band, separate, or unresolved, with original
+      labels hidden. Reviewers were asked to state availability and effort estimate; no compensation or
+      data were provided initially.
+    relevance: 2
+    links: []
+- id: other
+  label: Other
+  items:
+  - channel: robots
+    date: '2026-07-29'
+    title: Recency bias and acceptance test failures in model-driven workflow
+    summary: A participant described five AI model errors caught by human intuition about physical plausibility,
+      such as impossible fractional letters per line and unrealistic line spacing. Errors arose from overweighting
+      recent inputs, misreading statistical medians as measurements, and flawed acceptance tests. One
+      pre‑registered test exposed a design flaw; another test was vacuous until rewritten. The note stresses
+      the need for robust validation against real‑world constraints.
+    relevance: 2
+    links: []

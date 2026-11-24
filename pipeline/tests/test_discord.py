@@ -77,3 +77,72 @@ def test_run_writes_entry_and_state_and_is_idempotent(tmp_path, monkeypatch):
     D.run(now=now, get=lambda *a: [], ask=lambda: answer)  # nothing new: same week_end entry is replaced
     rows = yaml.safe_load((tmp_path / "h.yml").read_text())
     assert len(rows) == 1 and rows[0]["week_end"] == "2026-11-23"
+
+
+EXPORT = """# Vesuvius Challenge Discord – Export
+# #show-and-tell
+
+## Ink labels: one dataset
+Thread: https://discord.com/channels/1/2 (erstellt 2026-11-23 19:25)
+
+**alicehandle** · 2026-11-23 19:25
+Released labels, see https://huggingface.co/datasets/someone/ink-labels and https://cdn.discordapp.com/x.png thanks @bobhandle
+
+**bobhandle** · 2026-11-23 19:40
+great work alicehandle, repo https://github.com/org/tool and https://github.com/user-attachments/assets/1
+
+# #unrolling-vc3d (4 Nachrichten, chronologisch)
+
+### 2026-06-29
+
+**alicehandle** · 13:16 UTC
+fiber question
+
+### 2026-07-01
+
+**bobhandle** · 10:00 UTC
+reply
+"""
+
+
+def test_parse_export_threads_and_weeks():
+    items = D.parse_export(EXPORT)
+    # 29 June and 1 July fall into the same ISO week, so they form one item
+    assert [i["channel"] for i in items] == ["show-and-tell", "unrolling-vc3d"]
+    assert items[0]["title"] == "Ink labels: one dataset" and items[0]["period"] == "2026-11-23"
+    assert "Thread:" not in items[0]["body"]
+    assert items[1]["title"] == "Week 2026-W27" and "reply" in items[1]["body"] and "fiber question" in items[1]["body"]
+
+
+def test_anonymise_replaces_authors_and_mentions():
+    names = D.author_names(EXPORT)
+    out = D.anonymise(D.parse_export(EXPORT)[0]["body"], names)
+    assert "alicehandle" not in out and "bobhandle" not in out
+    assert "**P1**" in out and "**P2**" in out
+
+
+def test_repo_links_keep_code_and_data_only():
+    body = D.parse_export(EXPORT)[0]["body"]
+    assert D.repo_links(body) == ["https://huggingface.co/datasets/someone/ink-labels", "https://github.com/org/tool"]
+
+
+def test_snapshot_selects_by_relevance_and_scrubs_names():
+    items = D.parse_export(EXPORT)
+    names = D.author_names(EXPORT)
+
+    def ask(system, user):
+        rel = 3 if "Ink labels" in user else 0
+        return json.dumps({"title": "Ink label dataset", "summary": "alicehandle released a merged ink dataset.",
+                           "topic": "ink_detection", "relevance": rel})
+
+    snap = D.build_snapshot(items, names, ask, workers=1)
+    assert snap["n_discussions"] == 2 and snap["n_selected"] == 1
+    item = snap["topics"][0]["items"][0]
+    assert item["summary"] == "a participant released a merged ink dataset."
+    assert item["links"][0].startswith("https://huggingface.co/")
+
+
+def test_long_week_is_split():
+    body = "\n\n".join(f"**a** · 10:{i:02d} UTC\n" + "x" * 3000 for i in range(10))
+    parts = D._chunks(body, size=14000)
+    assert len(parts) >= 3 and all(len(p) <= 14000 + 3100 for p in parts)
