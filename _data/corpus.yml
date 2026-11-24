@@ -332,6 +332,29 @@
   outputs: restored text or joins
   abstract_only: false
   doi: null
+- id: doi:10.26434/chemrxiv-2025-x4zvc
+  year: 2025
+  title: Synchrotron X-ray Mapping of Xenon Sorption in Carbon Ink on Papyrus
+  authors: Hannes Hoffmann; Tobias Arlt; André Hilger; Dirk Wallacher; Ingo Manke
+  venue: ChemRxiv
+  object: synthetic or phantom
+  object_name: mock-up sample of carbon ink on papyrus
+  task: ink detection or hidden text imaging
+  outputs: spectral or chemical maps
+  abstract_only: false
+  doi: 10.26434/chemrxiv-2025-x4zvc
+- id: doi:10.3406/crai.2015.95499
+  year: 2015
+  title: Premières expérimentations au synchrotron européen de Grenoble (ESRF) sur
+    les papyrus d’Herculanum de Paris
+  authors: Daniel Delattre
+  venue: Comptes-rendus des séances de l année - Académie des inscriptions et belles-lettres
+  object: null
+  object_name: null
+  task: null
+  outputs: ''
+  abstract_only: false
+  doi: 10.3406/crai.2015.95499
 - id: doi:10.1017/s0261340900019317
   year: 1812
   title: XXII. <i>Some Account of the Egyptian Papyrus, and the Mode adopted for unfolding
@@ -396,15 +419,27 @@
   outputs: character detections, glyph or hand classification, other
   abstract_only: false
   doi: 10.18653/v1/2024.ml4al-1.18
+- id: doi:10.1145/3460961
+  year: 2021
+  title: Machine Learning Based Assembly of Fragments of Ancient Papyrus
+  authors: Roy Abitbol; Ilan Shimshoni; Jonathan Ben-Dov
+  venue: Journal on Computing and Cultural Heritage
+  object: null
+  object_name: null
+  task: null
+  outputs: ''
+  abstract_only: false
+  doi: 10.1145/3460961
 - id: doi:10.62343/cjss.2025.261
   year: 2025
   title: Computational Platforms for Deciphering Ancient Greek Papyrus Fragments
   authors: Tinatin Mshvidobadze
   venue: Caucasus Journal of Social Sciences
-  object: null
-  object_name: null
-  task: null
-  outputs: ''
+  object: carbonized rolled scroll
+  object_name: PHerc.1103, PHerc.110, and 54 Oxyrhynchus fragments
+  task: unwrapping or flattening
+  outputs: segmented surfaces, flattened images, character detections, transcribed
+    text
   abstract_only: false
   doi: 10.62343/cjss.2025.261
 - id: doi:10.1163/22129758-12341251
@@ -492,6 +527,18 @@
   outputs: character detections, transcribed text
   abstract_only: false
   doi: 10.1515/9783111070162-018
+- id: doi:10.1109/iccit60459.2023.10441240
+  year: 2023
+  title: Ink Detection from Carbonized Herculaneum Papyri using Deep Learning
+  authors: Farzana Sharmin Mou; Tanvir Ahmed
+  venue: 2023 26th International Conference on Computer and Information Technology
+    (ICCIT)
+  object: opened or fragmentary papyrus
+  object_name: Herculaneum papyri fragments
+  task: ink detection or hidden text imaging
+  outputs: ink masks
+  abstract_only: false
+  doi: 10.1109/iccit60459.2023.10441240
 - id: doi:10.1073/pnas.1519958113
   year: 2016
   title: Revealing metallic ink in Herculaneum papyri
@@ -519,6 +566,19 @@
   outputs: spectral or chemical maps
   abstract_only: false
   doi: 10.1038/s41598-023-33242-8
+- id: doi:10.1016/j.daach.2026.e00516
+  year: 2026
+  title: Near-infrared focus-stacking photogrammetry for surface morphology analysis
+    and text recovery in Herculaneum papyri
+  authors: Danilo Paolo Pavone; Sofia Ceccarelli; Chiara Florise Amadei; Bruno Fanini;
+    Costanza Miliani; Graziano Ranocchia
+  venue: Digital Applications in Archaeology and Cultural Heritage
+  object: opened or fragmentary papyrus
+  object_name: PHerc. 1691/1021 (cornice 2); PHerc. 560 (cornice 4)
+  task: null
+  outputs: flattened images, other, segmented surfaces
+  abstract_only: false
+  doi: 10.1016/j.daach.2026.e00516
 - id: doi:10.21203/rs.3.rs-2272076/v1
   year: 2022
   title: Dating Greek Papyri Images with Machine Learning
@@ -530,6 +590,18 @@
   outputs: ''
   abstract_only: false
   doi: 10.21203/rs.3.rs-2272076/v1
+- id: doi:10.1145/3727263
+  year: 2025
+  title: A Deep Transfer Learning Approach for Writer Identification in Greek Papyri
+  authors: T. D’Alessandro; N. D. Cilia; C. De Stefano; F. Fontanella; M. Molinara;
+    A. Scotto di Freca; I. Marthot-Santaniello
+  venue: Journal on Computing and Cultural Heritage
+  object: opened or fragmentary papyrus
+  object_name: GRK-Papyri / PapyRow dataset
+  task: writer or script analysis
+  outputs: glyph or hand classification
+  abstract_only: false
+  doi: 10.1145/3727263
 - id: doi:10.1007/s10994-024-06589-w
   year: 2024
   title: Explainable dating of greek papyri images
@@ -542,16 +614,28 @@
   outputs: dataset or benchmark, other
   abstract_only: false
   doi: 10.1007/s10994-024-06589-w
+- id: doi:10.1109/icdar.2019.00121
+  year: 2019
+  title: 'GRK-Papyri: A Dataset of Greek Handwriting on Papyri for the Task of Writer
+    Identification'
+  authors: Hussein Mohammed; Isabelle Marthot-Santaniello; Volker Margner
+  venue: 2019 International Conference on Document Analysis and Recognition (ICDAR)
+  object: opened or fragmentary papyrus
+  object_name: GRK-Papyri
+  task: writer or script analysis
+  outputs: dataset or benchmark, glyph or hand classification
+  abstract_only: false
+  doi: 10.1109/icdar.2019.00121
 - id: doi:10.1515/9783111070162-020
   year: 2024
   title: Writer Identification from Handwriting on Greek Papyri
   authors: Nicole Dalia Cilia; Tiziana D’Alessandro; Claudio De Stefano; Francesco
     Fontanella
   venue: Digital Papyrology III
-  object: null
-  object_name: null
-  task: null
-  outputs: ''
+  object: opened or fragmentary papyrus
+  object_name: GRK-Papyri / Dioscorus of Aphrodito papyri
+  task: writer or script analysis
+  outputs: glyph or hand classification
   abstract_only: false
   doi: 10.1515/9783111070162-020
 - id: doi:10.1163/27732363-bja00012
@@ -566,6 +650,18 @@
   outputs: glyph or hand classification, dataset or benchmark
   abstract_only: false
   doi: 10.1163/27732363-bja00012
+- id: doi:10.1109/fit60620.2023.00016
+  year: 2023
+  title: Learning Structural Similarities from Handwriting on Papyri - An Application
+    to Scribe Characterization
+  authors: Hassan Sajjad; Imran Siddiqi; Momina Moetesum; Isabelle Marthot-Santaniello
+  venue: 2023 International Conference on Frontiers of Information Technology (FIT)
+  object: opened or fragmentary papyrus
+  object_name: GRK-Papyri/PapyriRow
+  task: writer or script analysis
+  outputs: glyph or hand classification
+  abstract_only: false
+  doi: 10.1109/fit60620.2023.00016
 - id: doi:10.1163/15685179-bja10044
   year: 2023
   title: The Qumran Opisthographic Papyri as a Scribal Cluster of Manuscripts
@@ -623,10 +719,10 @@
     John F. Wallin
   venue: Proceedings of the Thirty-First International Joint Conference on Artificial
     Intelligence
-  object: null
-  object_name: null
-  task: null
-  outputs: ''
+  object: other historical document
+  object_name: AL-ALL/AL-PUB/AL-SYNTH datasets
+  task: character or text recognition
+  outputs: dataset or benchmark
   abstract_only: false
   doi: 10.24963/ijcai.2022/689
 - id: doi:10.1080/14786441808637545
@@ -680,6 +776,20 @@
   outputs: flattened images
   abstract_only: false
   doi: 10.1126/sciadv.1601247
+- id: doi:10.1109/igarss.2000.859615
+  year: 2002
+  title: 'Multispectral document enhancement: ancient carbonized scrolls'
+  authors: G.A. Ware; D.M. Chabries; R.W. Christiansen; C.E. Martin
+  venue: 'IGARSS 2000. IEEE 2000 International Geoscience and Remote Sensing Symposium.
+    Taking the Pulse of the Planet: The Role of Remote Sensing in Managing the Environment.
+    Proceedings (Cat. No.00CH37120)'
+  object: carbonized rolled scroll
+  object_name: 'Herculaneum papyri (e.g. #1050) and Petra scrolls (e.g. Plate 316
+    Roll 10)'
+  task: ink detection or hidden text imaging
+  outputs: ink masks
+  abstract_only: false
+  doi: 10.1109/igarss.2000.859615
 - id: doi:10.15200/winn.147454.45060
   year: 2016
   title: 'Science AMA Series: We are Brent, Michael, and Seth and yesterday we published
@@ -727,12 +837,34 @@
   authors: Paul L. Rosin; Yu-Kun Lai; Chang Liu; Graham R. Davis; David Mills; Gary
     Tuson; Yuki Russell
   venue: Scientific Reports
-  object: null
-  object_name: null
-  task: null
-  outputs: ''
+  object: other historical document
+  object_name: Bressingham scroll; Diss Heywood burnt scroll
+  task: unwrapping or flattening
+  outputs: edition or interpretation, flattened images, segmented surfaces
   abstract_only: false
   doi: 10.1038/s41598-018-29037-x
+- id: doi:10.5244/c.25.37
+  year: 2011
+  title: Segmentation of Parchment Scrolls for Virtual Unrolling
+  authors: Oksana Samko; Yu-Kun Lai; David Marshall; Paul Rosin
+  venue: Procedings of the British Machine Vision Conference 2011
+  object: other historical document
+  object_name: null
+  task: unwrapping or flattening
+  outputs: segmented surfaces
+  abstract_only: false
+  doi: 10.5244/c.25.37
+- id: doi:10.1109/digitalheritage.2015.7413826
+  year: 2015
+  title: Robust segmentation of historical parchment XMT images for virtual unrolling
+  authors: Chang Liu; Paul L. Rosin; Yu-Kun Lai; Weiduo Hu
+  venue: 2015 Digital Heritage
+  object: other historical document
+  object_name: Bressingham scroll
+  task: unwrapping or flattening
+  outputs: flattened images, segmented surfaces
+  abstract_only: false
+  doi: 10.1109/digitalheritage.2015.7413826
 - id: doi:10.1109/tip.2017.2783626
   year: 2018
   title: Robust Virtual Unrolling of Historical Parchment XMT Images
@@ -751,10 +883,22 @@
   venue: Proceedings of International Symposium on Grids &amp; Clouds 2021 — PoS(ISGC2021)
   object: null
   object_name: null
-  task: null
-  outputs: ''
+  task: ink detection or hidden text imaging
+  outputs: flattened images, ink masks
   abstract_only: false
   doi: 10.22323/1.378.0015
+- id: doi:10.1109/eusipco.2015.7362908
+  year: 2015
+  title: Virtual unrolling using X-ray computed tomography
+  authors: D. Allegra; E. Ciliberto; P. Ciliberto; F. L. M. Milotta; G. Petrillo;
+    F. Stanco; C. Trombato
+  venue: 2015 23rd European Signal Processing Conference (EUSIPCO)
+  object: synthetic or phantom
+  object_name: realistic papyrus model with hieroglyph inscription of Thutmosis III
+  task: unwrapping or flattening
+  outputs: flattened images
+  abstract_only: false
+  doi: 10.1109/eusipco.2015.7362908
 - id: doi:10.1515/apf-2014-0106
   year: 2014
   title: Xenophanes in the Herculaneum Papyri. Praesocratica Herculanensia IV
@@ -839,6 +983,20 @@
   outputs: transcribed text, edition or interpretation
   abstract_only: false
   doi: 10.1163/1568525x-12342568
+- id: doi:10.1117/12.3066663
+  year: 2025
+  title: 'Infrared imaging techniques for the readability enhancement of Herculaneum
+    papyri: a comparison between technical photography and high-resolution digital
+    microscopy'
+  authors: Sofia Ceccarelli; Danilo Paolo Pavone; Irene Gasperini; Ilaria A. Serra;
+    Graziano Ranocchia; Costanza Miliani
+  venue: Optics for Arts, Architecture, and Archaeology (O3A) X
+  object: opened or fragmentary papyrus
+  object_name: PHerc. 1018, PHerc. 1032 fragments
+  task: ink detection or hidden text imaging
+  outputs: edition or interpretation
+  abstract_only: false
+  doi: 10.1117/12.3066663
 - id: doi:10.1017/s0261340900018269
   year: 1806
   title: IX. <i>Account of the ancient Rolls of</i> Papyrus, <i>discovered at</i>
@@ -982,10 +1140,10 @@
     E LO SVOLGIMENTO VIRTUALE DEI ROTOLI DELLA VILLA DEI PAPIRI'
   authors: GIANLUCA DEL MASTRO; Federica Nicolardi
   venue: ATENE E ROMA
-  object: null
-  object_name: null
-  task: null
-  outputs: ''
+  object: carbonized rolled scroll
+  object_name: PHercParis 4
+  task: unwrapping or flattening
+  outputs: flattened images, ink masks, segmented surfaces, transcribed text
   abstract_only: false
   doi: 10.7347/ar-2023-p100
 - id: openalex:W7198863519
@@ -1011,6 +1169,18 @@
   outputs: restored text or joins
   abstract_only: false
   doi: 10.1093/llc/fqaf131
+- id: openalex:W3004093053
+  year: 2010
+  title: 'Exploring the Limitations and Advantages of Multi-Spectral Imagingin Papyrology:
+    darkened, carbonized, and palimpsest papyri'
+  authors: Roger T. Macfarlane; Thomas A. Wayment; Stephen M. Bay; Gregory H. Bearman
+  venue: ScholarsArchive  (Brigham Young University)
+  object: opened or fragmentary papyrus
+  object_name: null
+  task: ink detection or hidden text imaging
+  outputs: ''
+  abstract_only: false
+  doi: null
 - id: openalex:W3108459196
   year: 2007
   title: Toward the Electronic Publication of the Herculaneum Papyri
@@ -1071,6 +1241,32 @@
   outputs: flattened images, segmented surfaces
   abstract_only: false
   doi: 10.1007/s00339-017-0808-6
+- id: doi:10.1016/j.saa.2024.125103
+  year: 2024
+  title: Classification of papyrus fragments by chemometric analysis of near-infrared
+    spectra
+  authors: Florian Bausch; Hajar Khaliliyan; Otgontuul Tsetsgee; Dickson D. Owusu;
+    Stefan Böhmdorfer; Thomas Rosenau; Antje Potthast
+  venue: Spectrochimica Acta Part A Molecular and Biomolecular Spectroscopy
+  object: opened or fragmentary papyrus
+  object_name: Papyrus fragments (ancient, commercial, native)
+  task: null
+  outputs: other
+  abstract_only: false
+  doi: 10.1016/j.saa.2024.125103
+- id: doi:10.1109/bigdata.2014.7004460
+  year: 2014
+  title: A computational pipeline for crowdsourced transcriptions of Ancient Greek
+    papyrus fragments
+  authors: Alex C. Williams; John F. Wallin; Haoyu Yu; Marco Perale; Hyrum D. Carroll;
+    Anne-Francoise Lamblin; L. Fortson; Dirk Obbink; Chris J. Lintott; James H. Brusuelas
+  venue: IEEE International Conference on Big Data (BigData)
+  object: opened or fragmentary papyrus
+  object_name: Oxyrhynchus papyrus fragments
+  task: character or text recognition
+  outputs: character detections, transcribed text
+  abstract_only: false
+  doi: 10.1109/bigdata.2014.7004460
 - id: doi:10.1021/acsomega.6c10455
   year: 2026
   title: Scientific Insights into the Illegible and Discolored Red and Green Inks
@@ -1145,10 +1341,10 @@
   title: Two Unrecognised Ptolemaic Papyri
   authors: E. G. Turner
   venue: The Journal of Hellenic Studies
-  object: null
-  object_name: null
-  task: null
-  outputs: ''
+  object: opened or fragmentary papyrus
+  object_name: Euripides Orestes musical fragment and P. Hamb. 163 (Thucydides)
+  task: writer or script analysis
+  outputs: edition or interpretation
   abstract_only: false
   doi: 10.2307/629556
 - id: doi:10.1353/mns.2021.0000
@@ -1186,6 +1382,31 @@
   outputs: spectral or chemical maps
   abstract_only: false
   doi: 10.1007/s12520-021-01320-5
+- id: doi:10.1145/3848130
+  year: 2026
+  title: 'Graphic Compensation in Ancient Greek Documentary Hands: A Computational
+    Paleographic Analysis from Handwritten Character Recognition'
+  authors: Paraskevi Platanou; Lavinia Ferretti; Isabelle Marthot-Santaniello; Giuseppe
+    De Gregorio; Spyros Barbakos; Maria Konstantinidou; Asimina Paparrigopoulou; John
+    Pavlopoulos
+  venue: Journal on Computing and Cultural Heritage
+  object: opened or fragmentary papyrus
+  object_name: Hell-Char (subset of Hell-Date Hellenistic papyri)
+  task: character or text recognition
+  outputs: glyph or hand classification, other
+  abstract_only: false
+  doi: 10.1145/3848130
+- id: doi:10.1145/3604951.3605522
+  year: 2023
+  title: 'PapyTwin net: a Twin network for Greek letters detection on ancient Papyri'
+  authors: Manh Tu Vu; Marie Beurton‐Aimar
+  venue: International Workshop on Historical Document Imaging and Processing (HIP)
+  object: opened or fragmentary papyrus
+  object_name: null
+  task: character or text recognition
+  outputs: character detections
+  abstract_only: false
+  doi: 10.1145/3604951.3605522
 - id: doi:10.2312/gch.20261071
   year: 2026
   title: Human-Centric AI for Papyrus Fragment Reassembly
@@ -1210,6 +1431,31 @@
   outputs: edition or interpretation, other, transcribed text
   abstract_only: false
   doi: null
+- id: doi:10.1145/3847117
+  year: 2026
+  title: 'JoinPap V2: a Human-Centric AI Approach for Papyrus Fragment Reassembly'
+  authors: Nicola Messina; Giulia Mirante; Valentina Iannace; Fabio Carrara; Massimiliano
+    Corsini; Paolo Cignoni; Fabrizio Falchi; Francesca Maltomini
+  venue: Journal on Computing and Cultural Heritage
+  object: opened or fragmentary papyrus
+  object_name: Tebtunis papyrus fragments (PSI inv. D 152 + P.Carlsb. inv. 100 + addenda;
+    PSI inv. D 91 + P.Carlsb. inv. 600)
+  task: text restoration or fragment assembly
+  outputs: restored text or joins
+  abstract_only: false
+  doi: 10.1145/3847117
+- id: doi:10.11588/dco.2016.2.32388
+  year: 2016
+  title: Das Papyrus und Ostraka Projekt Halle-Jena-Leipzig
+  authors: Nadine Quenouille; Sebastian Blaschek
+  venue: Digital Classics Online
+  object: opened or fragmentary papyrus
+  object_name: Papyrus- und Ostrakasammlungen der Universitäten Halle, Jena und Leipzig
+  task: acquisition or imaging
+  outputs: dataset or benchmark, edition or interpretation, flattened images, restored
+    text or joins
+  abstract_only: false
+  doi: 10.11588/dco.2016.2.32388
 - id: doi:10.1515/9783111070162-019
   year: 2024
   title: Digital Palaeography of Iliad Papyri, D-scribes Project and the Research
@@ -1233,6 +1479,30 @@
   outputs: other, spectral or chemical maps
   abstract_only: false
   doi: 10.1163/22129758-12341236
+- id: doi:10.1109/wacvw65960.2025.00143
+  year: 2025
+  title: Improving the Identification of Layers in 3D Images of Ancient Papyrus Using
+    Artificial Neural Networks
+  authors: Nicolas Klenert; Finn Schwoerer; Noushin Hajarolasvadi; Siloé Bournez;
+    Tobias Arlt; H.‐E. Mahnke; Verena Lepper; Daniel Baum
+  venue: IEEE/CVF Winter Conference on Applications of Computer Vision Workshops (WACVW)
+  object: opened or fragmentary papyrus
+  object_name: Folded papyrus packages from Elephantine (Musée du Louvre)
+  task: unwrapping or flattening
+  outputs: segmented surfaces, flattened images
+  abstract_only: false
+  doi: 10.1109/wacvw65960.2025.00143
+- id: doi:10.1177/0307513319856861
+  year: 2018
+  title: Evidence of an Ancient Archive? The Papyrus British Museum EA 9961
+  authors: Marie Vandenbeusch
+  venue: The Journal of Egyptian Archaeology
+  object: opened or fragmentary papyrus
+  object_name: Papyrus British Museum EA 9961
+  task: ink detection or hidden text imaging
+  outputs: ink masks
+  abstract_only: false
+  doi: 10.1177/0307513319856861
 - id: doi:10.1515/apf-2023-0006
   year: 2023
   title: 'P.Cair.Zen. IV 59538: An Autograph Letter by Amyntas (With a Study on Amyntas’
@@ -1252,12 +1522,24 @@
     of Apa Apollo at Bawit'
   authors: Tea Ghigo; María Jesús Albarrán Martínez
   venue: Heritage Science
-  object: null
-  object_name: null
-  task: null
-  outputs: ''
+  object: opened or fragmentary papyrus
+  object_name: Coptic manuscripts from Bawit (Palau-Ribes and Roca-Puig collections)
+  task: ink detection or hidden text imaging
+  outputs: spectral or chemical maps
   abstract_only: false
   doi: 10.1186/s40494-021-00541-0
+- id: doi:10.3764/aja.125.1.0065
+  year: 2020
+  title: 'Excavating and Conserving Europe''s Oldest Books: A Papyrus from Mangalia
+    on the Black Sea (P. Callatis 1)'
+  authors: Richard Janko; Sorin Marcel Colesniuc; Mihai Ionescu; Ion Pâslaru
+  venue: American Journal of Archaeology
+  object: opened or fragmentary papyrus
+  object_name: P. Callatis 1
+  task: ink detection or hidden text imaging
+  outputs: ink masks
+  abstract_only: false
+  doi: 10.3764/aja.125.1.0065
 - id: doi:10.21014/10.21014/tc4-arc-2023.157
   year: 2023
   title: 'Scribes and Writing Practices in Egypt\''s Ala Veterana Gallica: A Preliminary
@@ -1342,6 +1624,19 @@
   outputs: edition or interpretation, spectral or chemical maps
   abstract_only: false
   doi: 10.1163/1568525x-12342734
+- id: doi:10.21608/ejars.2025.434900
+  year: 2025
+  title: ANALYTICAL AND CONSERVATION TECHNIQUES FOR THE BOOK OF THE DEAD FROM THE
+    PTOLEMAIC PERIOD
+  authors: Ahmed Tarek; Omar Abdel‐Kareem; Youssef, A.; Gomaa Abdel‐Maksoud
+  venue: 'Egyptian Journal of Archaeological and Restoration Studies/Egyptian Journal
+    of Archaeological and Restoration Studies '
+  object: opened or fragmentary papyrus
+  object_name: 'Book of the Dead (GEM: 15146/1-35)'
+  task: null
+  outputs: other, restored text or joins, spectral or chemical maps
+  abstract_only: false
+  doi: 10.21608/ejars.2025.434900
 - id: doi:10.1515/apf-2021-0026
   year: 2021
   title: Tuschenanalyse im P 11702
@@ -1364,6 +1659,19 @@
   outputs: transcribed text, edition or interpretation, restored text or joins
   abstract_only: false
   doi: null
+- id: doi:10.2352/issn.2168-3204.2018.1.0.34
+  year: 2018
+  title: Integrating Optical Imaging of Mummy Mask Cartonnage
+  authors: M.B. Toth; R.B. Toth; Cynthia Ann Toth; William A. Christens‐Barry; Sina
+    Farsiu; G. Li; Adam P. Gibson; Melissa Terras
+  venue: Archiving Conference
+  object: other historical document
+  object_name: Mummy mask cartonnage (Petrie Museum; Duke P.Duk.inv 716, P.Duk.inv
+    588(b))
+  task: ink detection or hidden text imaging
+  outputs: dataset or benchmark, ink masks, spectral or chemical maps
+  abstract_only: false
+  doi: 10.2352/issn.2168-3204.2018.1.0.34
 - id: doi:10.2312/gch.20261078
   year: 2026
   title: 'Ancient Hands, Modern Errors: Computational Analysis of Graphic Compensation
@@ -1450,6 +1758,17 @@
   outputs: edition or interpretation, restored text or joins
   abstract_only: false
   doi: 10.7347/ar-2024-p131
+- id: doi:10.1109/icsee.2018.8646241
+  year: 2018
+  title: Matching and Searching the Dead Sea Scrolls
+  authors: Taivanbat Badamdorj; Adiel Ben-Shalom; Nachum Dershowitz
+  venue: IEEE Convention of Electrical and Electronics Engineers in Israel
+  object: opened or fragmentary papyrus
+  object_name: Dead Sea Scrolls fragments
+  task: other
+  outputs: segmented surfaces
+  abstract_only: false
+  doi: 10.1109/icsee.2018.8646241
 - id: doi:10.1163/15685365-12341605
   year: 2018
   title: P. Duke Inv. 1377 (𝔓136)
@@ -1523,6 +1842,17 @@
   outputs: other
   abstract_only: false
   doi: 10.2352/cic.1995.3.1.art00050
+- id: doi:10.1109/iccv.2005.182
+  year: 2005
+  title: 'Opaque document imaging: building images of inaccessible texts'
+  authors: Yun Lin; W. Brent Seales
+  venue: IEEE/CVF International Conference on Computer Vision (ICCV)
+  object: synthetic or phantom
+  object_name: rolled papyrus sample; papyrus Mobius band sample
+  task: unwrapping or flattening
+  outputs: segmented surfaces, flattened images
+  abstract_only: false
+  doi: 10.1109/iccv.2005.182
 - id: doi:10.25162/hermes-2015-0006
   year: 2015
   title: On the supposed Monism of Thales in PHerc. 1788 (= VH2 VIII 60, Fr. 6) Praesocratica
@@ -1582,6 +1912,30 @@
   outputs: edition or interpretation, glyph or hand classification
   abstract_only: false
   doi: 10.19272/201900201007
+- id: doi:10.1134/s102745102202029x
+  year: 2021
+  title: Revealing Hidden Fragments of Handwritten Text on Birch Bark Rolled into
+    a Scroll by X-Ray Microtomography at the Kurchatov Synchrotron Source
+  authors: E. S. Kovalenko; К. М. Подурец; Е. А. Созонтов
+  venue: Journal of Surface Investigation X-ray Synchrotron and Neutron Techniques
+  object: other historical document
+  object_name: model birch-bark scroll with word 'CRYSTAL'
+  task: ink detection or hidden text imaging
+  outputs: flattened images, other, segmented surfaces
+  abstract_only: false
+  doi: 10.1134/s102745102202029x
+- id: doi:10.17613/65kr8-3ek65
+  year: 2022
+  title: 'New technologies for tracing magical texts and drawings: Experience with
+    automatic binarization algorithms'
+  authors: Raquel Martín Hernández; Arie Shaus
+  venue: null
+  object: other historical document
+  object_name: null
+  task: ink detection or hidden text imaging
+  outputs: ink masks
+  abstract_only: false
+  doi: 10.17613/65kr8-3ek65
 - id: doi:10.1016/j.daach.2021.e00186
   year: 2021
   title: 'Revisiting the Jerash Silver Scroll: A new visual data analysis approach'

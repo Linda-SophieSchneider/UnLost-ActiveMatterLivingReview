@@ -179,3 +179,4 @@ high / moderate / low, based on the number of independent objects, groups and da
 | Date | Change | Reason |
 |---|---|---|
 | 2026-11-23 | Protocol rewritten for UnLost (scope, search, prompts, data items); procedures of the Active Matter Living Review kept | New review in a forked pipeline; nothing screened yet |
+| 2026-11-24 | §6: records for which no full text could be obtained (tiers 1 and 2 plus the author's own downloads) are not assessed on the abstract; all 182 are reported as "reports not retrieved". An abstract-based panel pass (128 records with abstract, 96 positive) was run for planning only; its votes are kept apart in `data/screening/full_text-votes-abstract-pass.jsonl` and have no effect on inclusion | Author decision: the missing reports were either not obtainable or not relevant; supersedes the abstract-only rule of the Active Matter Living Review protocol |

@@ -1,4 +1,13 @@
 # Append-only; newest first. Rendered by _pages/changelog.md.
+- date: "2026-11-24"
+  title: "First review cycle: search, screening and extraction"
+  summary: >-
+    2,993 records from six databases, 2,175 after deduplication; 359 passed title/abstract screening
+    (panel calibrated on 27 seed papers). Full texts were obtained for 177; 160 studies were
+    included and extracted, 15 excluded, 2 still await a decision. The other 182 reports could not
+    be retrieved. The author's validation on /check/ is still open.
+  added: "160 included studies"
+  removed: "nothing"
 - date: "2026-11-23"
   title: "Repository set up for the UnLost literature review"
   summary: >-

@@ -15,26 +15,26 @@ awaiting_screening: 1
 screened: 2174
 excluded_screening: 1815
 sought: 359
-not_retrieved: 0
+not_retrieved: 182
 assessed_on_abstract_only: 0
 abstract_only_included: 0
-assessed: 148
-excluded_eligibility: 14
-excluded_full_text: 14
+assessed: 177
+excluded_eligibility: 15
+excluded_full_text: 15
 excluded_abstract_only: 0
-included_full_text: 131
-awaiting_decision: 3
-awaiting_retrieval: 211
+included_full_text: 160
+awaiting_decision: 2
+awaiting_retrieval: 0
 excluded_eligibility_reasons:
-  E1: 4
+  E1: 5
   E2: 3
   E4: 1
   E5: 6
 excluded_full_text_reasons:
-  E1: 4
+  E1: 5
   E2: 3
   E4: 1
   E5: 6
 excluded_abstract_only_reasons: {}
-included_studies: 131
-included_reports: 131
+included_studies: 160
+included_reports: 160
