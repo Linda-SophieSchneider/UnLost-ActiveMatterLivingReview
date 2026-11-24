@@ -139,10 +139,35 @@ def test_snapshot_selects_by_relevance_and_scrubs_names():
     assert snap["n_discussions"] == 2 and snap["n_selected"] == 1
     item = snap["topics"][0]["items"][0]
     assert item["summary"] == "a participant released a merged ink dataset."
-    assert item["links"][0].startswith("https://huggingface.co/")
+    assert item["links"][0]["url"].startswith("https://huggingface.co/")
+    assert item["links"][0]["label"] == "huggingface.co/datasets/someone/ink-labels"
+    assert item["discord"] == "https://discord.com/channels/1/2"
+    # the link directory also lists discussions below the highlight threshold, with all their links
+    assert snap["n_links"] == 2 and snap["directory"][0]["items"][0]["links"][1]["label"] == "github.com/org/tool"
+
+
+def test_unsummarisable_discussion_stays_in_link_directory():
+    items = D.parse_export(EXPORT)
+    snap = D.build_snapshot(items, D.author_names(EXPORT), lambda system, user: "not json", workers=1)
+    assert snap["n_selected"] == 0 and snap["n_summarised"] == 0
+    assert snap["directory"][0]["id"] == "other" and snap["n_links"] == 2
 
 
 def test_long_week_is_split():
     body = "\n\n".join(f"**a** · 10:{i:02d} UTC\n" + "x" * 3000 for i in range(10))
     parts = D._chunks(body, size=14000)
     assert len(parts) >= 3 and all(len(p) <= 14000 + 3100 for p in parts)
+
+
+def test_link_labels():
+    assert D.link_label("https://github.com/org/repo/tree/main/x") == "github.com/org/repo"
+    assert D.link_label("https://arxiv.org/abs/2606.29085") == "arXiv:2606.29085"
+    assert D.link_label("https://doi.org/10.1/abc") == "doi:10.1/abc"
+    assert D.link_label("https://huggingface.co/scrollprize/dinovol") == "huggingface.co/scrollprize/dinovol"
+    assert D.link_label("https://dl.ash2txt.org/community-uploads/will/x.zip") == "dl.ash2txt.org/community-uploads/will"
+
+
+def test_channel_without_threads_links_to_the_channel(monkeypatch):
+    monkeypatch.setitem(D.CHANNEL_LINKS, "unrolling-vc3d", "https://discord.com/channels/1/9")
+    items = D.parse_export(EXPORT)
+    assert items[0]["url"] == "https://discord.com/channels/1/2" and items[1]["url"] == "https://discord.com/channels/1/9"

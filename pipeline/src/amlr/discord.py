@@ -172,6 +172,8 @@ def run(since_days: int = 7, dry_run: bool = False, now: datetime | None = None,
 
 SNAPSHOT_PROMPT = REPO_ROOT / "protocol" / "discord_snapshot_prompt.md"
 SNAPSHOT_OUT = REPO_ROOT / "_data" / "discord_snapshot.yml"
+# Channels without threads (a continuous text channel): entries link to the channel itself.
+CHANNEL_LINKS = {"unrolling-vc3d": "https://discord.com/channels/1079907749569237093/1243576621722767412"}
 TOPICS = {
     "unwrapping_surfaces": "Unwrapping and surface tracing",
     "ink_detection": "Ink detection",
@@ -226,6 +228,8 @@ def parse_export(text: str) -> list[dict]:
     close()
     out = []
     for i in items:
+        m = re.search(r"^Thread: (https://discord\.com/channels/\S+)", i["body"], flags=re.M)
+        i["url"] = m.group(1) if m else CHANNEL_LINKS.get(i["channel"])
         i["body"] = re.sub(r"^Thread: \S+.*\n?", "", i["body"], flags=re.M).strip()
         if not i["body"]:
             continue
@@ -289,6 +293,27 @@ def anonymise(body: str, names: set[str]) -> str:
     return re.sub(r"\ba participant(?: a participant)+", "a participant", body)
 
 
+def link_label(url: str) -> str:
+    """Short, readable label: github.com/org/repo, huggingface.co/org/name, arXiv:id, doi:..."""
+
+    u = re.sub(r"^https?://(?:www\.)?", "", url).split("#")[0].split("?")[0].rstrip("/")
+    host, _, path = u.partition("/")
+    if host == "arxiv.org":
+        return "arXiv:" + path.split("/")[-1]
+    if host == "doi.org":
+        return "doi:" + path
+    parts = path.split("/")
+    if host in ("github.com", "gitlab.com"):
+        return "/".join([host] + parts[:2])
+    if host == "huggingface.co":
+        return "/".join([host] + (parts[:3] if parts and parts[0] in ("datasets", "spaces") else parts[:2]))
+    return host + ("/" + "/".join(parts[:2]) if path else "")
+
+
+def labelled(urls: list[str]) -> list[dict]:
+    return [{"url": u, "label": link_label(u)} for u in urls]
+
+
 def repo_links(body: str, limit: int = 4) -> list[str]:
     seen: list[str] = []
     for u in _URL.findall(body):
@@ -328,27 +353,52 @@ def summarise_item(item: dict, names: set[str], ask) -> dict | None:
             topic = d.get("topic") if d.get("topic") in TOPICS else "other"
             rel = d.get("relevance") if d.get("relevance") in (0, 1, 2, 3) else 0
             return {"channel": item["channel"], "date": item["period"], "title": title, "summary": summary,
-                    "topic": topic, "relevance": rel, "links": repo_links(item["body"])}
+                    "topic": topic, "relevance": rel, "links": labelled(repo_links(item["body"])), "discord": item.get("url")}
         note = ("\n\nYour previous answer repeated passages of the text. Write the summary again in your own "
                 "words, with different sentence structure and no copied phrases; numbers may stay.")
     return None
 
 
-def build_snapshot(items: list[dict], names: set[str], ask, workers: int = 6, per_topic: int = 8, min_relevance: int = 2,
+def _fallback(item: dict, names: set[str]) -> dict:
+    """Discussion the model could not summarise: kept in the link directory under its (scrubbed) title."""
+
+    return {"channel": item["channel"], "date": item["period"], "title": scrub(item["title"], names), "summary": "",
+            "topic": "other", "relevance": 1, "links": labelled(repo_links(item["body"], limit=99)), "discord": item.get("url"),
+            "unsummarised": True}
+
+
+def build_snapshot(items: list[dict], names: set[str], ask, workers: int = 6, per_topic: int = 25, min_relevance: int = 2,
                    meta: dict | None = None) -> dict:
+    """Highlights (summary, relevance >= min_relevance, at most per_topic per topic) and a link directory
+    (every code, data and paper link of every discussion that is not chat, grouped by topic)."""
+
     from concurrent.futures import ThreadPoolExecutor
 
+    def one(item):
+        r = summarise_item(item, names, ask)
+        if r is None:
+            return _fallback(item, names)
+        r["links_all"] = labelled(repo_links(item["body"], limit=99))
+        return r
+
     with ThreadPoolExecutor(workers) as ex:
-        done = [r for r in ex.map(lambda i: summarise_item(i, names, ask), items) if r]
-    topics = []
+        done = list(ex.map(one, items))
+    topics, directory = [], []
     for tid, label in TOPICS.items():
-        sel = sorted((r for r in done if r["topic"] == tid and r["relevance"] >= min_relevance),
-                     key=lambda r: (-r["relevance"], r["date"]), reverse=False)
-        sel = sorted(sel, key=lambda r: (r["relevance"], r["date"]), reverse=True)[:per_topic]
+        pool = [r for r in done if r["topic"] == tid]
+        sel = sorted((r for r in pool if r["summary"] and r["relevance"] >= min_relevance),
+                     key=lambda r: (r["relevance"], r["date"]), reverse=True)[:per_topic]
         if sel:
-            topics.append({"id": tid, "label": label, "items": [{k: v for k, v in r.items() if k != "topic"} for r in sel]})
-    return {**(meta or {}), "n_discussions": len(items), "n_summarised": len(done),
-            "n_selected": sum(len(t["items"]) for t in topics), "topics": topics}
+            topics.append({"id": tid, "label": label, "items": [
+                {k: v for k, v in r.items() if k not in ("topic", "links_all", "unsummarised")} for r in sel]})
+        entries = [{"title": r["title"], "date": r["date"], "links": r.get("links_all") or r["links"], "discord": r.get("discord")}
+                   for r in sorted(pool, key=lambda r: r["date"], reverse=True)
+                   if (r.get("links_all") or r["links"]) and (r["relevance"] >= 1 or r.get("unsummarised"))]
+        if entries:
+            directory.append({"id": tid, "label": label, "items": entries})
+    n_links = len({l["url"] for d in directory for e in d["items"] for l in e["links"]})
+    return {**(meta or {}), "n_discussions": len(items), "n_summarised": sum(not r.get("unsummarised") for r in done),
+            "n_selected": sum(len(t["items"]) for t in topics), "n_links": n_links, "topics": topics, "directory": directory}
 
 
 def run_snapshot(export: Path, limit: int | None = None, dry_run: bool = False, ask=None) -> dict:
@@ -367,4 +417,4 @@ def run_snapshot(export: Path, limit: int | None = None, dry_run: bool = False, 
     if not dry_run:
         SNAPSHOT_OUT.parent.mkdir(parents=True, exist_ok=True)
         SNAPSHOT_OUT.write_text(yaml.safe_dump(snap, sort_keys=False, allow_unicode=True, width=100), encoding="utf-8")
-    return {k: v for k, v in snap.items() if k != "topics"} | {"topics": {t["id"]: len(t["items"]) for t in snap["topics"]}}
+    return {k: v for k, v in snap.items() if k not in ("topics", "directory")} | {"topics": {t["id"]: len(t["items"]) for t in snap["topics"]}}

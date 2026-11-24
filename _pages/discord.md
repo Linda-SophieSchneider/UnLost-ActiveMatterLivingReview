@@ -16,13 +16,25 @@ claims, not results.
 Discussions from {{ snap.period_start }} to {{ snap.period_end }} in four channels (show-and-tell, ink-detection,
 robots, unrolling-vc3d): {{ snap.n_discussions }} discussions read, {{ snap.n_selected }} listed here,
 grouped by topic and ordered by relevance to unwrapping, ink detection and reading. Links go to the code,
-data and papers named in the discussions.
+data and papers named in the discussions, and to the Discord thread (readable for members of the server).
 
 {% for t in snap.topics %}
 ### {{ t.label }}
 
 {% for h in t.items %}
-- **{{ h.title }}.** {{ h.summary }}{% for u in h.links %} [link]({{ u }}){% endfor %} <small>({{ h.date }}, #{{ h.channel }})</small>
+- **{{ h.title }}.** {{ h.summary }}{% for l in h.links %} [{{ l.label }}]({{ l.url }}){% unless forloop.last %},{% endunless %}{% endfor %}{% if h.discord %} · [Discord thread]({{ h.discord }}){% endif %} <small>({{ h.date }}, #{{ h.channel }})</small>
+{% endfor %}
+{% endfor %}
+
+### Link directory
+
+{{ snap.n_links }} links to code, data and papers named in the discussions, by topic and newest first.
+
+{% for d in snap.directory %}
+#### {{ d.label }}
+
+{% for e in d.items %}
+- {{ e.title }}: {% for l in e.links %}[{{ l.label }}]({{ l.url }}){% unless forloop.last %}, {% endunless %}{% endfor %}{% if e.discord %} · [Discord thread]({{ e.discord }}){% endif %} <small>({{ e.date }})</small>
 {% endfor %}
 {% endfor %}
 
