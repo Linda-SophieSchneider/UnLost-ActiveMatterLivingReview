@@ -9,8 +9,8 @@
 \node[side, right=of scr] (exs) {Records excluded (n = 1815)};
 \node[box, below=of scr] (sou) {Reports sought for retrieval (n = 359)};
 \node[side, right=of sou] (nr) {Reports not retrieved (n = 0)};
-\node[box, below=of sou] (ass) {Reports assessed for eligibility (n = 0)};
-\node[side, right=of ass] (exe) {Reports excluded (n = 0)};
-\node[box, below=of ass, fill=green!6] (inc) {Studies included in review (n = 0)\\ Reports of included studies (n = 0)};
+\node[box, below=of sou] (ass) {Reports assessed for eligibility (n = 148)};
+\node[side, right=of ass] (exe) {Reports excluded (n = 14)\\ E1: 4  ·  E2: 3  ·  E4: 1\\ E5: 6\\ Awaiting decision (n = 3)};
+\node[box, below=of ass, fill=green!6] (inc) {Studies included in review (n = 131)\\ Reports of included studies (n = 131)};
 \draw[->] (id) -- (dup); \draw[->] (id) -- (scr); \draw[->] (scr) -- (exs); \draw[->] (scr) -- (sou); \draw[->] (sou) -- (nr); \draw[->] (sou) -- (ass); \draw[->] (ass) -- (exe); \draw[->] (ass) -- (inc);
 \end{tikzpicture}
