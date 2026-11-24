@@ -212,6 +212,18 @@ def discord_digest(
     rprint(res)
 
 
+@app.command("discord-snapshot")
+def discord_snapshot(
+    export: Path = typer.Argument(..., help="Markdown export of Discord channels"),
+    limit: int = typer.Option(None, help="Only the first N discussions (for a trial)"),
+    dry_run: bool = typer.Option(False, help="Summarise but do not write _data/discord_snapshot.yml"),
+) -> None:
+    """Anonymised highlights, by topic, from a Markdown export of several Discord channels."""
+    from .discord import run_snapshot
+
+    rprint(run_snapshot(export, limit=limit, dry_run=dry_run))
+
+
 @app.command("fulltext-list")
 def fulltext_list(
     corpus: Path = typer.Option(CORPUS),
